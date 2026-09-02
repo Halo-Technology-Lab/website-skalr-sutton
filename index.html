@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sutton Dental &amp; Implant Clinic</title>
+  <meta name="description"
+    content="Sutton Dental &amp; Implant Clinic in Sutton Coldfield. Implant-only dentistry with Dr Puneet Jain. Book a free 20-minute chat.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="facebook-domain-verification" content="892gzr3w0ntjq22dqgp5hcydeze05w">
+  <!-- ============================================================
+     Ad-group variant routing (?ag=) + Consent Mode v2 defaults.
+     Runs BEFORE GTM loads so (a) GTM/consent-aware tags see the
+     correct consent state from the first request and (b) the
+     matched ag_variant is already in dataLayer when GTM boots.
+     Whitelist: core | single | fullarch | brand | finance
+     Unknown/missing value safely falls back to "core".
+     ============================================================ -->
+  <script>
+    (function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = window.gtag || gtag;
+
+      // --- Google Consent Mode v2: deny non-essential storage by default. ---
+      // Actual per-tag gating inside GTM (which tags respect which consent
+      // signal) is configured in the GTM container itself — see README.
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted',
+        wait_for_update: 500
+      });
+
+      // --- ?ag= whitelist + safe fallback ---
+      var WHITELIST = ['core', 'single', 'fullarch', 'brand', 'finance'];
+      var params = new URLSearchParams(window.location.search);
+      var raw = (params.get('ag') || '').toLowerCase().trim();
+      var variant = WHITELIST.indexOf(raw) !== -1 ? raw : 'core';
+      window.__AG_VARIANT = variant;
+
+      // Push before GTM loads so GTM (and any triggers/variables built on
+      // dataLayer) can see the matched ad-group variant from the first event.
+      window.dataLayer.push({ event: 'ag_variant', ag: variant });
+    })();
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MVFFLHVT');</script>
+  <!-- End Google Tag Manager -->
+  <script src="assets/js/dc-runtime.js"></script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MVFFLHVT" title="Google Tag Manager" height="0"
+      width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- ============================================================
+     Consent banner (Consent Mode v2). Plain DOM, deliberately kept
+     outside the dc element so it survives independently of the
+     React-driven template. Accept/Reject updates the consent signal
+     that GTM's tags read; per-tag gating is finished inside the GTM
+     container (see README "Consent Mode v2" section).
+
+     IMPORTANT — do not write the literal tag text "x-dc" wrapped in
+     angle brackets anywhere in this file outside the two real tags
+     below (opening ~line 157, closing ~line 1384). dc-runtime.js's
+     boot() re-fetches this page's own raw HTML and locates the
+     x-dc boundaries with a plain regex, not a comment-aware parser —
+     any other occurrence of that literal substring (even inside a
+     comment, like this one used to have) gets matched instead of the
+     real tag, corrupting the re-rendered template. See README.
+     ============================================================ -->
+  <div id="consent-banner" role="dialog" aria-label="Cookie consent"
+    style="display:none;position:fixed;left:0;right:0;bottom:0;z-index:80;background:#FFFFFF;border-top:1px solid #E7E0D6;box-shadow:0 -6px 24px rgba(28,24,21,.14);padding:16px clamp(16px,4vw,32px);font-family:Inter,system-ui,sans-serif">
+    <div style="max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px">
+      <p style="flex:1 1 320px;margin:0;font:400 14px/1.5 Inter,sans-serif;color:#1C1815">We use cookies for site
+        analytics and to measure ad performance. Read our <a href="https://www.suttonsmiles.com/privacy-policy"
+          target="_blank" rel="noopener" style="color:#0E3B38;text-decoration:underline">privacy policy</a>.</p>
+      <div style="display:flex;gap:10px;flex:0 0 auto">
+        <button type="button" id="consent-reject"
+          style="background:transparent;color:#0E3B38;font:600 14px/1 Inter,sans-serif;padding:12px 16px;border:1.5px solid #CBBFAE;border-radius:10px;cursor:pointer">Necessary
+          only</button>
+        <button type="button" id="consent-accept"
+          style="background:#ED6A1A;color:#FFFFFF;font:600 14px/1 Inter,sans-serif;padding:12px 18px;border:none;border-radius:10px;cursor:pointer">Accept
+          all</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+
+      var STORAGE_KEY = 'sdic_consent_v1';
+      window.__consentState = { analytics: false, marketing: false };
+
+      function applyConsent(granted) {
+        window.__consentState = { analytics: granted, marketing: granted };
+        gtag('consent', 'update', {
+          ad_storage: granted ? 'granted' : 'denied',
+          ad_user_data: granted ? 'granted' : 'denied',
+          ad_personalization: granted ? 'granted' : 'denied',
+          analytics_storage: granted ? 'granted' : 'denied'
+        });
+      }
+
+      function hideBanner() {
+        var el = document.getElementById('consent-banner');
+        if (el) el.style.display = 'none';
+      }
+
+      var stored = null;
+      try { stored = window.localStorage.getItem(STORAGE_KEY); } catch (e) { }
+
+      if (stored === 'granted' || stored === 'denied') {
+        applyConsent(stored === 'granted');
+      } else {
+        document.addEventListener('DOMContentLoaded', function () {
+          var el = document.getElementById('consent-banner');
+          if (el) el.style.display = 'block';
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var acceptBtn = document.getElementById('consent-accept');
+        var rejectBtn = document.getElementById('consent-reject');
+        if (acceptBtn) acceptBtn.addEventListener('click', function () {
+          applyConsent(true);
+          try { window.localStorage.setItem(STORAGE_KEY, 'granted'); } catch (e) { }
+          hideBanner();
+        });
+        if (rejectBtn) rejectBtn.addEventListener('click', function () {
+          applyConsent(false);
+          try { window.localStorage.setItem(STORAGE_KEY, 'denied'); } catch (e) { }
+          hideBanner();
+        });
+
+        // --- tel_click: calls are a co-primary CTA and were unmeasured. ---
+        document.addEventListener('click', function (e) {
+          var link = e.target && e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+          if (!link) return;
+          window.dataLayer.push({
+            event: 'tel_click',
+            call_number: link.getAttribute('href').replace('tel:', ''),
+            ag: window.__AG_VARIANT || 'core'
+          });
+        }, true);
+      });
+    })();
+  </script>
+
+  <x-dc>
+    <helmet>
+      <style>
+        /* vietnamese */
+        @font-face {
+          font-family: 'Fraunces';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("assets/fonts/9b9cb41e-8948-483c-9527-320e77c224bd.woff2") format('woff2');
+          unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+
+        /* latin-ext */
+        @font-face {
+          font-family: 'Fraunces';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("assets/fonts/2a365b33-4cf7-4a1c-b55c-df2c3cd014be.woff2") format('woff2');
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+          font-family: 'Fraunces';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("assets/fonts/9f00af58-2fbb-4204-8abf-db4c69d4d1cd.woff2") format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* vietnamese */
+        @font-face {
+          font-family: 'Fraunces';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("assets/fonts/9b9cb41e-8948-483c-9527-320e77c224bd.woff2") format('woff2');
+          unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+
+        /* latin-ext */
+        @font-face {
+          font-family: 'Fraunces';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("assets/fonts/2a365b33-4cf7-4a1c-b55c-df2c3cd014be.woff2") format('woff2');
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+          font-family: 'Fraunces';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("assets/fonts/9f00af58-2fbb-4204-8abf-db4c69d4d1cd.woff2") format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* vietnamese */
+        @font-face {
+          font-family: 'Fraunces';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("assets/fonts/9b9cb41e-8948-483c-9527-320e77c224bd.woff2") format('woff2');
+          unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+
+        /* latin-ext */
+        @font-face {
+          font-family: 'Fraunces';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("assets/fonts/2a365b33-4cf7-4a1c-b55c-df2c3cd014be.woff2") format('woff2');
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+          font-family: 'Fraunces';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("assets/fonts/9f00af58-2fbb-4204-8abf-db4c69d4d1cd.woff2") format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* cyrillic-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url("assets/fonts/2e0a4149-4437-4141-93cd-f470809afe57.woff2") format('woff2');
+          unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        }
+
+        /* cyrillic */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url("assets/fonts/81b24d7f-4b4a-45dd-bbe3-23c095db9e31.woff2") format('woff2');
+          unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+
+        /* greek-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url("assets/fonts/2eeebd13-32ca-4443-9091-6fed0aa5caeb.woff2") format('woff2');
+          unicode-range: U+1F00-1FFF;
+        }
+
+        /* greek */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url("assets/fonts/e8de1825-cd03-454d-87c2-0707f1ff15d5.woff2") format('woff2');
+          unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+        }
+
+        /* vietnamese */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url("assets/fonts/01784ae2-0daf-4fa2-89b0-daf330883c66.woff2") format('woff2');
+          unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+
+        /* latin-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url("assets/fonts/a88cfd9e-0653-49c0-ae6c-c0d35edcbd11.woff2") format('woff2');
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url("assets/fonts/7a354dda-5818-4f21-8ff2-7aff6ea36f49.woff2") format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* cyrillic-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("assets/fonts/2e0a4149-4437-4141-93cd-f470809afe57.woff2") format('woff2');
+          unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        }
+
+        /* cyrillic */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("assets/fonts/81b24d7f-4b4a-45dd-bbe3-23c095db9e31.woff2") format('woff2');
+          unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+
+        /* greek-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("assets/fonts/2eeebd13-32ca-4443-9091-6fed0aa5caeb.woff2") format('woff2');
+          unicode-range: U+1F00-1FFF;
+        }
+
+        /* greek */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("assets/fonts/e8de1825-cd03-454d-87c2-0707f1ff15d5.woff2") format('woff2');
+          unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+        }
+
+        /* vietnamese */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("assets/fonts/01784ae2-0daf-4fa2-89b0-daf330883c66.woff2") format('woff2');
+          unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+
+        /* latin-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("assets/fonts/a88cfd9e-0653-49c0-ae6c-c0d35edcbd11.woff2") format('woff2');
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("assets/fonts/7a354dda-5818-4f21-8ff2-7aff6ea36f49.woff2") format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* cyrillic-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("assets/fonts/2e0a4149-4437-4141-93cd-f470809afe57.woff2") format('woff2');
+          unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        }
+
+        /* cyrillic */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("assets/fonts/81b24d7f-4b4a-45dd-bbe3-23c095db9e31.woff2") format('woff2');
+          unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+
+        /* greek-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("assets/fonts/2eeebd13-32ca-4443-9091-6fed0aa5caeb.woff2") format('woff2');
+          unicode-range: U+1F00-1FFF;
+        }
+
+        /* greek */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("assets/fonts/e8de1825-cd03-454d-87c2-0707f1ff15d5.woff2") format('woff2');
+          unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+        }
+
+        /* vietnamese */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("assets/fonts/01784ae2-0daf-4fa2-89b0-daf330883c66.woff2") format('woff2');
+          unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+
+        /* latin-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("assets/fonts/a88cfd9e-0653-49c0-ae6c-c0d35edcbd11.woff2") format('woff2');
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("assets/fonts/7a354dda-5818-4f21-8ff2-7aff6ea36f49.woff2") format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* cyrillic-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("assets/fonts/2e0a4149-4437-4141-93cd-f470809afe57.woff2") format('woff2');
+          unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        }
+
+        /* cyrillic */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("assets/fonts/81b24d7f-4b4a-45dd-bbe3-23c095db9e31.woff2") format('woff2');
+          unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+
+        /* greek-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("assets/fonts/2eeebd13-32ca-4443-9091-6fed0aa5caeb.woff2") format('woff2');
+          unicode-range: U+1F00-1FFF;
+        }
+
+        /* greek */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("assets/fonts/e8de1825-cd03-454d-87c2-0707f1ff15d5.woff2") format('woff2');
+          unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+        }
+
+        /* vietnamese */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("assets/fonts/01784ae2-0daf-4fa2-89b0-daf330883c66.woff2") format('woff2');
+          unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+
+        /* latin-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("assets/fonts/a88cfd9e-0653-49c0-ae6c-c0d35edcbd11.woff2") format('woff2');
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("assets/fonts/7a354dda-5818-4f21-8ff2-7aff6ea36f49.woff2") format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+      </style>
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        html {
+          -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+          margin: 0;
+          background: #FBF8F4;
+          color: #1C1815;
+          font-family: Inter, system-ui, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          text-rendering: optimizeLegibility;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+          font-family: inherit;
+        }
+
+        a {
+          color: inherit;
+        }
+
+        :focus-visible {
+          outline: 2px solid #0E3B38;
+          outline-offset: 2px;
+          border-radius: 4px;
+        }
+
+        @keyframes scprogress {
+          0% {
+            transform: translateX(-100%);
+          }
+
+          100% {
+            transform: translateX(0);
+          }
+        }
+
+        @media (max-width: 659px) {
+          #enquiry-grid {
+            display: flex !important;
+            flex-direction: column;
+          }
+
+          #enquiry-intro-block {
+            order: 1;
+          }
+
+          #enquiry-list-block {
+            order: 2;
+          }
+
+          #enquiry-image-block {
+            order: 3;
+          }
+
+          #enquiry-form-block {
+            order: 4;
+          }
+        }
+      </style>
+    </helmet>
+
+    <div style="width:100%;overflow-x:hidden">
+
+      <!-- ============ 1. STICKY MOBILE BARs (mobile only) ============ -->
+      <div style="{{ mobileBarStyle }}">
+        <a href="tel:01213541922"
+          style="flex:1 1 0;display:inline-flex;align-items:center;justify-content:center;gap:7px;background:#FFFFFF;color:#0E3B38;font:700 16px/1 Inter,sans-serif;padding:14px 12px;border:1.5px solid #0E3B38;border-radius:11px;min-height:50px;text-decoration:none">Call</a>
+        <button type="button" onclick="{{ scrollToForm }}"
+          style="flex:1.5 1 0;display:inline-flex;align-items:center;justify-content:center;gap:7px;background:#ED6A1A;color:#FFFFFF;font:700 16px/1.05 Inter,sans-serif;padding:14px 12px;border:none;border-radius:11px;min-height:50px;cursor:pointer;box-shadow:0 4px 14px rgba(237,106,26,.32)"
+          style-active="background:#C75614">Book free 20-min consult</button>
+      </div>
+
+      <!-- ============ 2. HEROs ============ -->
+      <header style="background:#FBF8F4">
+        <div
+          style="max-width:1080px;margin:0 auto;padding:clamp(28px,5vw,52px) clamp(20px,5vw,40px) clamp(40px,6vw,72px)">
+          <div
+            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(28px,4.5vw,56px);align-items:center">
+
+            <div>
+              <p
+                style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1E7A53;margin:0 0 18px">
+                Sutton Coldfield · Implant-only Dentist</p>
+              <h1 id="hero-h1"
+                style="font:600 clamp(33px,6vw,56px)/1.08 Fraunces,serif;letter-spacing:-.015em;color:#1C1815;margin:0">
+                {{ heroH1 }}</h1>
+              <p id="hero-subhead"
+                style="font:400 clamp(18px,2.4vw,20px)/1.55 Inter,sans-serif;color:#5C544B;margin:20px 0 0;max-width:33ch">
+                {{ heroSubhead }}</p>
+              <p id="hero-proof"
+                style="font:600 15px/1.5 Inter,sans-serif;color:#0E3B38;margin:14px 0 0;max-width:38ch">{{ heroProof }}
+              </p>
+
+              <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:30px">
+                <button type="button" onclick="{{ scrollToForm }}"
+                  style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#ED6A1A;color:#FFFFFF;font:600 clamp(16px,2.2vw,18px)/1.1 Inter,sans-serif;padding:18px 28px;border:none;border-radius:12px;cursor:pointer;min-height:56px;box-shadow:0 6px 18px rgba(237,106,26,.26);transition:background .15s ease,transform .15s ease"
+                  style-hover="background:#C75614;transform:translateY(-1px)"
+                  style-active="transform:translateY(0)">Book your free 20-minute chat</button>
+                <a href="tel:01213541922"
+                  style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:transparent;color:#0E3B38;font:600 clamp(16px,2.2vw,18px)/1.1 Inter,sans-serif;padding:18px 22px;border:1.5px solid #CBBFAE;border-radius:12px;min-height:56px;text-decoration:none;transition:border-color .15s ease"
+                  style-hover="border-color:#0E3B38">Call&nbsp;0121&nbsp;354&nbsp;1922</a>
+              </div>
+
+              <div
+                style="display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;margin-top:22px;font:500 15px/1.4 Inter,sans-serif;color:#5C544B">
+                <span style="color:#E8A33D;letter-spacing:2px;font-size:16px">★★★★★</span>
+                <span><strong style="color:#1C1815;font-weight:700">4.9</strong> · Rated 5★ by 370+ patients · Over
+                  3,000 implants placed</span>
+              </div>
+            </div>
+
+            <div style="position:relative">
+              <div onmouseenter="{{ showVideoPlay }}" onmouseleave="{{ leaveVideoPlay }}"
+                style="position:relative;width:100%;aspect-ratio:4/5;max-height:560px;border-radius:18px;overflow:hidden;background:#0B2F2C;cursor:pointer">
+                <video id="puneet-video" onclick="{{ toggleVideo }}" src="assets/vid/puneet-intro.mp4"
+                  poster="assets/img/puneet-video-poster.jpg" autoplay playsinline muted loop preload="auto"
+                  style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#0B2F2C"></video>
+                <button type="button" onclick="{{ toggleVideo }}"
+                  aria-label="Play the 60-second introduction from Dr Puneet Jain" style="{{ playButtonStyle }}">
+                  <sc-if value="{{ videoPaused }}" hint-placeholder-val="{{ true }}">
+                    <span
+                      style="width:0;height:0;border-style:solid;border-width:12px 0 12px 20px;border-color:transparent transparent transparent #FFFFFF;margin-left:5px"></span>
+                  </sc-if>
+                  <sc-if value="{{ videoPlaying }}" hint-placeholder-val="{{ false }}">
+                    <span style="display:flex;gap:6px"><span
+                        style="width:6px;height:24px;background:#FFFFFF;border-radius:2px"></span><span
+                        style="width:6px;height:24px;background:#FFFFFF;border-radius:2px"></span></span>
+                  </sc-if>
+                </button>
+              </div>
+              <div
+                style="position:absolute;left:16px;bottom:16px;display:inline-flex;align-items:center;gap:11px;background:#FFFFFF;border-radius:14px;padding:11px 15px;box-shadow:0 12px 30px rgba(28,24,21,.18)">
+                <span style="color:#E8A33D;letter-spacing:1.5px;font-size:15px">★★★★★</span>
+                <span style="font:600 14px/1.2 Inter,sans-serif;color:#1C1815">4.9 · <span
+                    style="color:#5C544B;font-weight:500">370+ patient reviews</span></span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </header>
+
+      <!-- ============ TRUST STRIP (under hero) ============ -->
+      <div style="background:#0E3B38">
+        <div style="max-width:1080px;margin:0 auto;padding:20px clamp(20px,5vw,40px)">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 24px">
+            <div
+              style="display:flex;align-items:center;justify-content:flex-start;gap:9px;font:600 14px/1.4 Inter,sans-serif;color:#EAF1EF;white-space:nowrap">
+              <span style="color:#7FB3A9;font-size:15px;line-height:1">✓</span>Over 3,000 implants</div>
+            <div
+              style="display:flex;align-items:center;justify-content:flex-start;gap:9px;font:600 14px/1.4 Inter,sans-serif;color:#EAF1EF;white-space:nowrap">
+              <span style="color:#7FB3A9;font-size:15px;line-height:1">✓</span>Rated 5★ by 370+ patients</div>
+            <div
+              style="display:flex;align-items:center;justify-content:flex-start;gap:9px;font:600 14px/1.4 Inter,sans-serif;color:#EAF1EF;white-space:nowrap">
+              <span style="color:#7FB3A9;font-size:15px;line-height:1">✓</span>Implant-only since 2020</div>
+            <div
+              style="display:flex;align-items:center;justify-content:flex-start;gap:9px;font:600 14px/1.4 Inter,sans-serif;color:#EAF1EF;white-space:nowrap">
+              <span style="color:#7FB3A9;font-size:15px;line-height:1">✓</span>Royal College of Surgeons trained</div>
+            <div
+              style="display:flex;align-items:center;justify-content:flex-start;gap:9px;font:600 14px/1.4 Inter,sans-serif;color:#EAF1EF;white-space:nowrap">
+              <span style="color:#7FB3A9;font-size:15px;line-height:1">✓</span>Straumann</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ 3. OFFER LADDER ============ -->
+      <section style="background:#FBF8F4;padding:clamp(52px,8vw,96px) 0">
+        <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+          <p
+            style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1E7A53;margin:0 0 14px">
+            How it works</p>
+          <h2
+            style="font:600 clamp(28px,4.4vw,44px)/1.12 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0;max-width:20ch">
+            Four clear steps. The first two are free.</h2>
+
+          <div
+            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,232px),1fr));gap:16px;margin-top:38px">
+            <sc-for list="{{ steps }}" as="step" hint-placeholder-count="4">
+              <div
+                style="display:flex;flex-direction:column;gap:14px;background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:24px">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+                  <span style="font:600 26px/1 Fraunces,serif;color:#D8CDBC">{{ step.n }}</span>
+                  <span style="{{ step.tagStyle }}">{{ step.tag }}</span>
+                </div>
+                <h3 style="font:600 clamp(19px,2.6vw,21px)/1.2 Fraunces,serif;color:#1C1815;margin:0">{{ step.title }}
+                </h3>
+                <p style="font:400 16px/1.55 Inter,sans-serif;color:#5C544B;margin:0">{{ step.body }}</p>
+              </div>
+            </sc-for>
+          </div>
+
+          <p style="margin:26px 0 0;font:500 16px/1.6 Inter,sans-serif;color:#5C544B;max-width:60ch">The free 20 minutes
+            with the Dentist is the real first step — no pressure, no commitment.</p>
+        </div>
+      </section>
+
+      <!-- ============ 4. WHY SUTTON ============ -->
+      <section style="background:#F3EEE6;padding:clamp(52px,8vw,96px) 0">
+        <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+          <div
+            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(32px,5vw,64px);align-items:center">
+            <div>
+              <p
+                style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1E7A53;margin:0 0 16px">
+                Why Sutton</p>
+              <h2
+                style="font:600 clamp(28px,4.4vw,44px)/1.12 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0 0 26px;max-width:14ch">
+                Implant care, done properly</h2>
+              <div>
+                <sc-for list="{{ whyList }}" as="w" hint-placeholder-count="4">
+                  <div style="{{ w.rowStyle }}">
+                    <h3 style="margin:0">
+                      <button type="button" onclick="{{ w.onSelect }}" aria-expanded="{{ w.ariaExpanded }}"
+                        style="{{ w.headStyle }}">
+                        <span style="{{ w.numStyle }}">{{ w.num }}</span>
+                        <span style="{{ w.titleStyle }}">{{ w.t }}</span>
+                      </button>
+                    </h3>
+                    <p style="{{ w.bodyStyle }}">{{ w.b }}</p>
+                    <span style="{{ w.barStyle }}"></span>
+                  </div>
+                </sc-for>
+              </div>
+              <p style="margin:30px 0 0;font:600 clamp(22px,3.4vw,28px)/1.2 Fraunces,serif;color:#0E3B38">Do it once, do
+                it right.</p>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <img src="assets/img/treatment-room.png" alt="Treatment room at Sutton Dental &amp; Implant Clinic"
+                style="display:block;width:100%;aspect-ratio:16/11;border:1px solid #E7E0D6;border-radius:16px;object-fit:cover">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+                <img src="assets/img/ct-scan-review.png"
+                  alt="In-house CT scanning at Sutton Dental &amp; Implant Clinic"
+                  style="display:block;width:100%;aspect-ratio:1/1;border:1px solid #E7E0D6;border-radius:16px;object-fit:cover">
+                <img src="assets/img/0707.jpg" alt="Dr Puneet Jain with a patient"
+                  style="display:block;width:100%;aspect-ratio:1/1;border:1px solid #E7E0D6;border-radius:16px;object-fit:cover">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 5. PRICE TRANSPARENCY ============ -->
+      <section style="background:#FBF8F4;padding:clamp(52px,8vw,96px) 0">
+        <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+          <div
+            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(28px,4vw,52px);align-items:start">
+
+            <div>
+              <p
+                style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1E7A53;margin:0 0 14px">
+                Price transparency</p>
+              <h2 id="price-heading"
+                style="font:600 clamp(30px,5vw,48px)/1.1 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0">{{
+                priceHeading }}</h2>
+              <p id="price-body"
+                style="font:400 clamp(18px,2.2vw,19px)/1.6 Inter,sans-serif;color:#5C544B;margin:18px 0 0">{{ priceBody
+                }}</p>
+              <sc-if value="{{ showPriceIncludes }}" hint-placeholder-val="{{ true }}">
+                <p style="font:400 clamp(18px,2.2vw,19px)/1.6 Inter,sans-serif;color:#5C544B;margin:14px 0 0">Complex
+                  cases — bone graft, sinus lift, multiple or full-arch — are quoted separately.</p>
+                <ul style="list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:11px">
+                  <li style="display:flex;gap:10px;font:500 16px/1.45 Inter,sans-serif;color:#1C1815"><span
+                      style="color:#1E7A53;font-weight:700">✓</span> CT scan &amp; full diagnostics</li>
+                  <li style="display:flex;gap:10px;font:500 16px/1.45 Inter,sans-serif;color:#1C1815"><span
+                      style="color:#1E7A53;font-weight:700">✓</span> Extraction if needed</li>
+                  <li style="display:flex;gap:10px;font:500 16px/1.45 Inter,sans-serif;color:#1C1815"><span
+                      style="color:#1E7A53;font-weight:700">✓</span> The implant itself</li>
+                </ul>
+              </sc-if>
+            </div>
+
+            <div
+              style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:16px;padding:clamp(24px,3vw,32px);box-shadow:0 1px 3px rgba(28,24,21,.05)">
+              <sc-if value="{{ isFinanceVariant }}" hint-placeholder-val="{{ false }}">
+                <p
+                  style="font:700 13px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#1E7A53;margin:0 0 10px">
+                  Spread the cost</p>
+                <p style="font:600 clamp(24px,3.6vw,30px)/1.15 Fraunces,serif;color:#0E3B38;margin:0">0% APR over {{
+                  financeTermMonths }} months</p>
+                <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:16px 0 0">{{ financeRepExample }}</p>
+                <p style="font:600 14px/1.5 Inter,sans-serif;color:#0E3B38;margin:14px 0 0">{{ fcaStatusLine }}</p>
+                <p
+                  style="font:400 13px/1.55 Inter,sans-serif;color:#7C7264;margin:18px 0 0;padding-top:16px;border-top:1px solid #E7E0D6">
+                  Finance is subject to status and acceptance.</p>
+              </sc-if>
+              <sc-if value="{{ isNonFinanceVariant }}" hint-placeholder-val="{{ true }}">
+                <p
+                  style="font:700 13px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#1E7A53;margin:0 0 10px">
+                  Payment options</p>
+                <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">{{ priceCardBody }}</p>
+              </sc-if>
+            </div>
+
+          </div>
+
+          <!-- CTA after pricing -->
+          <div style="text-align:center;margin-top:clamp(40px,6vw,60px)">
+            <button type="button" onclick="{{ scrollToForm }}"
+              style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#ED6A1A;color:#FFFFFF;font:600 clamp(16px,2.2vw,18px)/1.1 Inter,sans-serif;padding:18px 30px;border:none;border-radius:12px;cursor:pointer;min-height:56px;box-shadow:0 6px 18px rgba(237,106,26,.26);transition:background .15s ease,transform .15s ease"
+              style-hover="background:#C75614;transform:translateY(-1px)" style-active="transform:translateY(0)">Book
+              your free 20-minute chat</button>
+            <div
+              style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 12px;margin-top:16px;font:500 14px/1.4 Inter,sans-serif;color:#5C544B">
+              <span style="color:#E8A33D;letter-spacing:1px">★★★★★</span><span><strong
+                  style="color:#1C1815">4.9</strong> · Rated 5★ by 370+ patients</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 6. MEET THE Dentist ============ -->
+      <section style="background:#0E3B38;padding:clamp(52px,8vw,96px) 0">
+        <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+          <div style="text-align:center;max-width:660px;margin:0 auto 44px">
+            <p
+              style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#7FB3A9;margin:0 0 14px">
+              Meet Your Dentist</p>
+            <h2
+              style="font:600 clamp(28px,4.4vw,44px)/1.14 Fraunces,serif;letter-spacing:-.01em;color:#FFFFFF;margin:0">
+              The dentist who looks after you, start to finish.</h2>
+          </div>
+
+          <div
+            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(28px,4vw,56px);align-items:center">
+
+            <div
+              style="position:relative;width:100%;aspect-ratio:4/5;max-height:540px;border-radius:18px;overflow:hidden">
+              <img src="assets/img/0630.jpg" alt="Dr Puneet Jain at Sutton Dental &amp; Implant Clinic"
+                style="display:block;width:100%;height:100%;object-fit:cover">
+            </div>
+
+            <div>
+              <h3
+                style="font:600 clamp(28px,4.4vw,40px)/1.12 Fraunces,serif;letter-spacing:-.01em;color:#FFFFFF;margin:0">
+                Dr Puneet Jain</h3>
+              <p style="font:400 clamp(18px,2.2vw,19px)/1.6 Inter,sans-serif;color:#D7E4E1;margin:16px 0 0">Implant-only
+                dentist. Qualified 2006, implant-only since 2020. Places around 180 implants a year — over 3,000 placed.
+                Royal College of Surgeons two-year diploma. GDC No. 103973.</p>
+              <blockquote
+                style="margin:26px 0 0;padding:22px 26px;border-left:3px solid #ED6A1A;background:rgba(255,255,255,.05);border-radius:0 12px 12px 0">
+                <p style="font:500 clamp(20px,2.8vw,25px)/1.4 Fraunces,serif;font-style:italic;color:#FFFFFF;margin:0">
+                  “This is my practice. I’m here every day. If you have a question or a concern, you call us — and you
+                  get seen.”</p>
+              </blockquote>
+              <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:24px">
+                <span
+                  style="text-align:center;font:600 13px/1.3 Inter,sans-serif;color:#CFE0DC;background:rgba(255,255,255,.08);padding:8px 10px;border-radius:8px">RCS
+                  two-year diploma</span>
+                <span
+                  style="text-align:center;font:600 13px/1.3 Inter,sans-serif;color:#CFE0DC;background:rgba(255,255,255,.08);padding:8px 10px;border-radius:8px">Implant-only
+                  since 2020</span>
+                <span
+                  style="text-align:center;font:600 13px/1.3 Inter,sans-serif;color:#CFE0DC;background:rgba(255,255,255,.08);padding:8px 10px;border-radius:8px">Straumann</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 7. REASSURANCE / OBJECTIONS ============ -->
+      <section style="background:#FBF8F4;padding:clamp(52px,8vw,96px) 0">
+        <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+          <h2
+            style="font:600 clamp(28px,4.4vw,44px)/1.12 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0 0 36px;max-width:20ch">
+            Honest answers to the things people worry about</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
+
+            <div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:28px">
+              <h3 style="font:600 clamp(19px,2.6vw,21px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 12px">Feeling
+                nervous?</h3>
+              <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">Most patients tell me it’s more
+                comfortable than they expected. We work under local anaesthetic, the procedure is usually about 30
+                minutes, and most people are back at work the same day or the next — with the same dentist from start to
+                finish.</p>
+            </div>
+
+            <div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:28px">
+              <h3 style="font:600 clamp(19px,2.6vw,21px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 12px">Thinking of
+                going abroad?</h3>
+              <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">Implants done in Turkey or abroad
+                aren’t always something a UK clinic can continue or fix. Get a proper UK assessment first.</p>
+            </div>
+
+            <div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:28px">
+              <h3 style="font:600 clamp(19px,2.6vw,21px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 12px">Choosing who
+                places your implant?</h3>
+              <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">A dentist can place implants after a
+                weekend course. Ask them: weekend course, or a two-year diploma? Mine is the full Royal College of
+                Surgeons diploma.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 8. PROOF ============ -->
+      <section style="background:#F3EEE6;padding:clamp(52px,8vw,96px) 0">
+        <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+          <div
+            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(32px,5vw,56px);align-items:center">
+
+            <div>
+              <p
+                style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1E7A53;margin:0 0 16px">
+                Patient stories</p>
+              <h2
+                style="font:600 clamp(28px,4.4vw,42px)/1.14 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0">
+                Trusted by patients across the West Midlands</h2>
+              <p style="font:400 17px/1.55 Inter,sans-serif;color:#5C544B;margin:16px 0 0">From a single missing tooth
+                to full-arch treatment — patients share how it went.</p>
+
+              <div style="display:flex;align-items:center;gap:14px;margin:24px 0">
+                <div style="display:flex">
+                  <img src="assets/img/team-portrait.jpg" alt=""
+                    style="display:block;width:44px;height:44px;border:2px solid #F3EEE6;border-radius:50%;object-fit:cover">
+                  <img src="assets/img/0707.jpg" alt=""
+                    style="display:block;width:44px;height:44px;border:2px solid #F3EEE6;border-radius:50%;object-fit:cover;margin-left:-14px">
+                  <img src="assets/img/reception.jpg" alt=""
+                    style="display:block;width:44px;height:44px;border:2px solid #F3EEE6;border-radius:50%;object-fit:cover;margin-left:-14px">
+                </div>
+                <span style="font:500 15px/1.4 Inter,sans-serif;color:#5C544B"><strong
+                    style="color:#1C1815;font-weight:700">370+</strong> patients who trust Sutton</span>
+              </div>
+
+              <div style="color:#E8A33D;letter-spacing:3px;font-size:20px">★★★★★</div>
+              <blockquote
+                style="margin:16px 0 0;font:500 clamp(19px,2.6vw,24px)/1.45 Fraunces,serif;color:#1C1815;min-height:3.2em">
+                {{ review.body }}</blockquote>
+              <p style="margin:18px 0 0;font:600 15px/1.4 Inter,sans-serif;color:#5C544B">{{ review.who }}</p>
+
+              <div style="display:flex;align-items:center;gap:14px;margin-top:24px">
+                <button type="button" onclick="{{ onPrevReview }}" aria-label="Previous review"
+                  style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:#FFFFFF;border:1px solid #E7E0D6;cursor:pointer;color:#0E3B38;font-size:20px;line-height:1"
+                  style-hover="border-color:#0E3B38">‹</button>
+                <button type="button" onclick="{{ onNextReview }}" aria-label="Next review"
+                  style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:#FFFFFF;border:1px solid #E7E0D6;cursor:pointer;color:#0E3B38;font-size:20px;line-height:1"
+                  style-hover="border-color:#0E3B38">›</button>
+                <span style="font:600 14px/1 Inter,sans-serif;color:#7C7264;letter-spacing:.05em">{{ reviewNum }}</span>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <div style="position:relative">
+                <img src="assets/img/before.jpg"
+                  alt="Before — placeholder image, replace with a real consented patient photo"
+                  style="display:block;width:100%;aspect-ratio:16/11;border:1px solid #E7E0D6;border-radius:16px;object-fit:cover">
+                <span
+                  style="position:absolute;top:14px;left:14px;font:700 13px/1 Inter,sans-serif;color:#1C1815;background:#FFFFFF;padding:8px 14px;border-radius:999px;box-shadow:0 4px 12px rgba(28,24,21,.12)">Before</span>
+              </div>
+              <div style="position:relative">
+                <img src="assets/img/after.jpg"
+                  alt="After — placeholder image, replace with a real consented patient photo"
+                  style="display:block;width:100%;aspect-ratio:16/11;border:1px solid #E7E0D6;border-radius:16px;object-fit:cover">
+                <span
+                  style="position:absolute;top:14px;left:14px;font:700 13px/1 Inter,sans-serif;color:#FFFFFF;background:#0E3B38;padding:8px 14px;border-radius:999px;box-shadow:0 4px 12px rgba(28,24,21,.18)">After</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:40px;padding-top:32px;border-top:1px solid #E7E0D6">
+            <p style="margin:0 0 16px;text-align:right;font:400 13px/1.5 Inter,sans-serif;color:#7C7264">Individual
+              results vary.</p>
+            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+              <span
+                style="display:inline-flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E7E0D6;border-radius:10px;padding:18px 12px"><img
+                  src="assets/img/logo-straumann.png" alt="Straumann"
+                  style="display:block;height:38px;width:auto;max-width:100%"></span>
+              <span
+                style="display:inline-flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E7E0D6;border-radius:10px;padding:18px 12px"><img
+                  src="assets/img/logo-rcs.png" alt="Royal College of Surgeons"
+                  style="display:block;height:38px;width:auto;max-width:100%"></span>
+              <span
+                style="display:inline-flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E7E0D6;border-radius:10px;padding:18px 12px"><img
+                  src="assets/img/logo-gdc.png" alt="General Dental Council"
+                  style="display:block;height:38px;width:auto;max-width:100%"></span>
+            </div>
+          </div>
+
+          <!-- CTA after proof -->
+          <div style="text-align:center;margin-top:clamp(40px,6vw,60px)">
+            <button type="button" onclick="{{ scrollToForm }}"
+              style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#ED6A1A;color:#FFFFFF;font:600 clamp(16px,2.2vw,18px)/1.1 Inter,sans-serif;padding:18px 30px;border:none;border-radius:12px;cursor:pointer;min-height:56px;box-shadow:0 6px 18px rgba(237,106,26,.26);transition:background .15s ease,transform .15s ease"
+              style-hover="background:#C75614;transform:translateY(-1px)" style-active="transform:translateY(0)">Book
+              your free 20-minute chat</button>
+            <div
+              style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 12px;margin-top:16px;font:500 14px/1.4 Inter,sans-serif;color:#5C544B">
+              <span style="color:#E8A33D;letter-spacing:1px">★★★★★</span><span>Over 3,000 implants placed · Implant-only
+                since 2020</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 9. IMPLANT OPTIONS ============ -->
+      <section style="background:#FBF8F4;padding:clamp(52px,8vw,96px) 0">
+        <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+          <h2
+            style="font:600 clamp(28px,4.4vw,44px)/1.12 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0 0 36px">
+            What we treat</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px">
+            <sc-for list="{{ options }}" as="o" hint-placeholder-count="3">
+              <div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;overflow:hidden">
+                <img src="{{ o.img }}" alt="{{ o.shot }}"
+                  style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover">
+                <div style="padding:26px">
+                  <h3 style="font:600 clamp(20px,2.8vw,23px)/1.2 Fraunces,serif;color:#1C1815;margin:0 0 12px">{{ o.t }}
+                  </h3>
+                  <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0 0 14px">{{ o.b }}</p>
+                  <a href="{{ o.href }}"
+                    style="font:600 15px/1 Inter,sans-serif;color:#0E3B38;text-decoration:underline">See pricing &amp;
+                    details →</a>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 10. ENQUIRY FORM ============ -->
+      <section id="enquiry" style="background:#F3EEE6;padding:clamp(52px,8vw,96px) 0;scroll-margin-top:16px">
+        <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+
+          <div id="enquiry-grid"
+            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:clamp(28px,5vw,56px);align-items:start">
+
+            <div id="enquiry-intro-block" style="grid-column:1;grid-row:1">
+              <p
+                style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1E7A53;margin:0 0 14px">
+                Your free first step</p>
+              <h2
+                style="font:600 clamp(26px,3.6vw,38px)/1.14 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0">
+                A relaxed 20 minutes with Puneet, before you decide anything</h2>
+              <p style="font:400 17px/1.55 Inter,sans-serif;color:#5C544B;margin:14px 0 0">No clinical jargon and no
+                sales pitch — just an honest conversation about whether implants are right for you.</p>
+            </div>
+
+            <div id="enquiry-image-block" style="grid-column:1;grid-row:2;margin-top:22px">
+              <img src="assets/img/0707.jpg" alt="Sutton Dental &amp; Implant Clinic reception signage"
+                style="display:block;width:100%;aspect-ratio:16/10;border:1px solid #E7E0D6;border-radius:16px;object-fit:cover">
+            </div>
+
+            <div id="enquiry-list-block" style="grid-column:1;grid-row:3;margin-top:22px">
+              <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px">
+                <li style="display:flex;gap:12px;font:500 16px/1.5 Inter,sans-serif;color:#1C1815"><span
+                    style="flex:0 0 auto;color:#1E7A53;font-weight:700;font-size:18px">✓</span> Twenty minutes with the
+                  dentist himself, not a salesperson</li>
+                <li style="display:flex;gap:12px;font:500 16px/1.5 Inter,sans-serif;color:#1C1815"><span
+                    style="flex:0 0 auto;color:#1E7A53;font-weight:700;font-size:18px">✓</span> No pressure and no
+                  commitment of any kind</li>
+                <li style="display:flex;gap:12px;font:500 16px/1.5 Inter,sans-serif;color:#1C1815"><span
+                    style="flex:0 0 auto;color:#1E7A53;font-weight:700;font-size:18px">✓</span> Go ahead later and the
+                  £200 full consultation is credited to your treatment</li>
+              </ul>
+              <div
+                style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding-top:20px;margin-top:22px;border-top:1px solid #E7E0D6">
+                <span style="font:500 16px/1.4 Inter,sans-serif;color:#5C544B">Prefer to talk now?</span>
+                <a href="tel:01213541922"
+                  style="font:700 17px/1.2 Inter,sans-serif;color:#0E3B38;text-decoration:none">Call&nbsp;0121&nbsp;354&nbsp;1922</a>
+                <span
+                  style="display:inline-flex;align-items:center;gap:6px;font:500 14px/1.4 Inter,sans-serif;color:#5C544B"><span
+                    style="color:#E8A33D;letter-spacing:1px">★★★★★</span> 4.9 · 370+ patients</span>
+              </div>
+            </div>
+
+            <div id="enquiry-form-block" ontouchstart="{{ reviewTouchStart }}" ontouchend="{{ reviewTouchEnd }}"
+              style="grid-column:2;grid-row:1 / span 3;background:#FFFFFF;border:1px solid #E7E0D6;border-radius:18px;padding:clamp(26px,4vw,40px);box-shadow:0 10px 40px rgba(28,24,21,.07)">
+
+              <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+                <div>
+                  <p
+                    style="font:700 13px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#1E7A53;margin:0 0 12px">
+                    Free · No commitment</p>
+                  <h2
+                    style="font:600 clamp(26px,4vw,38px)/1.14 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0">
+                    Book your free 20-minute chat</h2>
+                  <p style="font:400 17px/1.55 Inter,sans-serif;color:#5C544B;margin:14px 0 0">Tell us a little about
+                    you and our team will be in touch to arrange a time with Puneet.</p>
+
+                  <form onsubmit="{{ submitForm }}" style="margin-top:26px;display:flex;flex-direction:column;gap:18px">
+                    <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+                      <label for="f-website">Leave this field blank</label>
+                      <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+                    </div>
+                    <div>
+                      <label for="f-name"
+                        style="display:block;font:600 14px/1 Inter,sans-serif;color:#1C1815;margin-bottom:8px">Full
+                        name</label>
+                      <input id="f-name" name="name" type="text" required aria-required="true" autocomplete="name"
+                        placeholder="Your name" oninput="{{ clearNameError }}"
+                        style="width:100%;font:400 16px/1.4 Inter,sans-serif;color:#1C1815;background:#FBF8F4;border:1px solid #E7E0D6;border-radius:10px;padding:14px;min-height:52px"
+                        style-focus="border-color:#0E3B38;background:#FFFFFF">
+                      <sc-if value="{{ fieldErrors.name }}" hint-placeholder-val="{{ false }}">
+                        <p role="alert" style="margin:6px 0 0;font:600 13px/1 Inter,sans-serif;color:#C43C28">Required</p>
+                      </sc-if>
+                    </div>
+                    <div>
+                      <label for="f-phone"
+                        style="display:block;font:600 14px/1 Inter,sans-serif;color:#1C1815;margin-bottom:8px">Phone</label>
+                      <input id="f-phone" name="phone" type="tel" required aria-required="true" autocomplete="tel"
+                        placeholder="Mobile or landline" oninput="{{ clearPhoneError }}"
+                        style="width:100%;font:400 16px/1.4 Inter,sans-serif;color:#1C1815;background:#FBF8F4;border:1px solid #E7E0D6;border-radius:10px;padding:14px;min-height:52px"
+                        style-focus="border-color:#0E3B38;background:#FFFFFF">
+                      <sc-if value="{{ fieldErrors.phone }}" hint-placeholder-val="{{ false }}">
+                        <p role="alert" style="margin:6px 0 0;font:600 13px/1 Inter,sans-serif;color:#C43C28">Required</p>
+                      </sc-if>
+                    </div>
+                    <div>
+                      <label for="f-email"
+                        style="display:block;font:600 14px/1 Inter,sans-serif;color:#1C1815;margin-bottom:8px">Email</label>
+                      <input id="f-email" name="email" type="email" required aria-required="true" autocomplete="email"
+                        placeholder="you@email.com" oninput="{{ clearEmailError }}"
+                        style="width:100%;font:400 16px/1.4 Inter,sans-serif;color:#1C1815;background:#FBF8F4;border:1px solid #E7E0D6;border-radius:10px;padding:14px;min-height:52px"
+                        style-focus="border-color:#0E3B38;background:#FFFFFF">
+                      <sc-if value="{{ fieldErrors.email }}" hint-placeholder-val="{{ false }}">
+                        <p role="alert" style="margin:6px 0 0;font:600 13px/1 Inter,sans-serif;color:#C43C28">Required</p>
+                      </sc-if>
+                    </div>
+                    <div>
+                      <label for="f-need"
+                        style="display:block;font:600 14px/1 Inter,sans-serif;color:#1C1815;margin-bottom:8px">What do
+                        you need?</label>
+                      <select id="f-need" name="need" required aria-required="true" onchange="{{ clearNeedError }}"
+                        style="width:100%;font:400 16px/1.4 Inter,sans-serif;color:#1C1815;background:#FBF8F4;border:1px solid #E7E0D6;border-radius:10px;padding:14px;min-height:52px;appearance:none"
+                        style-focus="border-color:#0E3B38;background:#FFFFFF">
+                        <option value="" disabled selected>Please choose…</option>
+                        <option value="one">One missing tooth</option>
+                        <option value="several">Several teeth</option>
+                        <option value="full-arch">A full arch</option>
+                        <option value="dentures">Loose dentures</option>
+                        <option value="not-sure">Not sure yet</option>
+                      </select>
+                      <sc-if value="{{ fieldErrors.need }}" hint-placeholder-val="{{ false }}">
+                        <p role="alert" style="margin:6px 0 0;font:600 13px/1 Inter,sans-serif;color:#C43C28">Required</p>
+                      </sc-if>
+                    </div>
+                    <div>
+                      <label for="f-time"
+                        style="display:block;font:600 14px/1 Inter,sans-serif;color:#1C1815;margin-bottom:8px">Preferred
+                        time</label>
+                      <select id="f-time" name="time" required aria-required="true" onchange="{{ clearTimeError }}"
+                        style="width:100%;font:400 16px/1.4 Inter,sans-serif;color:#1C1815;background:#FBF8F4;border:1px solid #E7E0D6;border-radius:10px;padding:14px;min-height:52px;appearance:none"
+                        style-focus="border-color:#0E3B38;background:#FFFFFF">
+                        <option value="" disabled selected>Please choose…</option>
+                        <option value="morning">Morning</option>
+                        <option value="afternoon">Afternoon</option>
+                        <option value="evening">Evening</option>
+                      </select>
+                      <sc-if value="{{ fieldErrors.time }}" hint-placeholder-val="{{ false }}">
+                        <p role="alert" style="margin:6px 0 0;font:600 13px/1 Inter,sans-serif;color:#C43C28">Required</p>
+                      </sc-if>
+                    </div>
+
+                    <label
+                      style="display:flex;gap:11px;align-items:flex-start;font:400 14px/1.5 Inter,sans-serif;color:#5C544B;cursor:pointer">
+                      <input id="f-consent" name="consent" type="checkbox" required aria-required="true" onchange="{{ clearConsentError }}"
+                        style="margin-top:2px;width:20px;height:20px;flex:0 0 auto;accent-color:#0E3B38">
+                      <span>I’m happy for Sutton Dental &amp; Implant Clinic to contact me about my enquiry. We’ll never
+                        share your details. <a href="https://www.suttonsmiles.com/privacy-policy" target="_blank"
+                          rel="noopener" style="color:#0E3B38;text-decoration:underline">Privacy</a>.</span>
+                    </label>
+                    <sc-if value="{{ fieldErrors.consent }}" hint-placeholder-val="{{ false }}">
+                      <p role="alert" style="margin:-10px 0 0;font:600 13px/1 Inter,sans-serif;color:#C43C28">Required</p>
+                    </sc-if>
+
+                    <sc-if value="{{ submitError }}" hint-placeholder-val="{{ false }}">
+                      <p role="alert"
+                        style="margin:0;padding:14px 16px;border-radius:10px;background:rgba(196,60,40,.08);border:1px solid rgba(196,60,40,.25);font:500 15px/1.5 Inter,sans-serif;color:#8A2E1E">
+                        That didn't send — please fill in all the fields, or call us on <a href="tel:01213541922"
+                          style="color:#8A2E1E;font-weight:700;text-decoration:underline">0121&nbsp;354&nbsp;1922</a>
+                        and we'll book you in directly.</p>
+                    </sc-if>
+                    <button type="submit" disabled="{{ submitting }}"
+                      style="display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;background:#ED6A1A;color:#FFFFFF;font:700 18px/1.1 Inter,sans-serif;padding:18px 24px;border:none;border-radius:12px;cursor:pointer;min-height:58px;box-shadow:0 6px 18px rgba(237,106,26,.26);transition:background .15s ease,transform .15s ease"
+                      style-hover="background:#C75614;transform:translateY(-1px)"
+                      style-active="transform:translateY(0)">{{ submitBtnLabel }}</button>
+                    <p style="text-align:center;margin:2px 0 0;font:400 14px/1.5 Inter,sans-serif;color:#7C7264">No
+                      pressure, no commitment. Our team will be in touch.</p>
+                  </form>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+                <div role="status" aria-live="polite" style="text-align:center;padding:14px 0">
+                  <span
+                    style="display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:rgba(30,122,83,.12);color:#1E7A53;font-size:32px;font-weight:700;margin-bottom:8px">✓</span>
+                  <h2 style="font:600 clamp(24px,4vw,34px)/1.16 Fraunces,serif;color:#1C1815;margin:14px 0 0">Thank
+                    you{{ submittedName }} — your request is in.</h2>
+                  <p style="font:400 18px/1.6 Inter,sans-serif;color:#5C544B;margin:14px auto 0;max-width:42ch">Our team
+                    will be in touch shortly to arrange your free 20-minute chat with Puneet. No pressure, no
+                    commitment.</p>
+                  <p style="font:500 16px/1.6 Inter,sans-serif;color:#1C1815;margin:22px 0 0">Prefer to talk now? <a
+                      href="tel:01213541922"
+                      style="color:#0E3B38;font-weight:700;text-decoration:underline">Call&nbsp;0121&nbsp;354&nbsp;1922</a>
+                  </p>
+                </div>
+              </sc-if>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 11. FAQ ============ -->
+      <section style="background:#FFFFFF;padding:clamp(52px,8vw,96px) 0">
+        <div style="max-width:820px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+          <h2
+            style="font:600 clamp(28px,4.4vw,44px)/1.12 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0 0 14px">
+            Questions, answered</h2>
+          <div style="margin-top:18px">
+            <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
+              <div style="border-top:1px solid #E7E0D6">
+                <button type="button" onclick="{{ f.onToggle }}" aria-expanded="{{ f.ariaExpanded }}"
+                  style="{{ f.qStyle }}">
+                  <span style="flex:1 1 auto">{{ f.q }}</span>
+                  <span style="{{ f.signStyle }}">{{ f.sign }}</span>
+                </button>
+                <div style="{{ f.answerStyle }}">{{ f.a }}</div>
+              </div>
+            </sc-for>
+            <div style="border-top:1px solid #E7E0D6"></div>
+          </div>
+
+          <!-- CTA after FAQ -->
+          <div style="text-align:center;margin-top:clamp(40px,6vw,56px)">
+            <button type="button" onclick="{{ scrollToForm }}"
+              style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#ED6A1A;color:#FFFFFF;font:600 clamp(16px,2.2vw,18px)/1.1 Inter,sans-serif;padding:18px 30px;border:none;border-radius:12px;cursor:pointer;min-height:56px;box-shadow:0 6px 18px rgba(237,106,26,.26);transition:background .15s ease,transform .15s ease"
+              style-hover="background:#C75614;transform:translateY(-1px)" style-active="transform:translateY(0)">Book
+              your free 20-minute chat</button>
+            <div
+              style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 12px;margin-top:16px;font:500 14px/1.4 Inter,sans-serif;color:#5C544B">
+              <span style="color:#E8A33D;letter-spacing:1px">★★★★★</span><span><strong
+                  style="color:#1C1815">4.9</strong> · Rated 5★ by 370+ patients</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 12. NEAR-FOOTER BOOKING BAND ============ -->
+      <section style="background:#FBF8F4;padding:clamp(48px,7vw,84px) 0">
+        <div style="max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+          <div
+            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));align-items:stretch;border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(28,24,21,.16);background:#0E3B38">
+            <img src="assets/img/old-smile.png" alt="Dr Puneet Jain placing a dental implant"
+              style="display:block;width:100%;height:100%;min-height:340px;object-fit:cover">
+            <div
+              style="background:#0E3B38;padding:clamp(36px,5vw,60px);display:flex;flex-direction:column;justify-content:center;gap:24px">
+              <div>
+                <p
+                  style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#E8A33D;margin:0 0 16px">
+                  Your first step is free</p>
+                <h2
+                  style="font:600 clamp(28px,4.4vw,42px)/1.14 Fraunces,serif;letter-spacing:-.01em;color:#FFFFFF;margin:0">
+                  Ready to find out if implants are right for you?</h2>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-start;gap:16px">
+                <button type="button" onclick="{{ scrollToForm }}"
+                  style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#ED6A1A;color:#FFFFFF;font:700 clamp(17px,2.2vw,19px)/1.1 Inter,sans-serif;padding:19px 34px;border:none;border-radius:12px;cursor:pointer;min-height:58px;box-shadow:0 8px 24px rgba(237,106,26,.34);transition:background .15s ease,transform .15s ease"
+                  style-hover="background:#C75614;transform:translateY(-1px)"
+                  style-active="transform:translateY(0)">Book your free 20-minute chat</button>
+                <div
+                  style="display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;font:500 14px/1.4 Inter,sans-serif;color:rgba(255,255,255,.85)">
+                  <span style="color:#E8A33D;letter-spacing:1px">★★★★★</span><span>4.9 · 370+ patients · or <a
+                      href="tel:01213541922"
+                      style="color:#FFFFFF;font-weight:700;text-decoration:underline">call&nbsp;0121&nbsp;354&nbsp;1922</a></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 13. FOOTER ============ -->
+      <footer id="footer" style="background:#0B2F2C;padding:clamp(44px,6vw,68px) 0 clamp(96px,10vw,56px)">
+        <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:28px 40px">
+
+            <div>
+              <p style="font:600 19px/1.3 Fraunces,serif;color:#FFFFFF;margin:0 0 10px">Sutton Dental &amp; Implant
+                Clinic</p>
+              <p style="font:400 15px/1.6 Inter,sans-serif;color:rgba(255,255,255,.78);margin:0">60 Birmingham Road,
+                Sutton Coldfield, B72 1QP</p>
+            </div>
+
+            <div>
+              <p
+                style="font:700 12px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:0 0 12px">
+                Contact</p>
+              <p style="margin:0 0 8px"><a href="tel:01213541922"
+                  style="font:600 16px/1.4 Inter,sans-serif;color:#FFFFFF;text-decoration:none">0121&nbsp;354&nbsp;1922</a>
+              </p>
+              <p style="margin:0"><a href="mailto:reception@suttonsmiles.com"
+                  style="font:500 15px/1.4 Inter,sans-serif;color:rgba(255,255,255,.85);text-decoration:none">reception@suttonsmiles.com</a>
+              </p>
+            </div>
+
+            <div>
+              <p
+                style="font:700 12px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:0 0 12px">
+                Opening hours</p>
+              <div style="display:flex;flex-direction:column;gap:7px">
+                <div
+                  style="display:flex;justify-content:space-between;gap:16px;font:500 14px/1.5 Inter,sans-serif;color:rgba(255,255,255,.82)">
+                  <span>Monday</span><span>[08:30 AM – 5:30 PM]</span></div>
+                <div
+                  style="display:flex;justify-content:space-between;gap:16px;font:500 14px/1.5 Inter,sans-serif;color:rgba(255,255,255,.82)">
+                  <span>Tuesday</span><span>[08:30 AM – 5:30 PM]</span></div>
+                <div
+                  style="display:flex;justify-content:space-between;gap:16px;font:500 14px/1.5 Inter,sans-serif;color:rgba(255,255,255,.82)">
+                  <span>Wednesday</span><span>[08:30 AM – 6:30 PM]</span></div>
+                <div
+                  style="display:flex;justify-content:space-between;gap:16px;font:500 14px/1.5 Inter,sans-serif;color:rgba(255,255,255,.82)">
+                  <span>Thursday</span><span>[08:30 AM – 5:30 PM]</span></div>
+                <div
+                  style="display:flex;justify-content:space-between;gap:16px;font:500 14px/1.5 Inter,sans-serif;color:rgba(255,255,255,.82)">
+                  <span>Friday</span><span>[08:30 AM – 2:00 PM]</span></div>
+              </div>
+            </div>
+
+            <div>
+              <p
+                style="font:700 12px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:0 0 12px">
+                Regulatory</p>
+              <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.7);margin:0 0 8px">Dr Puneet Jain,
+                GDC No. 103973. Qualified 2006 in <span data-placeholder="country-of-qualification">[country of
+                  qualification — confirm]</span>. Registered with the <a href="https://www.gdc-uk.org"
+                  target="_blank" rel="noopener" style="color:#FFFFFF;text-decoration:underline">General Dental
+                  Council</a>.</p>
+              <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.7);margin:0 0 8px">Sutton Dental
+                &amp; Implant Clinic is a <span data-placeholder="nhs-or-private">[NHS or private status —
+                  confirm]</span> practice.</p>
+              <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.7);margin:0">GDC, 37 Wimpole Street,
+                London W1G 8DQ · <a href="https://www.gdc-uk.org" target="_blank" rel="noopener"
+                  style="color:#FFFFFF;text-decoration:underline">gdc-uk.org</a></p>
+            </div>
+
+          </div>
+
+          <div
+            style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;gap:12px">
+            <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">{{ implantPrice }} is the
+              all-in price for a single implant including extraction. Complex cases — bone graft, sinus lift, multiple
+              or full-arch — are quoted separately. Individual results vary.</p>
+            <sc-if value="{{ isFinanceVariant }}" hint-placeholder-val="{{ false }}">
+              <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">{{ financeRepExample }}
+                {{ fcaStatusLine }}</p>
+            </sc-if>
+            <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">If something isn’t right,
+              please speak to us first. You can also contact the <a href="https://dcs.gdc-uk.org" target="_blank"
+                rel="noopener" style="color:#FFFFFF;text-decoration:underline">Dental Complaints Service</a> or the <a
+                href="https://www.gdc-uk.org" target="_blank" rel="noopener"
+                style="color:#FFFFFF;text-decoration:underline">General Dental Council</a>.</p>
+            <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">This page was last
+              updated on <span data-placeholder="last-updated">25 July 2026</span>. Read our <a id="footer-privacy-link"
+                href="https://www.suttonsmiles.com/privacy-policy" target="_blank" rel="noopener"
+                style="color:#FFFFFF;text-decoration:underline">privacy policy</a> [confirm URL with Skalr].</p>
+            <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.45);margin:6px 0 0">© <span>Sutton
+                Dental &amp; Implant Clinic</span>. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+
+      <!-- spacer so the fixed mobile bar never covers footer content -->
+      <div style="{{ barSpacerStyle }}"></div>
+
+    </div>
+  </x-dc>
+  <script type="text/x-dc" data-dc-script=""
+    data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:860}}">
+class Component extends DCLogic {
+  state = {
+  vw: typeof window !== 'undefined' ? window.innerWidth : 1280,
+  openFaq: 0,
+  videoPlaying: true,
+  showVideoButton: false,
+  submitted: false,
+    submitting: false,
+    submitError: false,
+    submittedName: '',
+    fieldErrors: { name: false, phone: false, email: false, need: false, time: false, consent: false },
+    reviewIndex: 0,
+    whyActive: 0
+  };
+
+  componentDidMount() {
+  this._reviewTimer = setInterval(() => {
+    this.nextReview();
+  }, 5000);
+
+  this._onResize = () => this.setState({ vw: window.innerWidth });
+    window.addEventListener('resize', this._onResize, { passive: true });
+
+    if (typeof document !== 'undefined') {
+      this._videoEl = document.getElementById('puneet-video');
+      if (this._videoEl) {
+        var self = this;
+
+        // Force playback to start since dynamic rendering bypasses native autoplay
+        this._videoEl.muted = true;
+        this._videoEl.play().catch(function () {});
+
+        // Unmute on the first user interaction anywhere on the page.
+        this._unmuteOnInteraction = function () {
+          if (self._videoEl) self._videoEl.muted = false;
+          document.removeEventListener('click', self._unmuteOnInteraction);
+          document.removeEventListener('touchstart', self._unmuteOnInteraction);
+          self._unmuteOnInteraction = null;
+        };
+        document.addEventListener('click', this._unmuteOnInteraction);
+        document.addEventListener('touchstart', this._unmuteOnInteraction);
+
+        this._onVideoEnded = () => {
+          const v = this._videoEl;
+          v.loop = true;
+          v.currentTime = 0;
+          v.play().catch(function () {});
+          this.setState({ videoPlaying: true, showVideoButton: false });
+        };
+        this._videoEl.addEventListener('ended', this._onVideoEnded);
+      }
+    }
+  }
+  componentWillUnmount() {
+  clearInterval(this._reviewTimer);
+
+  if (this._onResize) window.removeEventListener('resize', this._onResize);
+    if (this._videoEl && this._onVideoEnded) this._videoEl.removeEventListener('ended', this._onVideoEnded);
+    if (this._unmuteOnInteraction) {
+      document.removeEventListener('click', this._unmuteOnInteraction);
+      document.removeEventListener('touchstart', this._unmuteOnInteraction);
+    }
+  }
+
+  scrollToForm() {
+  if (typeof document === 'undefined') return;
+
+  const form = document.getElementById('enquiry');
+  if (!form) return;
+
+  const firstInput = form.querySelector('input, textarea, select');
+
+  if (firstInput) {
+    const top = firstInput.getBoundingClientRect().top + window.scrollY - 100;
+    window.scrollTo({
+      top,
+      behavior: 'smooth'
+    });
+
+    setTimeout(() => {
+      try {
+        firstInput.focus({ preventScroll: true });
+      } catch (e) {}
+    }, 500);
+  } else {
+    form.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+}
+
+  toggleVideo() {
+  const v = (typeof document !== 'undefined') ? document.getElementById('puneet-video') : null;
+  this.setState(s => {
+    const playing = !s.videoPlaying;
+    if (v) {
+      if (playing) {
+        if (v.ended) v.currentTime = 0;
+        v.play().catch(function () {});
+      } else {
+        v.pause();
+      }
+    }
+    return {
+      videoPlaying: playing,
+      showVideoButton: !playing || !!this._videoHover
+    };
+  });
+}
+
+  toggleFaq(i) {
+    this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i }));
+  }
+
+  prevReview() { this.setState(s => ({ reviewIndex: s.reviewIndex - 1 })); }
+  nextReview() { this.setState(s => ({ reviewIndex: s.reviewIndex + 1 })); }
+  setWhyActive(i) { this.setState({ whyActive: i }); }
+
+  submitForm(e) {
+    e.preventDefault();
+    const self = this;
+    const fd = new FormData(e.target);
+    const name    = (fd.get('name')    || '').toString().trim();
+    const phone   = (fd.get('phone')   || '').toString().trim();
+    const email   = (fd.get('email')   || '').toString().trim();
+    const need    = (fd.get('need')    || '').toString().trim();
+    const time    = (fd.get('time')    || '').toString().trim();
+    const consent = (fd.get('consent') || '').toString().trim();
+    // Reads the GA4 client ID straight from the _ga cookie set by gtag.js/GTM,
+    // so lead attribution doesn't depend on a third-party script staying up.
+    // Cookie shape: GA1.2.<client_id part 1>.<client_id part 2>
+    function getGa4ClientId() {
+      const m = document.cookie.match(/(?:^|;\s*)_ga=GA\d\.\d\.(\d+\.\d+)/);
+      return m ? m[1] : '';
+    }
+    // Honeypot: real visitors never see or fill this field, so a filled
+    // value means a bot. Show the normal "thank you" state but skip both
+    // the CRM webhook and the ad-conversion event, so spam never reaches
+    // the inbox and never gets counted as a lead by Meta/Google Ads.
+    const isBot = !!(fd.get('website') || '').toString().trim();
+    if (isBot) {
+      this.setState({ submitted: true, submittedName: name, submitError: false });
+      this._scrollToEnquiry();
+      return;
+    }
+
+    // Hard stop: never let a submission through to Zapier/Formspree if any
+    // required field is empty. The <input required> attributes already
+    // block this in a normal browser, but this check is a second, independent
+    // guard in JS itself — it still fires even if `required` is stripped in
+    // devtools, if a field is filled with only whitespace, or if the form is
+    // submitted programmatically in a way that skips native validation.
+    const fieldErrors = {
+      name: !name,
+      phone: !phone,
+      email: !email,
+      need: !need,
+      time: !time,
+      consent: !consent
+    };
+    const hasFieldErrors = Object.keys(fieldErrors).some(function (k) { return fieldErrors[k]; });
+    if (hasFieldErrors) {
+      this.setState({ submitting: false, submitError: true, fieldErrors: fieldErrors });
+      this._scrollToEnquiry();
+      return;
+    }
+
+    this.setState({
+      submitting: true,
+      submitError: false,
+      fieldErrors: { name: false, phone: false, email: false, need: false, time: false, consent: false }
+    });
+
+    // Fired once the lead has actually been delivered to *at least one* of
+    // Zapier/Formspree — never on a bare network send, so a failed POST
+    // can never show a fake success.
+    function onLeadDelivered() {
+      window.dataLayer = window.dataLayer || [];
+      const evt = {
+        event: 'lead_submit',
+        event_id: (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()),
+        email: email,
+        phone_number: phone
+      };
+      // Health-intent field: only forward to Meta once marketing
+      // consent has been granted via the consent banner (section 05).
+      const consent = (typeof window !== 'undefined' && window.__consentState) || {};
+      if (consent.marketing) evt.enquiry_type = need;
+      window.dataLayer.push(evt);
+
+      self.setState({ submitted: true, submittedName: name, submitting: false, submitError: false });
+      self._scrollToEnquiry();
+    }
+
+    // === CRM submission: Zapier ("Google Ads LP to Boxly" Zap, keyed to
+    // this page specifically so Google Ads leads never land in the Meta
+    // Ads Zap) and Formspree are both sent on every submission, in
+    // parallel and independently of each other — Formspree is a genuine
+    // backup record of every lead, not a failover only triggered when
+    // Zapier fails. Success only requires at least one to succeed. ===
+    const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26496932/4um6lf6/';
+    const CRM_ENDPOINT_URL = 'https://formspree.io/f/xkoddegp';
+    const ga4ClientId = getGa4ClientId();
+    const leadPayload = {};
+    fd.forEach(function (value, key) { leadPayload[key] = value; });
+    // Attribution: shared Formspree endpoint serves both landing pages, so
+    // landing_page/_subject let a single inbox be filtered/read per source.
+    leadPayload.ga4_client_id = ga4ClientId;
+    leadPayload.landing_page = 'google_ads';
+    fd.set('ga4_client_id', ga4ClientId);
+    fd.set('landing_page', 'google_ads');
+    fd.set('_subject', 'New Google Ads enquiry — Sutton Smiles');
+
+    Promise.allSettled([
+      fetch(ZAPIER_WEBHOOK_URL, {
+        method: 'POST',
+        keepalive: true,
+        // text/plain avoids a CORS preflight (OPTIONS) request — some
+        // in-app browsers (e.g. Facebook/Instagram's) are known to drop
+        // or mishandle the body on preflighted cross-origin fetches.
+        // Zapier's Catch Hook parses the JSON string in the body either way.
+        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+        body: JSON.stringify(leadPayload)
+      }),
+      fetch(CRM_ENDPOINT_URL, {
+        method: 'POST',
+        body: fd,
+        headers: { 'Accept': 'application/json' }
+      })
+    ]).then(function (results) {
+      const zapierOk = results[0].status === 'fulfilled' && results[0].value.ok;
+      const formspreeOk = results[1].status === 'fulfilled' && results[1].value.ok;
+      if (zapierOk || formspreeOk) {
+        onLeadDelivered();
+      } else {
+        // Blocking-bug fix: if both requests fail, never show a fake success.
+        self.setState({ submitting: false, submitError: true });
+      }
+    });
+  }
+
+  // Clears a single field's red "Required" message the moment the visitor
+  // fixes it (types something in, picks a dropdown option, ticks the box) —
+  // so they don't have to hit submit again just to see the message go away.
+  _clearFieldError(field) {
+    if (!this.state.fieldErrors[field]) return;
+    const next = Object.assign({}, this.state.fieldErrors);
+    next[field] = false;
+    this.setState({ fieldErrors: next });
+  }
+  clearNameError() { this._clearFieldError('name'); }
+  clearPhoneError() { this._clearFieldError('phone'); }
+  clearEmailError() { this._clearFieldError('email'); }
+  clearNeedError() { this._clearFieldError('need'); }
+  clearTimeError() { this._clearFieldError('time'); }
+  clearConsentError() { this._clearFieldError('consent'); }
+
+  _scrollToEnquiry() {
+    if (typeof document === 'undefined') return;
+    const el = document.getElementById('enquiry');
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 16, behavior: 'smooth' });
+  }
+
+  renderVals() {
+    const self = this;
+    const isMobile = this.state.vw < 768;
+
+    // === ?ag= driven copy dictionary (section 04 of the brief) ===
+    // window.__AG_VARIANT is set by the inline head script, read from the
+    // ?ag= query param and already validated against the five-key
+    // whitelist with a "core" fallback, so this is always a known key.
+    const variant = (typeof window !== 'undefined' && window.__AG_VARIANT) ? window.__AG_VARIANT : 'core';
+
+    // === Single centralised price/finance config (brief section 03: "one
+    // centralised config value" — every displayed price or finance figure
+    // below is derived from these constants, never re-typed literally, so a
+    // price change only ever needs an edit here). ===
+    const IMPLANT_PRICE = '£3,850';
+    const FINANCE_TERM_MONTHS = 24;
+    const FINANCE_MONTHLY_COUNT = 23;
+    const FINANCE_MONTHLY_PAYMENT = '£160.42';
+    const FINANCE_FINAL_PAYMENT = '£160.34';
+    const FINANCE_TOTAL_PAYABLE = '£3,850.00';
+    const FINANCE_REP_EXAMPLE = 'Representative example: cash price ' + IMPLANT_PRICE + ', ' +
+      FINANCE_MONTHLY_COUNT + ' monthly payments of ' + FINANCE_MONTHLY_PAYMENT + ' and a final payment of ' +
+      FINANCE_FINAL_PAYMENT + ', total amount payable ' + FINANCE_TOTAL_PAYABLE + ', 0% APR, subject to status.';
+
+    const AG_COPY = {
+      core: {
+        heroH1: 'Dental Implants in Sutton, Done Properly',
+        heroSubhead: 'An implant-only clinic in Sutton Coldfield. All we do is implants, and it starts with a free 20-minute chat.',
+        heroProof: 'Implant-only practice: all we do is implants, placed by the same dentist every day.'
+      },
+      single: {
+        heroH1: 'Replace a Missing Tooth',
+        heroSubhead: 'An implant that looks and works like your own tooth.',
+        heroProof: 'From ' + IMPLANT_PRICE + ' all-in, single implant incl. extraction. Complex cases quoted separately.'
+      },
+      fullarch: {
+        heroH1: 'All-on-4 — A Fixed Set of Teeth, Not Loose Dentures',
+        heroSubhead: 'A full set of fixed teeth on as few as four implants. Stable, and made to last, not a denture that moves.',
+        heroProof: 'Full-arch stability versus loose dentures — quoted after your free consultation.'
+      },
+      brand: {
+        heroH1: 'Sutton Dental & Implant Clinic',
+        heroSubhead: 'Meet Puneet in Sutton Coldfield. An implant-only clinic, with a free 20-minute chat before you spend a penny.',
+        heroProof: 'Rated 4.9★ by patients across Sutton Coldfield and Birmingham.'
+      },
+      finance: {
+        heroH1: 'Spread the Cost of Your Implant',
+        heroSubhead: '0% APR over ' + FINANCE_TERM_MONTHS + ' months, subject to status.',
+        heroProof: FINANCE_MONTHLY_COUNT + ' payments of ' + FINANCE_MONTHLY_PAYMENT + ' plus a final payment of ' +
+          FINANCE_FINAL_PAYMENT + ' — total ' + FINANCE_TOTAL_PAYABLE + ', 0% APR.'
+      }
+    };
+    const heroCopy = AG_COPY[variant] || AG_COPY.core;
+
+    // === Variant-gated price / finance block (sections 04 & 09) ===
+    const isFinanceVariant = variant === 'finance';
+    const isFullArch = variant === 'fullarch';
+    const isNonFinanceVariant = !isFinanceVariant;
+    const COMPLIANT_PRICE_LINE = 'From ' + IMPLANT_PRICE + ' all-in for a single implant. Ask about payment options at your free consultation.';
+    let priceHeading, priceBody, showPriceIncludes, priceCardBody;
+    if (isFullArch) {
+      priceHeading = 'Full-arch treatment is quoted after your free consultation.';
+      priceBody = 'Every case is different, so full-arch and All-on-4 pricing is confirmed after your free 20-minute chat and, where needed, a full assessment.';
+      showPriceIncludes = false;
+      priceCardBody = 'Book your free consultation for a personalised full-arch quote.';
+    } else {
+      priceHeading = IMPLANT_PRICE + ' — everything included.';
+      priceBody = 'A single implant with us is ' + IMPLANT_PRICE + ' all-in: the CT scan, the diagnostics, the extraction if you need one, and the implant itself. No hidden extras.';
+      showPriceIncludes = true;
+      priceCardBody = COMPLIANT_PRICE_LINE;
+    }
+    // TODO(Skalr): confirm the clinic's FCA authorisation status before the
+    // live 0% finance ads point ?ag=finance at this page (brief section 09/10).
+    const fcaStatusLine = '[FCA authorisation status — to be confirmed by the clinic before go-live]';
+
+    const steps = [
+      { n: '01', tag: 'Free',      free: true,  title: 'Free cost chat',         body: 'A quick, no-obligation chat with the team to see if you’re a good fit and to answer your first questions.' },
+      { n: '02', tag: 'Free',      free: true,  title: '20 minutes with Puneet', body: 'Meet the Dentist himself before you spend a penny. A real conversation about your options — no sales pitch.' },
+      { n: '03', tag: '£200', free: false, title: 'Full consultation',      body: 'CT scan, full diagnostics and a written treatment plan — fully credited to your treatment if you go ahead. £200 will be credited towards your treatment.' },
+      { n: '04', tag: IMPLANT_PRICE, free: false, title: 'Treatment, all-in',    body: 'A single implant including extraction. Complex cases are quoted separately. Ask about payment options at your free consultation.' }
+    ].map(function (s) {
+      return Object.assign({}, s, {
+        tagStyle: {
+          display: 'inline-flex', alignItems: 'center', alignSelf: 'flex-start',
+          font: '700 12px/1 Inter, sans-serif', letterSpacing: '.04em', textTransform: 'uppercase',
+          padding: '6px 11px', borderRadius: '999px',
+          color: s.free ? '#1E7A53' : '#0E3B38',
+          background: s.free ? 'rgba(30,122,83,.10)' : 'rgba(14,59,56,.09)'
+        }
+      });
+    });
+
+    const whyCards = [
+      { t: 'Implant-only Dentist',              b: 'Not a general dentist who also does implants. This is all Puneet does \u2014 every single day.' },
+      { t: 'The same Dentist, start to finish', b: 'You see Puneet for your assessment, your treatment and your aftercare. He is here every day.' },
+      { t: 'Royal College of Surgeons trained',    b: 'A full two-year RCS diploma in implant dentistry \u2014 the in-depth qualification, not a weekend course.' },
+      { t: 'In-house CT + Straumann',              b: 'Our own CT scanning for accurate planning, paired with premium Straumann implant systems.' }
+    ];
+
+    const options = [
+      { t: 'Single tooth',         slotId: 'opt-single',   shot: 'Single implant — result close-up',  img: 'assets/img/single-tooth.png',    b: 'One missing or failing tooth replaced with a single implant and crown that looks and works like your own.' , ag: 'single' },
+      { t: 'Multiple teeth',       slotId: 'opt-multiple', shot: 'Implant bridge — result close-up',  img: 'assets/img/multiple-tooth.png',     b: 'Several teeth restored with an implant-supported bridge \u2014 without grinding down the healthy teeth beside them.' , ag: 'single' },
+      { t: 'Full arch / All-on-4', slotId: 'opt-arch',     shot: 'Full-arch result — finished smile', img: 'assets/img/full-arch.png', b: 'A full set of fixed teeth secured on as few as four implants \u2014 a stable alternative to loose dentures.' , ag: 'fullarch' }
+    ].map(function (o) {
+      return Object.assign({}, o, { href: '?ag=' + o.ag });
+    });
+
+    const reviews = [
+      { body: '“I was referred to the Sutton Coldfield clinic by my regular dentist because I needed Dental Implants for missing teeth at the back of my..."', who: '\u2014 Stuart R' },
+      { body: '“I used to be scared of the dentist and had no confidence in my smile because of how my teeth looked. After reading the amazing..."', who: '\u2014 Danny H' },
+      { body: '“I’ve been with this practice for over 30 years, and for as long as I can remember, I’ve never been happy with the appearance of..."', who: '\u2014 Christina F' },
+      { body: '“I chose this practice because I truly believed it was the best in the area for me and my family. During my time here, I’ve..."', who: '\u2014 Grace C' },
+      { body: '“When we first joined the practice, we were unhappy with our previous dentist—the organisation, service, and quality of treatment just weren’t what we expected. We..."', who: '\u2014 Giles and Helen' }
+    ];
+
+    const faqData = [
+      { q: 'How long does the whole process take?', a: 'From your first assessment to the final tooth, most cases take three to six months. That time allows the implant to integrate properly with the bone before the permanent tooth is fitted. Straightforward cases can be quicker; more complex ones take a little longer.' },
+      { q: 'Does it hurt?', a: 'Most patients tell me it was more comfortable than they expected. The procedure is carried out under local anaesthetic. It is normal for the area to feel tender for a few days afterwards \u2014 much like having a tooth out \u2014 and that settles quickly.' },
+      { q: 'Am I too old for implants?', a: 'Age itself is not the deciding factor \u2014 your general health and the bone available are what matter, and we assess both properly first. Many of our patients are in their sixties and seventies.' },
+      { q: 'I smoke \u2014 does that rule me out?', a: 'Not automatically. Smoking does affect healing, so it is something we will talk through honestly at your assessment. It is a more detailed conversation rather than a straight yes or no.' },
+      { q: 'I\u2019ve been told I don\u2019t have enough bone', a: 'That is often not the end of the road. In many cases the bone can be rebuilt, and a proper CT scan gives a far clearer picture than a standard X-ray. It is well worth being reassessed before you rule implants out.' },
+      { q: 'Can I use my insurance?', a: 'We accept many of the major insurance and health plans. Bring your details to your assessment and we will check exactly what is covered for you.' },
+      { q: 'What\u2019s the difference between the free chat and the \u00A3200 consultation?', a: 'The free 20 minutes is a real conversation with Puneet \u2014 to understand what you need and whether implants are right for you. The \u00A3200 consultation is the full clinical work-up: a CT scan, full diagnostics and a written treatment plan. That \u00A3200 is fully credited to your treatment if you go ahead. £200 will be credited towards your treatment.' },
+      { q: 'How long do implants last?', a: 'A well-placed implant with good aftercare can last many years \u2014 often decades. Caring for it is much like caring for a natural tooth: keep it clean and keep up your regular check-ups.' }
+    ];
+    const faqs = faqData.map(function (f, i) {
+      const open = self.state.openFaq === i;
+      return {
+        q: f.q, a: f.a,
+        sign: open ? '\u2013' : '+',
+        ariaExpanded: open ? 'true' : 'false',
+        onToggle: function () { self.toggleFaq(i); },
+        qStyle: {
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', width: '100%',
+          textAlign: 'left', cursor: 'pointer', background: 'none', border: 'none', appearance: 'none',
+          padding: '22px 2px', font: '600 clamp(17px,2.4vw,20px)/1.35 Fraunces, serif', color: '#1C1815'
+        },
+        signStyle: { flex:'0 0 auto', width:'30px', height:'30px', borderRadius:'50%', display:'inline-flex', alignItems:'center', justifyContent:'center', background: open ? '#0E3B38' : 'rgba(14,59,56,.08)', color: open ? '#FFFFFF' : '#0E3B38', font:'500 21px/1 Inter,sans-serif', transform: open ? 'rotate(45deg)' : 'rotate(0deg)', transition:'all .6s cubic-bezier(.22,1,.36,1)' },
+        answerStyle: { overflow:'hidden', maxHeight: open ? '320px' : '0px', opacity: open ? '1' : '0', transform: open ? 'translateY(0)' : 'translateY(-12px)', padding: open ? '0 2px 24px' : '0 2px', maxWidth:'700px', font:'400 18px/1.6 Inter, sans-serif', color:'#5C544B', transition:'max-height .8s cubic-bezier(.22,1,.36,1), opacity .6s ease, transform .6s ease, padding .6s ease' }
+      };
+    });
+
+    const reviewCount = reviews.length;
+    const rIdx = ((this.state.reviewIndex % reviewCount) + reviewCount) % reviewCount;
+    const review = reviews[rIdx];
+    const reviewNum = ('0' + (rIdx + 1)).slice(-2) + ' / ' + ('0' + reviewCount).slice(-2);
+
+    const whyList = whyCards.map(function (w, i) {
+      const active = self.state.whyActive === i;
+      return {
+        t: w.t, b: w.b, num: '0' + (i + 1), active,
+        ariaExpanded: active ? 'true' : 'false',
+        onSelect: function () { self.setWhyActive(i); },
+        rowStyle: { borderTop: '1px solid #E7E0D6' },
+        headStyle: { display: 'flex', alignItems: 'baseline', gap: '16px', width: '100%', textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', padding: '20px 0' },
+        numStyle: { font: '500 15px/1 Inter, sans-serif', color: active ? '#ED6A1A' : '#B7AB99', flex: '0 0 auto', width: '24px' },
+        titleStyle: { font: '600 clamp(20px,3vw,27px)/1.18 Fraunces, serif', color: active ? '#0E3B38' : '#1C1815', margin: 0 },
+        bodyStyle: { overflow:'hidden', maxHeight: active ? '350px' : '0px', opacity: active ? '1' : '0', transform: active ? 'translateY(0)' : 'translateY(-12px)', margin:'0 0 20px 40px', padding: active ? '12px 0 20px' : '0', font:'400 16px/1.6 Inter, sans-serif', color:'#5C544B', maxWidth:'50ch', transition:'max-height .55s cubic-bezier(.22,1,.36,1), opacity .35s ease, transform .35s ease, padding .35s ease' },
+        barStyle: { height:'2px', width:'64px', background:'#ED6A1A', margin:'0 0 20px 40px', borderRadius:'2px', transform: active ? 'scaleX(1)' : 'scaleX(0)', transformOrigin:'left', transition:'transform .35s ease' }
+      };
+    });
+
+    return {
+      isMobile,
+      agVariant: variant,
+      heroH1: heroCopy.heroH1,
+      heroSubhead: heroCopy.heroSubhead,
+      heroProof: heroCopy.heroProof,
+      priceHeading, priceBody, showPriceIncludes,
+      isFinanceVariant, isNonFinanceVariant, priceCardBody, fcaStatusLine,
+      implantPrice: IMPLANT_PRICE,
+      financeTermMonths: FINANCE_TERM_MONTHS,
+      financeRepExample: FINANCE_REP_EXAMPLE,
+      scrollToForm: function () { self.scrollToForm(); },
+      toggleVideo: function () { self.toggleVideo(); },
+      showVideoButton: this.state.showVideoButton,
+      playButtonStyle:{
+        position:'absolute',
+        left:'50%',
+        top:'50%',
+        transform:this.state.showVideoButton ? 'translate(-50%,-50%) scale(1)' : 'translate(-50%,-50%) scale(.8)',
+        opacity:this.state.showVideoButton ? '1' : '0',
+        pointerEvents:this.state.showVideoButton ? 'auto' : 'none',
+        transition:'opacity .35s ease, transform .35s cubic-bezier(.22,1,.36,1)',
+        zIndex:2,
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        width:'74px',
+        height:'74px',
+        border:'none',
+        borderRadius:'50%',
+        background:'#ED6A1A',
+        cursor:'pointer',
+        boxShadow:'0 10px 28px rgba(0,0,0,.32)'
+      },
+      showVideoPlay: function () {
+        self._videoHover = true;
+        if (self.state.videoPlaying) {
+          self.setState({ showVideoButton: true });
+        }
+      },
+      hideVideoPlay: function () {
+        setTimeout(function () {
+          if (self.state.videoPlaying && !self._videoHover) {
+            self.setState({ showVideoButton: false });
+          }
+        }, 300);
+      },
+      leaveVideoPlay: function () {
+        self._videoHover = false;
+        if (self.state.videoPlaying) {
+          self.setState({ showVideoButton: false });
+        }
+      },
+      submitForm: function (e) { self.submitForm(e); },
+      videoPlaying: this.state.videoPlaying,
+      videoPaused: !this.state.videoPlaying,
+      playLabel: this.state.videoPlaying ? 'Playing \u2014 tap to pause' : 'Tap to play with sound',
+      notSubmitted: !this.state.submitted,
+      submitted: this.state.submitted,
+      submitting: this.state.submitting,
+      submitError: this.state.submitError,
+      submitBtnLabel: this.state.submitting ? 'Sending\u2026' : 'Book my free chat',
+      submittedName: this.state.submittedName ? (', ' + this.state.submittedName) : '',
+      mobileBarStyle: {
+        position: 'fixed', left: '0', right: '0', bottom: '0', zIndex: 60,
+        display: isMobile ? 'flex' : 'none', gap: '10px',
+        padding: '10px 12px calc(10px + env(safe-area-inset-bottom))',
+        background: '#FFFFFF', borderTop: '1px solid #E7E0D6', boxShadow: '0 -6px 20px rgba(28,24,21,.10)'
+      },
+      barSpacerStyle: { height: isMobile ? '74px' : '0px' },
+      steps, whyCards, whyList, options, reviews, review, reviewNum,
+      onPrevReview: function () { self.prevReview(); },
+      onNextReview: function () { self.nextReview(); },
+
+        reviewTouchStart:function(e){
+            self._touchX=e.touches[0].clientX;
+        },
+
+        reviewTouchEnd:function(e){
+            const dx=e.changedTouches[0].clientX-self._touchX;
+            if(dx>60) self.prevReview();
+            if(dx<-60) self.nextReview();
+        },
+
+        faqs
+    };
+  }
+}
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+# Sutton Dental & Implant Clinic — Google Ads (/) and Meta Ads (/meta-ads)
+# landing pages. Static site, no build step: publish the repo root as-is.
+#
+# This is a single Netlify site serving both pages, matching the current
+# live suttonsmiles.info architecture. No [[plugins]], no [functions] —
+# there is no server or build pipeline here, unlike Next.js-based Halo
+# sites (see website-alteon-colindale for that shape).
+
+[build]
+  publish = "."
+
+# index.html is served at / automatically (Netlify's default document).
+# meta-ads.html needs an explicit rewrite to answer at the clean /meta-ads
+# path rather than only at /meta-ads.html — Netlify's automatic clean-URL
+# behaviour usually does this on its own, but it's a site-wide toggle, not
+# something this page's routing should silently depend on. status = 200
+# means a rewrite (URL bar stays /meta-ads), not a redirect.
+[[redirects]]
+  from = "/meta-ads"
+  to = "/meta-ads.html"
+  status = 200
+
+[[redirects]]
+  from = "/meta-ads/"
+  to = "/meta-ads.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# No CSP: dc-runtime.js Babel-transpiles the inline component script in the
+# browser (needs 'unsafe-eval'), and both pages rely on third-party GTM/Meta
+# Pixel/CallRail scripts. Adding a CSP is a larger, separate piece of work —
+# see README "Future hardening" — not bundled into this pass.
