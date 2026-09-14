@@ -2,7 +2,7 @@
 <html lang="en-GB">
 
 <head>
-  <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sutton Dental &amp; Implant Clinic</title>
@@ -659,8 +659,8 @@
             <div style="position:relative">
               <div onmouseenter="{{ showVideoPlay }}" onmouseleave="{{ leaveVideoPlay }}"
                 style="position:relative;width:100%;aspect-ratio:4/5;max-height:560px;border-radius:18px;overflow:hidden;background:#0B2F2C;cursor:pointer">
-                <video id="puneet-video" onclick="{{ toggleVideo }}" src="assets/vid/puneet-intro.mp4"
-                  poster="assets/img/puneet-video-poster.jpg" autoplay playsinline muted loop preload="auto"
+                <video id="puneet-video" onclick="{{ toggleVideo }}" src="assets/vid/puneet-intro-v2.mp4"
+                  poster="assets/img/puneet-video-poster.webp" autoplay playsinline muted loop preload="metadata"
                   style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#0B2F2C"></video>
                 <button type="button" onclick="{{ toggleVideo }}"
                   aria-label="Play the 60-second introduction from Dr Puneet Jain" style="{{ playButtonStyle }}">
@@ -773,13 +773,13 @@
             </div>
 
             <div style="display:flex;flex-direction:column;gap:14px">
-              <img src="assets/img/treatment-room.png" alt="Treatment room at Sutton Dental &amp; Implant Clinic"
+              <img loading="lazy" decoding="async" src="assets/img/treatment-room.webp" alt="Treatment room at Sutton Dental &amp; Implant Clinic"
                 style="display:block;width:100%;aspect-ratio:16/11;border:1px solid #E7E0D6;border-radius:16px;object-fit:cover">
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-                <img src="assets/img/ct-scan-review.png"
+                <img loading="lazy" decoding="async" src="assets/img/ct-scan-review.webp"
                   alt="In-house CT scanning at Sutton Dental &amp; Implant Clinic"
                   style="display:block;width:100%;aspect-ratio:1/1;border:1px solid #E7E0D6;border-radius:16px;object-fit:cover">
-                <img src="assets/img/0707.jpg" alt="Dr Puneet Jain with a patient"
+                <img loading="lazy" decoding="async" src="assets/img/0707.webp" alt="Dr Puneet Jain with a patient"
                   style="display:block;width:100%;aspect-ratio:1/1;border:1px solid #E7E0D6;border-radius:16px;object-fit:cover">
               </div>
             </div>
@@ -872,7 +872,7 @@
 
             <div
               style="position:relative;width:100%;aspect-ratio:4/5;max-height:540px;border-radius:18px;overflow:hidden">
-              <img src="assets/img/0630.jpg" alt="Dr Puneet Jain at Sutton Dental &amp; Implant Clinic"
+              <img loading="lazy" decoding="async" src="assets/img/0630.webp" alt="Dr Puneet Jain at Sutton Dental &amp; Implant Clinic"
                 style="display:block;width:100%;height:100%;object-fit:cover">
             </div>
 
@@ -959,11 +959,11 @@
 
               <div style="display:flex;align-items:center;gap:14px;margin:24px 0">
                 <div style="display:flex">
-                  <img src="assets/img/team-portrait.jpg" alt=""
+                  <img loading="lazy" decoding="async" src="assets/img/team-portrait.webp" alt=""
                     style="display:block;width:44px;height:44px;border:2px solid #F3EEE6;border-radius:50%;object-fit:cover">
-                  <img src="assets/img/0707.jpg" alt=""
+                  <img loading="lazy" decoding="async" src="assets/img/0707.webp" alt=""
                     style="display:block;width:44px;height:44px;border:2px solid #F3EEE6;border-radius:50%;object-fit:cover;margin-left:-14px">
-                  <img src="assets/img/reception.jpg" alt=""
+                  <img loading="lazy" decoding="async" src="assets/img/reception.webp" alt=""
                     style="display:block;width:44px;height:44px;border:2px solid #F3EEE6;border-radius:50%;object-fit:cover;margin-left:-14px">
                 </div>
                 <span style="font:500 15px/1.4 Inter,sans-serif;color:#5C544B"><strong
@@ -989,14 +989,14 @@
 
             <div style="display:flex;flex-direction:column;gap:14px">
               <div style="position:relative">
-                <img src="assets/img/before.jpg"
+                <img loading="lazy" decoding="async" src="assets/img/before.webp"
                   alt="Before — placeholder image, replace with a real consented patient photo"
                   style="display:block;width:100%;aspect-ratio:16/11;border:1px solid #E7E0D6;border-radius:16px;object-fit:cover">
                 <span
                   style="position:absolute;top:14px;left:14px;font:700 13px/1 Inter,sans-serif;color:#1C1815;background:#FFFFFF;padding:8px 14px;border-radius:999px;box-shadow:0 4px 12px rgba(28,24,21,.12)">Before</span>
               </div>
               <div style="position:relative">
-                <img src="assets/img/after.jpg"
+                <img loading="lazy" decoding="async" src="assets/img/after.webp"
                   alt="After — placeholder image, replace with a real consented patient photo"
                   style="display:block;width:100%;aspect-ratio:16/11;border:1px solid #E7E0D6;border-radius:16px;object-fit:cover">
                 <span
@@ -1010,16 +1010,16 @@
               results vary.</p>
             <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
               <span
-                style="display:inline-flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E7E0D6;border-radius:10px;padding:18px 12px"><img
+                style="display:inline-flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E7E0D6;border-radius:10px;padding:18px 12px"><img loading="lazy" decoding="async"
                   src="assets/img/logo-straumann.png" alt="Straumann"
                   style="display:block;height:38px;width:auto;max-width:100%"></span>
               <span
-                style="display:inline-flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E7E0D6;border-radius:10px;padding:18px 12px"><img
+                style="display:inline-flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E7E0D6;border-radius:10px;padding:18px 12px"><img loading="lazy" decoding="async"
                   src="assets/img/logo-rcs.png" alt="Royal College of Surgeons"
                   style="display:block;height:38px;width:auto;max-width:100%"></span>
               <span
-                style="display:inline-flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E7E0D6;border-radius:10px;padding:18px 12px"><img
-                  src="assets/img/logo-gdc.png" alt="General Dental Council"
+                style="display:inline-flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E7E0D6;border-radius:10px;padding:18px 12px"><img loading="lazy" decoding="async"
+                  src="assets/img/logo-gdc.webp" alt="General Dental Council"
                   style="display:block;height:38px;width:auto;max-width:100%"></span>
             </div>
           </div>
@@ -1047,7 +1047,7 @@
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px">
             <sc-for list="{{ options }}" as="o" hint-placeholder-count="3">
               <div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;overflow:hidden">
-                <img src="{{ o.img }}" alt="{{ o.shot }}"
+                <img loading="lazy" decoding="async" src="{{ o.img }}" alt="{{ o.shot }}"
                   style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover">
                 <div style="padding:26px">
                   <h3 style="font:600 clamp(20px,2.8vw,23px)/1.2 Fraunces,serif;color:#1C1815;margin:0 0 12px">{{ o.t }}
@@ -1082,7 +1082,7 @@
             </div>
 
             <div id="enquiry-image-block" style="grid-column:1;grid-row:2;margin-top:22px">
-              <img src="assets/img/0707.jpg" alt="Sutton Dental &amp; Implant Clinic reception signage"
+              <img loading="lazy" decoding="async" src="assets/img/0707.webp" alt="Sutton Dental &amp; Implant Clinic reception signage"
                 style="display:block;width:100%;aspect-ratio:16/10;border:1px solid #E7E0D6;border-radius:16px;object-fit:cover">
             </div>
 
@@ -1286,7 +1286,7 @@
         <div style="max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
           <div
             style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));align-items:stretch;border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(28,24,21,.16);background:#0E3B38">
-            <img src="assets/img/old-smile.png" alt="Dr Puneet Jain placing a dental implant"
+            <img loading="lazy" decoding="async" src="assets/img/old-smile.webp" alt="Dr Puneet Jain placing a dental implant"
               style="display:block;width:100%;height:100%;min-height:340px;object-fit:cover">
             <div
               style="background:#0E3B38;padding:clamp(36px,5vw,60px);display:flex;flex-direction:column;justify-content:center;gap:24px">
@@ -1774,9 +1774,9 @@ class Component extends DCLogic {
     ];
 
     const options = [
-      { t: 'Single tooth',         slotId: 'opt-single',   shot: 'Single implant — result close-up',  img: 'assets/img/single-tooth.png',    b: 'One missing or failing tooth replaced with a single implant and crown that looks and works like your own.' , ag: 'single' },
-      { t: 'Multiple teeth',       slotId: 'opt-multiple', shot: 'Implant bridge — result close-up',  img: 'assets/img/multiple-tooth.png',     b: 'Several teeth restored with an implant-supported bridge \u2014 without grinding down the healthy teeth beside them.' , ag: 'single' },
-      { t: 'Full arch / All-on-4', slotId: 'opt-arch',     shot: 'Full-arch result — finished smile', img: 'assets/img/full-arch.png', b: 'A full set of fixed teeth secured on as few as four implants \u2014 a stable alternative to loose dentures.' , ag: 'fullarch' }
+      { t: 'Single tooth',         slotId: 'opt-single',   shot: 'Single implant — result close-up',  img: 'assets/img/single-tooth.webp',    b: 'One missing or failing tooth replaced with a single implant and crown that looks and works like your own.' , ag: 'single' },
+      { t: 'Multiple teeth',       slotId: 'opt-multiple', shot: 'Implant bridge — result close-up',  img: 'assets/img/multiple-tooth.webp',     b: 'Several teeth restored with an implant-supported bridge \u2014 without grinding down the healthy teeth beside them.' , ag: 'single' },
+      { t: 'Full arch / All-on-4', slotId: 'opt-arch',     shot: 'Full-arch result — finished smile', img: 'assets/img/full-arch.webp', b: 'A full set of fixed teeth secured on as few as four implants \u2014 a stable alternative to loose dentures.' , ag: 'fullarch' }
     ].map(function (o) {
       return Object.assign({}, o, { href: '?ag=' + o.ag });
     });

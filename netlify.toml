@@ -31,6 +31,39 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
+# ---------------------------------------------------------------------------
+# Caching. Without these Netlify serves every asset as max-age=0 must-revalidate,
+# so each repeat visit re-checks all ~20 files. Assets here are content-stable:
+# when one changes, ship it under a NEW filename (as puneet-intro-v2.mp4 did)
+# rather than overwriting, otherwise cached clients keep the old copy.
+
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/vid/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# The HTML itself must stay revalidated so copy and tracking changes go live
+# immediately. must-revalidate + ETag means a repeat visit costs a 304, not 100KB.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
 # No CSP: dc-runtime.js Babel-transpiles the inline component script in the
 # browser (needs 'unsafe-eval'), and both pages rely on third-party GTM/Meta
 # Pixel/CallRail scripts. Adding a CSP is a larger, separate piece of work —
