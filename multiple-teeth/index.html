@@ -615,7 +615,7 @@
           style="flex:1 1 0;display:inline-flex;align-items:center;justify-content:center;gap:7px;background:#FFFFFF;color:#0E3B38;font:700 16px/1 Inter,sans-serif;padding:14px 12px;border:1.5px solid #0E3B38;border-radius:11px;min-height:50px;text-decoration:none">Call</a>
         <button type="button" onclick="{{ scrollToForm }}"
           style="flex:1.5 1 0;display:inline-flex;align-items:center;justify-content:center;gap:7px;background:#ED6A1A;color:#FFFFFF;font:700 16px/1.05 Inter,sans-serif;padding:14px 12px;border:none;border-radius:11px;min-height:50px;cursor:pointer;box-shadow:0 4px 14px rgba(237,106,26,.32)"
-          style-active="background:#C75614">Book free 20-min consult</button>
+          style-active="background:#C75614">Book free 20-min chat</button>
       </div>
 
       <!-- ============ 2. HEROs ============ -->
@@ -1616,10 +1616,10 @@ class Component extends DCLogic {
     // Attribution: shared Formspree endpoint serves both landing pages, so
     // landing_page/_subject let a single inbox be filtered/read per source.
     leadPayload.ga4_client_id = ga4ClientId;
-    leadPayload.landing_page = 'google_ads';
+    leadPayload.landing_page = 'google_ads_multi_teeth';
     fd.set('ga4_client_id', ga4ClientId);
-    fd.set('landing_page', 'google_ads');
-    fd.set('_subject', 'New ClearCorrect/Multi-Teeth enquiry - Sutton Smiles');
+    fd.set('landing_page', 'google_ads_multi_teeth');
+    fd.set('_subject', 'New Multiple-Teeth/Implants enquiry - Sutton Smiles');
 
     Promise.allSettled([
       fetch(ZAPIER_WEBHOOK_URL, {
@@ -1769,7 +1769,7 @@ class Component extends DCLogic {
 
     const options = [
       { t: 'Single tooth',         slotId: 'opt-single',   shot: 'Single implant result close-up',  img: 'assets/img/single-tooth.webp',    b: 'One missing or failing tooth replaced with a single implant and crown that looks and works like your own.' , ag: 'single' },
-      { t: 'Multiple teeth',       slotId: 'opt-multiple', shot: 'Implant bridge result close-up',  img: 'assets/img/multiple-tooth.webp',     b: 'Several teeth restored with an implant-supported bridge, without grinding down the healthy teeth beside them.' , ag: 'single' },
+      { t: 'Multiple teeth',       slotId: 'opt-multiple', shot: 'Implant bridge result close-up',  img: 'assets/img/multiple-tooth.webp',     b: 'Several teeth restored with an implant-supported bridge, without grinding down the healthy teeth beside them.' , ag: 'core' },
       { t: 'Full arch',      slotId: 'opt-arch',     shot: 'Full-arch result, finished smile', img: 'assets/img/full-arch.webp', b: 'A full set of fixed teeth secured on as few as four implants, a stable alternative to loose dentures.' , ag: 'fullarch' }
     ].map(function (o) {
       return Object.assign({}, o, { href: '/multiple-teeth/?ag=' + o.ag });
