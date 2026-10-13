@@ -16,7 +16,7 @@
      Runs BEFORE GTM loads so (a) GTM/consent-aware tags see the
      correct consent state from the first request and (b) the
      matched ag_variant is already in dataLayer when GTM boots.
-     Whitelist: core | single | fullarch | brand | finance
+     Whitelist: core | fullarch | brand | finance  (single retired on this page)
      Unknown/missing value safely falls back to "core".
      ============================================================ -->
   <script>
@@ -39,7 +39,7 @@
       });
 
       // --- ?ag= whitelist + safe fallback ---
-      var WHITELIST = ['core', 'single', 'fullarch', 'brand', 'finance'];
+      var WHITELIST = ['core', 'fullarch', 'brand', 'finance'];
       var params = new URLSearchParams(window.location.search);
       var raw = (params.get('ag') || '').toLowerCase().trim();
       var variant = WHITELIST.indexOf(raw) !== -1 ? raw : 'core';
@@ -953,7 +953,7 @@
               <h2
                 style="font:600 clamp(28px,4.4vw,42px)/1.14 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0">
                 Trusted by patients across the West Midlands</h2>
-              <p style="font:400 17px/1.55 Inter,sans-serif;color:#5C544B;margin:16px 0 0">From a single missing tooth
+              <p style="font:400 17px/1.55 Inter,sans-serif;color:#5C544B;margin:16px 0 0">From several missing teeth
                 to full-arch treatment. Patients share how it went.</p>
 
               <div style="display:flex;align-items:center;gap:14px;margin:24px 0">
@@ -1169,7 +1169,6 @@
                         style="width:100%;font:400 16px/1.4 Inter,sans-serif;color:#1C1815;background:#FBF8F4;border:1px solid #E7E0D6;border-radius:10px;padding:14px;min-height:52px;appearance:none"
                         style-focus="border-color:#0E3B38;background:#FFFFFF">
                         <option value="" disabled selected>Please choose…</option>
-                        <option value="one">One missing tooth</option>
                         <option value="several">Several teeth</option>
                         <option value="full-arch">A full arch</option>
                         <option value="dentures">Loose dentures</option>
@@ -1380,7 +1379,7 @@
 
           <div
             style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;gap:12px">
-            <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">{{ implantPrice }} is the non-member price for a single implant and crown including extraction ({{ implantPriceMember }} on the practice membership plan). Implant bridges and full-arch treatment are quoted after a full assessment; a 3-unit implant bridge on two implants starts from {{ bridgePrice }} non-member ({{ bridgePriceMember }} on the membership plan). Bone graft and sinus lift, where needed, are charged separately. Individual results vary.</p>
+            <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">Implant bridges replacing several teeth start from {{ bridgePrice }} non-member ({{ bridgePriceMember }} on the practice membership plan). Full-arch treatment is quoted after a full assessment. Bone graft and sinus lift, where needed, are charged separately. Individual results vary.</p>
             <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">Eligible implant treatment is covered by a 5-year guarantee, subject to recommended maintenance visits and the use of Straumann implant components. Full terms: [GUARANTEE TERMS - PUBLISH BEFORE LAUNCH].</p>
             <sc-if value="{{ isFinanceVariant }}" hint-placeholder-val="{{ false }}">
               <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">Ask us about the payment options available at your free 20-minute chat.</p>
@@ -1689,8 +1688,6 @@ class Component extends DCLogic {
     // Non-member figures always lead; the membership-plan figure is shown
     // beside them (never a bare member price). No APR or monthly-payment
     // figures appear anywhere on the page (FCA status not cleared).
-    const IMPLANT_PRICE = '£4,280';          // single implant and crown, non-member
-    const IMPLANT_PRICE_MEMBER = '£3,850';   // same, on the practice membership plan
     const BRIDGE_PRICE = '£9,670';           // 3-unit implant bridge (two implants), non-member
     const BRIDGE_PRICE_MEMBER = '£8,700';    // same, on the practice membership plan
     const FULLARCH_PRICE = '£14,390';        // Perfect Implant Denture (fixed full arch), non-member
@@ -1700,12 +1697,7 @@ class Component extends DCLogic {
       core: {
         heroH1: 'Replace Several Missing Teeth, Properly',
         heroSubhead: 'Dental implants and implant-supported bridges in Sutton Coldfield with Dr Puneet Jain. It starts with a free 20-minute chat.',
-        heroProof: 'From one missing tooth to a full set of teeth, planned and placed by the same dentist in Sutton Coldfield.'
-      },
-      single: {
-        heroH1: 'Replace a Missing Tooth',
-        heroSubhead: 'A single implant that looks and works like your own tooth.',
-        heroProof: 'Single implant and crown from ' + IMPLANT_PRICE + ' non-member, or ' + IMPLANT_PRICE_MEMBER + ' on the practice membership plan. Complex cases quoted separately.'
+        heroProof: 'From several missing teeth to a full set of teeth, planned and placed by the same dentist in Sutton Coldfield.'
       },
       fullarch: {
         heroH1: 'A Fixed Set of Teeth on Implants, Not Loose Dentures',
@@ -1729,7 +1721,7 @@ class Component extends DCLogic {
     const isFinanceVariant = variant === 'finance';
     const isFullArch = variant === 'fullarch';
     const isNonFinanceVariant = !isFinanceVariant;
-    const COMPLIANT_PRICE_LINE = 'Single implant and crown from ' + IMPLANT_PRICE + ' non-member, or ' + IMPLANT_PRICE_MEMBER + ' on the practice membership plan. Ask about ways to pay at your free 20-minute chat.';
+    const COMPLIANT_PRICE_LINE = 'Implant bridges from ' + BRIDGE_PRICE + ' non-member, or ' + BRIDGE_PRICE_MEMBER + ' on the practice membership plan. Ask about ways to pay at your free 20-minute chat.';
     let priceHeading, priceBody, showPriceIncludes, priceCardBody;
     if (isFullArch) {
       priceHeading = 'Full-arch treatment is quoted after your free 20-minute chat.';
@@ -1738,7 +1730,7 @@ class Component extends DCLogic {
       priceCardBody = 'Book your free 20-minute chat to start your full-arch plan.';
     } else {
       priceHeading = 'Clear, itemised pricing';
-      priceBody = 'A single implant and crown is ' + IMPLANT_PRICE + ' non-member (' + IMPLANT_PRICE_MEMBER + ' on the practice membership plan). Several missing teeth can be replaced with an implant-supported bridge from ' + BRIDGE_PRICE + ' non-member (' + BRIDGE_PRICE_MEMBER + ' on the membership plan). You get a written, itemised quote before any treatment.';
+      priceBody = 'Several missing teeth can be replaced with an implant-supported bridge from ' + BRIDGE_PRICE + ' non-member (' + BRIDGE_PRICE_MEMBER + ' on the practice membership plan). Full-arch treatment is quoted after a full assessment. You get a written, itemised quote before any treatment.';
       showPriceIncludes = true;
       priceCardBody = COMPLIANT_PRICE_LINE;
     }
@@ -1747,7 +1739,7 @@ class Component extends DCLogic {
       { n: '01', tag: 'Free',      free: true,  title: 'Free cost chat',         body: 'A quick, no-obligation chat with the team to see if you’re a good fit and to answer your first questions.' },
       { n: '02', tag: 'Free',      free: true,  title: '20 minutes with Puneet', body: 'Meet the dentist himself before you spend a penny. A real conversation about your options, with no sales pitch.' },
       { n: '03', tag: '£200', free: false, title: 'Full consultation',      body: 'CT scan, full diagnostics and a written treatment plan, fully credited to your treatment if you go ahead.' },
-      { n: '04', tag: IMPLANT_PRICE, free: false, title: 'Your treatment',    body: 'Your treatment, with a written and itemised quote first. A single implant and crown is ' + IMPLANT_PRICE + ' non-member; implant bridges and full-arch are quoted after assessment. Ask about ways to pay at your free 20-minute chat.' }
+      { n: '04', tag: BRIDGE_PRICE, free: false, title: 'Your treatment',    body: 'Your treatment, with a written and itemised quote first. Implant bridges start from ' + BRIDGE_PRICE + ' non-member; full-arch is quoted after assessment. Ask about ways to pay at your free 20-minute chat.' }
     ].map(function (s) {
       return Object.assign({}, s, {
         tagStyle: {
@@ -1761,14 +1753,13 @@ class Component extends DCLogic {
     });
 
     const whyCards = [
-      { t: 'Implants, every day',               b: 'Dr Puneet Jain focuses on implant dentistry in Sutton Coldfield, from a single tooth to a full arch.' },
+      { t: 'Implants, every day',               b: 'Dr Puneet Jain focuses on implant dentistry in Sutton Coldfield, from several missing teeth to a full arch.' },
       { t: 'The same dentist, start to finish', b: 'You see Dr Puneet Jain for your assessment, your treatment and your aftercare. He is here every day.' },
       { t: 'Royal College of Surgeons trained', b: 'Dr Puneet Jain holds the Diploma in Implant Dentistry from the Royal College of Surgeons of England.' },
       { t: 'In-house CT and Straumann',         b: 'Our own CT scanning for accurate planning, paired with premium Straumann implant systems.' }
     ];
 
     const options = [
-      { t: 'Single tooth',         slotId: 'opt-single',   shot: 'Single implant result close-up',  img: 'assets/img/single-tooth.webp',    b: 'One missing or failing tooth replaced with a single implant and crown that looks and works like your own.' , ag: 'single' },
       { t: 'Multiple teeth',       slotId: 'opt-multiple', shot: 'Implant bridge result close-up',  img: 'assets/img/multiple-tooth.webp',     b: 'Several teeth restored with an implant-supported bridge, without grinding down the healthy teeth beside them.' , ag: 'core' },
       { t: 'Full arch',      slotId: 'opt-arch',     shot: 'Full-arch result, finished smile', img: 'assets/img/full-arch.webp', b: 'A full set of fixed teeth secured on as few as four implants, a stable alternative to loose dentures.' , ag: 'fullarch' }
     ].map(function (o) {
@@ -1839,8 +1830,6 @@ class Component extends DCLogic {
       heroProof: heroCopy.heroProof,
       priceHeading, priceBody, showPriceIncludes,
       isFinanceVariant, isNonFinanceVariant, priceCardBody,
-      implantPrice: IMPLANT_PRICE,
-      implantPriceMember: IMPLANT_PRICE_MEMBER,
       bridgePrice: BRIDGE_PRICE,
       bridgePriceMember: BRIDGE_PRICE_MEMBER,
       scrollToForm: function () { self.scrollToForm(); },
