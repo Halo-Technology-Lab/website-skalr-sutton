@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clear Aligners with ClearCorrect | Sutton Dental &amp; Implant Clinic</title>
+  <meta name="description"
+    content="ClearCorrect clear aligners at Sutton Dental &amp; Implant Clinic in Sutton Coldfield. Discreet, removable, dentist-led. Book a free 20-minute chat.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="facebook-domain-verification" content="892gzr3w0ntjq22dqgp5hcydeze05w">
+  <!-- ============================================================
+     Ad-group variant routing (?ag=) + Consent Mode v2 defaults.
+     Runs BEFORE GTM loads so (a) GTM/consent-aware tags see the
+     correct consent state from the first request and (b) the
+     matched ag_variant is already in dataLayer when GTM boots.
+     Whitelist: core | single | fullarch | brand | finance
+     Unknown/missing value safely falls back to "core".
+     ============================================================ -->
+  <script>
+    (function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = window.gtag || gtag;
+
+      // --- Google Consent Mode v2: deny non-essential storage by default. ---
+      // Actual per-tag gating inside GTM (which tags respect which consent
+      // signal) is configured in the GTM container itself - see README.
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted',
+        wait_for_update: 500
+      });
+
+      // --- ?ag= whitelist + safe fallback ---
+      var WHITELIST = ['core', 'single', 'fullarch', 'brand', 'finance'];
+      var params = new URLSearchParams(window.location.search);
+      var raw = (params.get('ag') || '').toLowerCase().trim();
+      var variant = WHITELIST.indexOf(raw) !== -1 ? raw : 'core';
+      window.__AG_VARIANT = variant;
+
+      // Push before GTM loads so GTM (and any triggers/variables built on
+      // dataLayer) can see the matched ad-group variant from the first event.
+      window.dataLayer.push({ event: 'ag_variant', ag: variant });
+    })();
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MVFFLHVT');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MVFFLHVT" title="Google Tag Manager" height="0"
+      width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div id="consent-banner" role="dialog" aria-label="Cookie consent"
+    style="display:none;position:fixed;left:0;right:0;bottom:0;z-index:80;background:#FFFFFF;border-top:1px solid #E7E0D6;box-shadow:0 -6px 24px rgba(28,24,21,.14);padding:16px clamp(16px,4vw,32px);font-family:Inter,system-ui,sans-serif">
+    <div style="max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px">
+      <p style="flex:1 1 320px;margin:0;font:400 14px/1.5 Inter,sans-serif;color:#1C1815">We use cookies for site
+        analytics and to measure ad performance. Read our <a href="https://www.suttonsmiles.com/privacy-policy"
+          target="_blank" rel="noopener" style="color:#0E3B38;text-decoration:underline">privacy policy</a>.</p>
+      <div style="display:flex;gap:10px;flex:0 0 auto">
+        <button type="button" id="consent-reject"
+          style="background:transparent;color:#0E3B38;font:600 14px/1 Inter,sans-serif;padding:12px 16px;border:1.5px solid #CBBFAE;border-radius:10px;cursor:pointer">Necessary
+          only</button>
+        <button type="button" id="consent-accept"
+          style="background:#ED6A1A;color:#FFFFFF;font:600 14px/1 Inter,sans-serif;padding:12px 18px;border:none;border-radius:10px;cursor:pointer">Accept
+          all</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+
+      var STORAGE_KEY = 'sdic_consent_v1';
+      window.__consentState = { analytics: false, marketing: false };
+
+      function applyConsent(granted) {
+        window.__consentState = { analytics: granted, marketing: granted };
+        gtag('consent', 'update', {
+          ad_storage: granted ? 'granted' : 'denied',
+          ad_user_data: granted ? 'granted' : 'denied',
+          ad_personalization: granted ? 'granted' : 'denied',
+          analytics_storage: granted ? 'granted' : 'denied'
+        });
+      }
+
+      function hideBanner() {
+        var el = document.getElementById('consent-banner');
+        if (el) el.style.display = 'none';
+      }
+
+      var stored = null;
+      try { stored = window.localStorage.getItem(STORAGE_KEY); } catch (e) { }
+
+      if (stored === 'granted' || stored === 'denied') {
+        applyConsent(stored === 'granted');
+      } else {
+        document.addEventListener('DOMContentLoaded', function () {
+          var el = document.getElementById('consent-banner');
+          if (el) el.style.display = 'block';
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var acceptBtn = document.getElementById('consent-accept');
+        var rejectBtn = document.getElementById('consent-reject');
+        if (acceptBtn) acceptBtn.addEventListener('click', function () {
+          applyConsent(true);
+          try { window.localStorage.setItem(STORAGE_KEY, 'granted'); } catch (e) { }
+          hideBanner();
+        });
+        if (rejectBtn) rejectBtn.addEventListener('click', function () {
+          applyConsent(false);
+          try { window.localStorage.setItem(STORAGE_KEY, 'denied'); } catch (e) { }
+          hideBanner();
+        });
+
+        // --- tel_click: calls are a co-primary CTA and were unmeasured. ---
+        document.addEventListener('click', function (e) {
+          var link = e.target && e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+          if (!link) return;
+          window.dataLayer.push({
+            event: 'tel_click',
+            call_number: link.getAttribute('href').replace('tel:', ''),
+            ag: window.__AG_VARIANT || 'core'
+          });
+        }, true);
+      });
+    })();
+  </script>
+
+  <style>
+      <style>
+        /* vietnamese */
+        @font-face {
+          font-family: 'Fraunces';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("/assets/fonts/9b9cb41e-8948-483c-9527-320e77c224bd.woff2") format('woff2');
+          unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+
+        /* latin-ext */
+        @font-face {
+          font-family: 'Fraunces';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("/assets/fonts/2a365b33-4cf7-4a1c-b55c-df2c3cd014be.woff2") format('woff2');
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+          font-family: 'Fraunces';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("/assets/fonts/9f00af58-2fbb-4204-8abf-db4c69d4d1cd.woff2") format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* vietnamese */
+        @font-face {
+          font-family: 'Fraunces';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("/assets/fonts/9b9cb41e-8948-483c-9527-320e77c224bd.woff2") format('woff2');
+          unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+
+        /* latin-ext */
+        @font-face {
+          font-family: 'Fraunces';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("/assets/fonts/2a365b33-4cf7-4a1c-b55c-df2c3cd014be.woff2") format('woff2');
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+          font-family: 'Fraunces';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("/assets/fonts/9f00af58-2fbb-4204-8abf-db4c69d4d1cd.woff2") format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* vietnamese */
+        @font-face {
+          font-family: 'Fraunces';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("/assets/fonts/9b9cb41e-8948-483c-9527-320e77c224bd.woff2") format('woff2');
+          unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+
+        /* latin-ext */
+        @font-face {
+          font-family: 'Fraunces';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("/assets/fonts/2a365b33-4cf7-4a1c-b55c-df2c3cd014be.woff2") format('woff2');
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+          font-family: 'Fraunces';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("/assets/fonts/9f00af58-2fbb-4204-8abf-db4c69d4d1cd.woff2") format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* cyrillic-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url("/assets/fonts/2e0a4149-4437-4141-93cd-f470809afe57.woff2") format('woff2');
+          unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        }
+
+        /* cyrillic */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url("/assets/fonts/81b24d7f-4b4a-45dd-bbe3-23c095db9e31.woff2") format('woff2');
+          unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+
+        /* greek-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url("/assets/fonts/2eeebd13-32ca-4443-9091-6fed0aa5caeb.woff2") format('woff2');
+          unicode-range: U+1F00-1FFF;
+        }
+
+        /* greek */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url("/assets/fonts/e8de1825-cd03-454d-87c2-0707f1ff15d5.woff2") format('woff2');
+          unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+        }
+
+        /* vietnamese */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url("/assets/fonts/01784ae2-0daf-4fa2-89b0-daf330883c66.woff2") format('woff2');
+          unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+
+        /* latin-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url("/assets/fonts/a88cfd9e-0653-49c0-ae6c-c0d35edcbd11.woff2") format('woff2');
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url("/assets/fonts/7a354dda-5818-4f21-8ff2-7aff6ea36f49.woff2") format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* cyrillic-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("/assets/fonts/2e0a4149-4437-4141-93cd-f470809afe57.woff2") format('woff2');
+          unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        }
+
+        /* cyrillic */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("/assets/fonts/81b24d7f-4b4a-45dd-bbe3-23c095db9e31.woff2") format('woff2');
+          unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+
+        /* greek-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("/assets/fonts/2eeebd13-32ca-4443-9091-6fed0aa5caeb.woff2") format('woff2');
+          unicode-range: U+1F00-1FFF;
+        }
+
+        /* greek */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("/assets/fonts/e8de1825-cd03-454d-87c2-0707f1ff15d5.woff2") format('woff2');
+          unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+        }
+
+        /* vietnamese */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("/assets/fonts/01784ae2-0daf-4fa2-89b0-daf330883c66.woff2") format('woff2');
+          unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+
+        /* latin-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("/assets/fonts/a88cfd9e-0653-49c0-ae6c-c0d35edcbd11.woff2") format('woff2');
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url("/assets/fonts/7a354dda-5818-4f21-8ff2-7aff6ea36f49.woff2") format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* cyrillic-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("/assets/fonts/2e0a4149-4437-4141-93cd-f470809afe57.woff2") format('woff2');
+          unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        }
+
+        /* cyrillic */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("/assets/fonts/81b24d7f-4b4a-45dd-bbe3-23c095db9e31.woff2") format('woff2');
+          unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+
+        /* greek-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("/assets/fonts/2eeebd13-32ca-4443-9091-6fed0aa5caeb.woff2") format('woff2');
+          unicode-range: U+1F00-1FFF;
+        }
+
+        /* greek */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("/assets/fonts/e8de1825-cd03-454d-87c2-0707f1ff15d5.woff2") format('woff2');
+          unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+        }
+
+        /* vietnamese */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("/assets/fonts/01784ae2-0daf-4fa2-89b0-daf330883c66.woff2") format('woff2');
+          unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+
+        /* latin-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("/assets/fonts/a88cfd9e-0653-49c0-ae6c-c0d35edcbd11.woff2") format('woff2');
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url("/assets/fonts/7a354dda-5818-4f21-8ff2-7aff6ea36f49.woff2") format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* cyrillic-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("/assets/fonts/2e0a4149-4437-4141-93cd-f470809afe57.woff2") format('woff2');
+          unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        }
+
+        /* cyrillic */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("/assets/fonts/81b24d7f-4b4a-45dd-bbe3-23c095db9e31.woff2") format('woff2');
+          unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+
+        /* greek-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("/assets/fonts/2eeebd13-32ca-4443-9091-6fed0aa5caeb.woff2") format('woff2');
+          unicode-range: U+1F00-1FFF;
+        }
+
+        /* greek */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("/assets/fonts/e8de1825-cd03-454d-87c2-0707f1ff15d5.woff2") format('woff2');
+          unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+        }
+
+        /* vietnamese */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("/assets/fonts/01784ae2-0daf-4fa2-89b0-daf330883c66.woff2") format('woff2');
+          unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+
+        /* latin-ext */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("/assets/fonts/a88cfd9e-0653-49c0-ae6c-c0d35edcbd11.woff2") format('woff2');
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("/assets/fonts/7a354dda-5818-4f21-8ff2-7aff6ea36f49.woff2") format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+      </style>
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        html {
+          -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+          margin: 0;
+          background: #FBF8F4;
+          color: #1C1815;
+          font-family: Inter, system-ui, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          text-rendering: optimizeLegibility;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+          font-family: inherit;
+        }
+
+        a {
+          color: inherit;
+        }
+
+        :focus-visible {
+          outline: 2px solid #0E3B38;
+          outline-offset: 2px;
+          border-radius: 4px;
+        }
+
+        @keyframes scprogress {
+          0% {
+            transform: translateX(-100%);
+          }
+
+          100% {
+            transform: translateX(0);
+          }
+        }
+
+        @media (max-width: 659px) {
+          #enquiry-grid {
+            display: flex !important;
+            flex-direction: column;
+          }
+
+          #enquiry-intro-block {
+            order: 1;
+          }
+
+          #enquiry-list-block {
+            order: 2;
+          }
+
+          #enquiry-image-block {
+            order: 3;
+          }
+
+          #enquiry-form-block {
+            order: 4;
+          }
+        }
+      </style>
+  </style>
+
+  <div style="width:100%;overflow-x:hidden;font-family:Inter,system-ui,sans-serif">
+
+    <!-- sticky mobile bar -->
+    <div style="position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#FFFFFF;border-top:1px solid #E7E0D6;box-shadow:0 -6px 20px rgba(28,24,21,.10)" id="cc-mobile-bar">
+      <a href="tel:01213541922" style="flex:1 1 0;display:inline-flex;align-items:center;justify-content:center;gap:7px;background:#FFFFFF;color:#0E3B38;font:700 16px/1 Inter,sans-serif;padding:14px 12px;border:1.5px solid #0E3B38;border-radius:11px;min-height:50px;text-decoration:none">Call</a>
+      <button type="button" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})" style="flex:1.5 1 0;display:inline-flex;align-items:center;justify-content:center;gap:7px;background:#ED6A1A;color:#FFFFFF;font:700 16px/1.05 Inter,sans-serif;padding:14px 12px;border:none;border-radius:11px;min-height:50px;cursor:pointer;box-shadow:0 4px 14px rgba(237,106,26,.32)">Book free 20-min chat</button>
+    </div>
+
+    <!-- HERO -->
+    <header style="background:#FBF8F4">
+      <div style="max-width:1080px;margin:0 auto;padding:clamp(28px,5vw,52px) clamp(20px,5vw,40px) clamp(40px,6vw,72px)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(28px,4.5vw,56px);align-items:center">
+          <div>
+            <p style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1E7A53;margin:0 0 18px">Sutton Coldfield &middot; Clear Aligners</p>
+            <h1 style="font:600 clamp(33px,6vw,56px)/1.08 Fraunces,serif;letter-spacing:-.015em;color:#1C1815;margin:0">Straighten Your Teeth with Clear Aligners</h1>
+            <p style="font:400 clamp(18px,2.4vw,20px)/1.55 Inter,sans-serif;color:#5C544B;margin:20px 0 0;max-width:34ch">Discreet, removable ClearCorrect clear aligners at Sutton Dental &amp; Implant Clinic in Sutton Coldfield. It starts with a free 20-minute chat.</p>
+            <p style="font:600 15px/1.5 Inter,sans-serif;color:#0E3B38;margin:14px 0 0;max-width:40ch">Clear aligners planned, fitted and reviewed by your own dentist in Sutton Coldfield.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:30px">
+              <button type="button" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#ED6A1A;color:#FFFFFF;font:600 clamp(16px,2.2vw,18px)/1.1 Inter,sans-serif;padding:18px 28px;border:none;border-radius:12px;cursor:pointer;min-height:56px;box-shadow:0 6px 18px rgba(237,106,26,.26)">Book your free 20-minute chat</button>
+              <a href="tel:01213541922" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:transparent;color:#0E3B38;font:600 clamp(16px,2.2vw,18px)/1.1 Inter,sans-serif;padding:18px 22px;border:1.5px solid #CBBFAE;border-radius:12px;min-height:56px;text-decoration:none">Call&nbsp;0121&nbsp;354&nbsp;1922</a>
+            </div>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;margin-top:22px;font:500 15px/1.4 Inter,sans-serif;color:#5C544B">
+              <span style="color:#E8A33D;letter-spacing:2px;font-size:16px">&starf;&starf;&starf;&starf;&starf;</span>
+              <span><strong style="color:#1C1815;font-weight:700">4.9</strong> on Google &middot; [REVIEW COUNT - LOCK WITH CLINIC] reviews</span>
+            </div>
+          </div>
+          <div style="position:relative">
+            <img loading="lazy" decoding="async" src="/assets/img/0630.webp" alt="Dr Puneet Jain at Sutton Dental &amp; Implant Clinic" style="display:block;width:100%;aspect-ratio:4/5;max-height:560px;border-radius:18px;object-fit:cover;background:#0B2F2C">
+            <div style="position:absolute;left:16px;bottom:16px;display:inline-flex;align-items:center;gap:11px;background:#FFFFFF;border-radius:14px;padding:11px 15px;box-shadow:0 12px 30px rgba(28,24,21,.18)">
+              <span style="color:#E8A33D;letter-spacing:1.5px;font-size:15px">&starf;&starf;&starf;&starf;&starf;</span>
+              <span style="font:600 14px/1.2 Inter,sans-serif;color:#1C1815">4.9 on Google &middot; <span style="color:#5C544B;font-weight:500">[REVIEW COUNT - LOCK WITH CLINIC] reviews</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- TRUST STRIP -->
+    <div style="background:#0E3B38">
+      <div style="max-width:1080px;margin:0 auto;padding:20px clamp(20px,5vw,40px)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 24px">
+          <div style="display:flex;align-items:center;gap:9px;font:600 14px/1.4 Inter,sans-serif;color:#EAF1EF"><span style="color:#7FB3A9">&check;</span>Dentist-led clear aligners</div>
+          <div style="display:flex;align-items:center;gap:9px;font:600 14px/1.4 Inter,sans-serif;color:#EAF1EF"><span style="color:#7FB3A9">&check;</span>Rated 4.9 on Google</div>
+          <div style="display:flex;align-items:center;gap:9px;font:600 14px/1.4 Inter,sans-serif;color:#EAF1EF"><span style="color:#7FB3A9">&check;</span>Removable and discreet</div>
+          <div style="display:flex;align-items:center;gap:9px;font:600 14px/1.4 Inter,sans-serif;color:#EAF1EF"><span style="color:#7FB3A9">&check;</span>ClearCorrect clear aligners</div>
+          <div style="display:flex;align-items:center;gap:9px;font:600 14px/1.4 Inter,sans-serif;color:#EAF1EF"><span style="color:#7FB3A9">&check;</span>Sutton Coldfield</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <section style="background:#FBF8F4;padding:clamp(52px,8vw,96px) 0">
+      <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+        <p style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1E7A53;margin:0 0 14px">How it works</p>
+        <h2 style="font:600 clamp(28px,4.4vw,44px)/1.12 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0;max-width:22ch">Four clear steps. The first two are free.</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,232px),1fr));gap:16px;margin-top:38px">
+<div style="display:flex;flex-direction:column;gap:14px;background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:24px"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="font:600 26px/1 Fraunces,serif;color:#D8CDBC"></span><span style="display:inline-flex;align-items:center;align-self:flex-start;font:700 12px/1 Inter,sans-serif;letter-spacing:.04em;text-transform:uppercase;padding:6px 11px;border-radius:999px;color:#1E7A53;background:rgba(30,122,83,.10)">Free</span></div><h3 style="font:600 clamp(19px,2.6vw,21px)/1.2 Fraunces,serif;color:#1C1815;margin:0">Free cost chat</h3><p style="font:400 16px/1.55 Inter,sans-serif;color:#5C544B;margin:0">A quick, no-obligation chat with the team to see if clear aligners are a good fit and to answer your first questions.</p></div>
+<div style="display:flex;flex-direction:column;gap:14px;background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:24px"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="font:600 26px/1 Fraunces,serif;color:#D8CDBC"></span><span style="display:inline-flex;align-items:center;align-self:flex-start;font:700 12px/1 Inter,sans-serif;letter-spacing:.04em;text-transform:uppercase;padding:6px 11px;border-radius:999px;color:#1E7A53;background:rgba(30,122,83,.10)">Free</span></div><h3 style="font:600 clamp(19px,2.6vw,21px)/1.2 Fraunces,serif;color:#1C1815;margin:0">20 minutes with the dentist</h3><p style="font:400 16px/1.55 Inter,sans-serif;color:#5C544B;margin:0">Meet the dentist before you spend a penny. A real conversation about your options, with no sales pitch.</p></div>
+<div style="display:flex;flex-direction:column;gap:14px;background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:24px"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="font:600 26px/1 Fraunces,serif;color:#D8CDBC"></span><span style="display:inline-flex;align-items:center;align-self:flex-start;font:700 12px/1 Inter,sans-serif;letter-spacing:.04em;text-transform:uppercase;padding:6px 11px;border-radius:999px;color:#0E3B38;background:rgba(14,59,56,.09)">Consultation</span></div><h3 style="font:600 clamp(19px,2.6vw,21px)/1.2 Fraunces,serif;color:#1C1815;margin:0">Assessment and digital scan</h3><p style="font:400 16px/1.55 Inter,sans-serif;color:#5C544B;margin:0">A clinical assessment and a digital scan of your teeth, so we can plan the right aligner treatment for you.</p></div>
+<div style="display:flex;flex-direction:column;gap:14px;background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:24px"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="font:600 26px/1 Fraunces,serif;color:#D8CDBC"></span><span style="display:inline-flex;align-items:center;align-self:flex-start;font:700 12px/1 Inter,sans-serif;letter-spacing:.04em;text-transform:uppercase;padding:6px 11px;border-radius:999px;color:#0E3B38;background:rgba(14,59,56,.09)">Your aligners</span></div><h3 style="font:600 clamp(19px,2.6vw,21px)/1.2 Fraunces,serif;color:#1C1815;margin:0">Wear and review</h3><p style="font:400 16px/1.55 Inter,sans-serif;color:#5C544B;margin:0">You wear a series of custom ClearCorrect aligners, around 20 to 22 hours a day, and we review your progress as your teeth move into place.</p></div>
+        </div>
+        <p style="margin:26px 0 0;font:500 16px/1.6 Inter,sans-serif;color:#5C544B;max-width:60ch">The free 20 minutes with the dentist is the real first step, with no pressure and no commitment.</p>
+      </div>
+    </section>
+
+    <!-- WHY CLEARCORRECT -->
+    <section style="background:#F3EEE6;padding:clamp(52px,8vw,96px) 0">
+      <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+        <p style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1E7A53;margin:0 0 16px">Why ClearCorrect</p>
+        <h2 style="font:600 clamp(28px,4.4vw,44px)/1.12 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0 0 30px;max-width:18ch">A clear way to straighten your teeth</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px">
+<div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:28px"><h3 style="font:600 clamp(19px,2.6vw,21px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 12px">Clear and hard to notice</h3><p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">Made of transparent plastic, ClearCorrect aligners are virtually invisible when worn.</p></div>
+<div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:28px"><h3 style="font:600 clamp(19px,2.6vw,21px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 12px">Smooth and comfortable</h3><p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">A set of custom aligners with no metal brackets or wires.</p></div>
+<div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:28px"><h3 style="font:600 clamp(19px,2.6vw,21px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 12px">Removable</h3><p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">Take them out to eat, drink and clean your teeth as normal, then pop them back in.</p></div>
+<div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:28px"><h3 style="font:600 clamp(19px,2.6vw,21px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 12px">From minor to full-mouth</h3><p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">Tailored to minor adjustments or to full-mouth alignment, depending on what you need.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT ALIGNERS CAN HELP WITH -->
+    <section style="background:#FBF8F4;padding:clamp(52px,8vw,96px) 0">
+      <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+        <h2 style="font:600 clamp(28px,4.4vw,44px)/1.12 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0 0 20px">What clear aligners can help with</h2>
+        <p style="font:400 clamp(18px,2.2vw,19px)/1.6 Inter,sans-serif;color:#5C544B;margin:0 0 30px;max-width:60ch">Clear aligners can gently move your teeth into a straighter position. They suit a range of cases, from small adjustments to the front teeth through to fuller alignment. At your assessment the dentist will confirm whether clear aligners are right for you.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px">
+<div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:28px"><h3 style="font:600 clamp(19px,2.6vw,21px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 12px">Crowding</h3><p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">Teeth that overlap or sit too close together.</p></div>
+<div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:28px"><h3 style="font:600 clamp(19px,2.6vw,21px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 12px">Gaps and spacing</h3><p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">Spaces between the teeth you would like to close.</p></div>
+<div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:28px"><h3 style="font:600 clamp(19px,2.6vw,21px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 12px">The front &lsquo;social six&rsquo;</h3><p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">Minor adjustments to the front teeth, often the quickest cases.</p></div>
+<div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:28px"><h3 style="font:600 clamp(19px,2.6vw,21px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 12px">Full-mouth alignment</h3><p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">A fuller correction across the whole smile.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT TO EXPECT / TIMELINE -->
+    <section style="background:#F3EEE6;padding:clamp(52px,8vw,96px) 0">
+      <div style="max-width:820px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+        <p style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1E7A53;margin:0 0 14px">What to expect</p>
+        <h2 style="font:600 clamp(28px,4.4vw,44px)/1.12 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0 0 20px">Your clear aligner journey</h2>
+        <p style="font:400 clamp(18px,2.2vw,19px)/1.6 Inter,sans-serif;color:#5C544B;margin:0 0 16px">After your assessment and digital scan, a series of custom ClearCorrect aligners is made for you. You wear each set in turn, around 20 to 22 hours a day, and your teeth move gradually towards their planned position. You come in for reviews along the way.</p>
+        <p style="font:400 clamp(18px,2.2vw,19px)/1.6 Inter,sans-serif;color:#5C544B;margin:0">Treatment usually takes around six to eighteen months, depending on how much movement is needed, and up to around two years for full-mouth correction. Your own timeline is confirmed at your consultation.</p>
+      </div>
+    </section>
+
+    <!-- MEET YOUR DENTIST -->
+    <section style="background:#0E3B38;padding:clamp(52px,8vw,96px) 0">
+      <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(28px,4vw,56px);align-items:center">
+          <div style="position:relative;width:100%;aspect-ratio:4/5;max-height:540px;border-radius:18px;overflow:hidden">
+            <img loading="lazy" decoding="async" src="/assets/img/0707.webp" alt="Dr Puneet Jain with a patient at Sutton Dental &amp; Implant Clinic" style="display:block;width:100%;height:100%;object-fit:cover">
+          </div>
+          <div>
+            <p style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#7FB3A9;margin:0 0 14px">Meet your dentist</p>
+            <h2 style="font:600 clamp(28px,4.4vw,40px)/1.12 Fraunces,serif;letter-spacing:-.01em;color:#FFFFFF;margin:0">Dr Puneet Jain</h2>
+            <p style="font:400 clamp(18px,2.2vw,19px)/1.6 Inter,sans-serif;color:#D7E4E1;margin:16px 0 0">Clear aligner treatment at Sutton Dental &amp; Implant Clinic is planned and looked after by your own dentist, from your first assessment through to your reviews. Qualified 2006 (BDS, London). GDC No. 103973.</p>
+            <blockquote style="margin:26px 0 0;padding:22px 26px;border-left:3px solid #ED6A1A;background:rgba(255,255,255,.05);border-radius:0 12px 12px 0">
+              <p style="font:500 clamp(20px,2.8vw,25px)/1.4 Fraunces,serif;font-style:italic;color:#FFFFFF;margin:0">&ldquo;This is my practice. I&rsquo;m here every day. If you have a question or a concern, you call us, and you get seen.&rdquo;</p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING (quoted after consultation; no finance, no per-day) -->
+    <section style="background:#FBF8F4;padding:clamp(52px,8vw,96px) 0">
+      <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(28px,4vw,52px);align-items:start">
+          <div>
+            <p style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1E7A53;margin:0 0 14px">Your aligner plan</p>
+            <h2 style="font:600 clamp(30px,5vw,48px)/1.1 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0">Quoted after your consultation</h2>
+            <p style="font:400 clamp(18px,2.2vw,19px)/1.6 Inter,sans-serif;color:#5C544B;margin:18px 0 0">Every smile is different, so your clear aligner plan and price are confirmed after a consultation and digital scan. You get a written, itemised quote before any treatment starts.</p>
+          </div>
+          <div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:16px;padding:clamp(24px,3vw,32px);box-shadow:0 1px 3px rgba(28,24,21,.05)">
+            <p style="font:700 13px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#1E7A53;margin:0 0 10px">Ways to pay</p>
+            <p style="font:600 clamp(24px,3.6vw,30px)/1.15 Fraunces,serif;color:#0E3B38;margin:0">Flexible ways to pay</p>
+            <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:16px 0 0">Ask us about the payment options available at your free 20-minute chat.</p>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:clamp(40px,6vw,60px)">
+          <button type="button" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#ED6A1A;color:#FFFFFF;font:600 clamp(16px,2.2vw,18px)/1.1 Inter,sans-serif;padding:18px 30px;border:none;border-radius:12px;cursor:pointer;min-height:56px;box-shadow:0 6px 18px rgba(237,106,26,.26)">Book your free 20-minute chat</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS (general clinic reviews; no competitor-brand reference) -->
+    <section style="background:#F3EEE6;padding:clamp(52px,8vw,96px) 0">
+      <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+        <p style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1E7A53;margin:0 0 16px">Patient stories</p>
+        <h2 style="font:600 clamp(28px,4.4vw,42px)/1.14 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0 0 30px">Trusted by patients across the West Midlands</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
+<div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:28px"><div style="color:#E8A33D;letter-spacing:2px;margin-bottom:12px">&starf;&starf;&starf;&starf;&starf;</div><blockquote style="margin:0;font:500 18px/1.5 Fraunces,serif;color:#1C1815">&ldquo;I used to be scared of the dentist and had no confidence in my smile because of how my teeth looked. After reading the amazing...&rdquo;</blockquote><p style="margin:14px 0 0;font:600 14px/1.4 Inter,sans-serif;color:#5C544B">Danny H</p></div>
+<div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:28px"><div style="color:#E8A33D;letter-spacing:2px;margin-bottom:12px">&starf;&starf;&starf;&starf;&starf;</div><blockquote style="margin:0;font:500 18px/1.5 Fraunces,serif;color:#1C1815">&ldquo;I&rsquo;ve been with this practice for over 30 years, and for as long as I can remember, I&rsquo;ve never been happy with the appearance of...&rdquo;</blockquote><p style="margin:14px 0 0;font:600 14px/1.4 Inter,sans-serif;color:#5C544B">Christina F</p></div>
+<div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:28px"><div style="color:#E8A33D;letter-spacing:2px;margin-bottom:12px">&starf;&starf;&starf;&starf;&starf;</div><blockquote style="margin:0;font:500 18px/1.5 Fraunces,serif;color:#1C1815">&ldquo;I chose this practice because I truly believed it was the best in the area for me and my family. During my time here, I&rsquo;ve...&rdquo;</blockquote><p style="margin:14px 0 0;font:600 14px/1.4 Inter,sans-serif;color:#5C544B">Grace C</p></div>
+        </div>
+        <p style="margin:24px 0 0;font:400 13px/1.5 Inter,sans-serif;color:#7C7264">Individual results vary.</p>
+      </div>
+    </section>
+
+    <!-- ENQUIRY FORM -->
+    <section id="enquiry" style="background:#FBF8F4;padding:clamp(52px,8vw,96px) 0;scroll-margin-top:16px">
+      <div style="max-width:720px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+        <div id="cc-form-block" style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:18px;padding:clamp(26px,4vw,40px);box-shadow:0 10px 40px rgba(28,24,21,.07)">
+          <div id="cc-form-wrap">
+            <p style="font:700 13px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#1E7A53;margin:0 0 12px">Free &middot; No commitment</p>
+            <h2 style="font:600 clamp(26px,4vw,38px)/1.14 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0">Book your free 20-minute chat</h2>
+            <p style="font:400 17px/1.55 Inter,sans-serif;color:#5C544B;margin:14px 0 0">Tell us a little about you and our team will be in touch to arrange a time with the dentist.</p>
+            <form id="cc-form" style="margin-top:26px;display:flex;flex-direction:column;gap:18px">
+              <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+                <label for="cc-website">Leave this field blank</label>
+                <input id="cc-website" name="website" type="text" tabindex="-1" autocomplete="off">
+              </div>
+              <div>
+                <label for="cc-name" style="display:block;font:600 14px/1 Inter,sans-serif;color:#1C1815;margin-bottom:8px">Full name</label>
+                <input id="cc-name" name="name" type="text" required autocomplete="name" placeholder="Your name" style="width:100%;font:400 16px/1.4 Inter,sans-serif;color:#1C1815;background:#FBF8F4;border:1px solid #E7E0D6;border-radius:10px;padding:14px;min-height:52px">
+              </div>
+              <div>
+                <label for="cc-phone" style="display:block;font:600 14px/1 Inter,sans-serif;color:#1C1815;margin-bottom:8px">Phone</label>
+                <input id="cc-phone" name="phone" type="tel" required autocomplete="tel" placeholder="Mobile or landline" style="width:100%;font:400 16px/1.4 Inter,sans-serif;color:#1C1815;background:#FBF8F4;border:1px solid #E7E0D6;border-radius:10px;padding:14px;min-height:52px">
+              </div>
+              <div>
+                <label for="cc-email" style="display:block;font:600 14px/1 Inter,sans-serif;color:#1C1815;margin-bottom:8px">Email</label>
+                <input id="cc-email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" style="width:100%;font:400 16px/1.4 Inter,sans-serif;color:#1C1815;background:#FBF8F4;border:1px solid #E7E0D6;border-radius:10px;padding:14px;min-height:52px">
+              </div>
+              <div>
+                <label for="cc-need" style="display:block;font:600 14px/1 Inter,sans-serif;color:#1C1815;margin-bottom:8px">What would you like to straighten?</label>
+                <select id="cc-need" name="need" required style="width:100%;font:400 16px/1.4 Inter,sans-serif;color:#1C1815;background:#FBF8F4;border:1px solid #E7E0D6;border-radius:10px;padding:14px;min-height:52px;appearance:none">
+                  <option value="" disabled selected>Please choose&hellip;</option>
+                  <option value="front-teeth">The front teeth</option>
+                  <option value="crowding">Crowding</option>
+                  <option value="gaps">Gaps or spacing</option>
+                  <option value="full-mouth">Full-mouth alignment</option>
+                  <option value="not-sure">Not sure yet</option>
+                </select>
+              </div>
+              <div>
+                <label for="cc-time" style="display:block;font:600 14px/1 Inter,sans-serif;color:#1C1815;margin-bottom:8px">Preferred time</label>
+                <select id="cc-time" name="time" required style="width:100%;font:400 16px/1.4 Inter,sans-serif;color:#1C1815;background:#FBF8F4;border:1px solid #E7E0D6;border-radius:10px;padding:14px;min-height:52px;appearance:none">
+                  <option value="" disabled selected>Please choose&hellip;</option>
+                  <option value="morning">Morning</option>
+                  <option value="afternoon">Afternoon</option>
+                  <option value="evening">Evening</option>
+                </select>
+              </div>
+              <label style="display:flex;gap:11px;align-items:flex-start;font:400 14px/1.5 Inter,sans-serif;color:#5C544B;cursor:pointer">
+                <input id="cc-consent" name="consent" type="checkbox" required style="margin-top:2px;width:20px;height:20px;flex:0 0 auto;accent-color:#0E3B38">
+                <span>I&rsquo;m happy for Sutton Dental &amp; Implant Clinic to contact me about my enquiry. We&rsquo;ll never share your details. <a href="https://www.suttonsmiles.com/privacy-policy" target="_blank" rel="noopener" style="color:#0E3B38;text-decoration:underline">Privacy</a>.</span>
+              </label>
+              <p id="cc-error" role="alert" style="display:none;margin:0;padding:14px 16px;border-radius:10px;background:rgba(196,60,40,.08);border:1px solid rgba(196,60,40,.25);font:500 15px/1.5 Inter,sans-serif;color:#8A2E1E">That didn&rsquo;t send. Please fill in all the fields, or call us on <a href="tel:01213541922" style="color:#8A2E1E;font-weight:700;text-decoration:underline">0121&nbsp;354&nbsp;1922</a> and we&rsquo;ll book you in directly.</p>
+              <button id="cc-submit" type="submit" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;background:#ED6A1A;color:#FFFFFF;font:700 18px/1.1 Inter,sans-serif;padding:18px 24px;border:none;border-radius:12px;cursor:pointer;min-height:58px;box-shadow:0 6px 18px rgba(237,106,26,.26)">Book my free chat</button>
+              <p style="text-align:center;margin:2px 0 0;font:400 14px/1.5 Inter,sans-serif;color:#7C7264">No pressure, no commitment. Our team will be in touch.</p>
+            </form>
+          </div>
+          <div id="cc-thanks" role="status" aria-live="polite" style="display:none;text-align:center;padding:14px 0">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:rgba(30,122,83,.12);color:#1E7A53;font-size:32px;font-weight:700;margin-bottom:8px">&check;</span>
+            <h2 style="font:600 clamp(24px,4vw,34px)/1.16 Fraunces,serif;color:#1C1815;margin:14px 0 0">Thank you<span id="cc-thanks-name"></span>, your request is in.</h2>
+            <p style="font:400 18px/1.6 Inter,sans-serif;color:#5C544B;margin:14px auto 0;max-width:42ch">Our team will be in touch shortly to arrange your free 20-minute chat. No pressure, no commitment.</p>
+            <p style="font:500 16px/1.6 Inter,sans-serif;color:#1C1815;margin:22px 0 0">Prefer to talk now? <a href="tel:01213541922" style="color:#0E3B38;font-weight:700;text-decoration:underline">Call&nbsp;0121&nbsp;354&nbsp;1922</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="background:#FFFFFF;padding:clamp(52px,8vw,96px) 0">
+      <div style="max-width:820px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+        <h2 style="font:600 clamp(28px,4.4vw,44px)/1.12 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0 0 14px">Questions, answered</h2>
+        <div id="cc-faq" style="margin-top:18px">
+<div style="border-top:1px solid #E7E0D6"><button type="button" data-faq aria-expanded="false" style="display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;text-align:left;cursor:pointer;background:none;border:none;padding:22px 2px;font:600 clamp(17px,2.4vw,20px)/1.35 Fraunces,serif;color:#1C1815"><span style="flex:1 1 auto">What is ClearCorrect?</span><span data-sign style="flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(14,59,56,.08);color:#0E3B38;font:500 21px/1 Inter,sans-serif;transition:all .4s ease">+</span></button><div style="overflow:hidden;max-height:0px;opacity:0;padding:0 2px;max-width:700px;font:400 18px/1.6 Inter,sans-serif;color:#5C544B;transition:max-height .5s ease,opacity .4s ease,padding .4s ease">ClearCorrect is a clear aligner system that straightens teeth without metal braces. It uses a series of custom-made, removable aligners that you wear in a set sequence to move your teeth gradually.</div></div>
+<div style="border-top:1px solid #E7E0D6"><button type="button" data-faq aria-expanded="false" style="display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;text-align:left;cursor:pointer;background:none;border:none;padding:22px 2px;font:600 clamp(17px,2.4vw,20px)/1.35 Fraunces,serif;color:#1C1815"><span style="flex:1 1 auto">How long do you wear the aligners?</span><span data-sign style="flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(14,59,56,.08);color:#0E3B38;font:500 21px/1 Inter,sans-serif;transition:all .4s ease">+</span></button><div style="overflow:hidden;max-height:0px;opacity:0;padding:0 2px;max-width:700px;font:400 18px/1.6 Inter,sans-serif;color:#5C544B;transition:max-height .5s ease,opacity .4s ease,padding .4s ease">You wear them around 20 to 22 hours a day, taking them out to eat, drink and clean your teeth. The more consistently you wear them, the better they work.</div></div>
+<div style="border-top:1px solid #E7E0D6"><button type="button" data-faq aria-expanded="false" style="display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;text-align:left;cursor:pointer;background:none;border:none;padding:22px 2px;font:600 clamp(17px,2.4vw,20px)/1.35 Fraunces,serif;color:#1C1815"><span style="flex:1 1 auto">How long does treatment take?</span><span data-sign style="flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(14,59,56,.08);color:#0E3B38;font:500 21px/1 Inter,sans-serif;transition:all .4s ease">+</span></button><div style="overflow:hidden;max-height:0px;opacity:0;padding:0 2px;max-width:700px;font:400 18px/1.6 Inter,sans-serif;color:#5C544B;transition:max-height .5s ease,opacity .4s ease,padding .4s ease">Most cases take around six to eighteen months, depending on how much movement is needed, and up to around two years for full-mouth correction. Your own timeline is confirmed at your consultation.</div></div>
+<div style="border-top:1px solid #E7E0D6"><button type="button" data-faq aria-expanded="false" style="display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;text-align:left;cursor:pointer;background:none;border:none;padding:22px 2px;font:600 clamp(17px,2.4vw,20px)/1.35 Fraunces,serif;color:#1C1815"><span style="flex:1 1 auto">Are the aligners removable?</span><span data-sign style="flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(14,59,56,.08);color:#0E3B38;font:500 21px/1 Inter,sans-serif;transition:all .4s ease">+</span></button><div style="overflow:hidden;max-height:0px;opacity:0;padding:0 2px;max-width:700px;font:400 18px/1.6 Inter,sans-serif;color:#5C544B;transition:max-height .5s ease,opacity .4s ease,padding .4s ease">Yes. You take them out to eat and to clean your teeth, then put them back in. There are no fixed brackets or wires.</div></div>
+<div style="border-top:1px solid #E7E0D6"><button type="button" data-faq aria-expanded="false" style="display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;text-align:left;cursor:pointer;background:none;border:none;padding:22px 2px;font:600 clamp(17px,2.4vw,20px)/1.35 Fraunces,serif;color:#1C1815"><span style="flex:1 1 auto">What is the difference between the free chat and the consultation?</span><span data-sign style="flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(14,59,56,.08);color:#0E3B38;font:500 21px/1 Inter,sans-serif;transition:all .4s ease">+</span></button><div style="overflow:hidden;max-height:0px;opacity:0;padding:0 2px;max-width:700px;font:400 18px/1.6 Inter,sans-serif;color:#5C544B;transition:max-height .5s ease,opacity .4s ease,padding .4s ease">The free 20 minutes is a relaxed conversation with the dentist to understand what you would like to change. The consultation is the full assessment, with a digital scan and a written treatment plan.</div></div>
+        </div>
+        <div style="border-top:1px solid #E7E0D6"></div>
+        <div style="text-align:center;margin-top:clamp(40px,6vw,56px)">
+          <button type="button" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#ED6A1A;color:#FFFFFF;font:600 clamp(16px,2.2vw,18px)/1.1 Inter,sans-serif;padding:18px 30px;border:none;border-radius:12px;cursor:pointer;min-height:56px;box-shadow:0 6px 18px rgba(237,106,26,.26)">Book your free 20-minute chat</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="background:#0B2F2C;padding:clamp(44px,6vw,68px) 0 clamp(96px,10vw,56px)">
+      <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:28px 40px">
+          <div>
+            <p style="font:600 19px/1.3 Fraunces,serif;color:#FFFFFF;margin:0 0 10px">Sutton Dental &amp; Implant Clinic</p>
+            <p style="font:400 15px/1.6 Inter,sans-serif;color:rgba(255,255,255,.78);margin:0">60 Birmingham Road, Sutton Coldfield, B72 1QP</p>
+          </div>
+          <div>
+            <p style="font:700 12px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:0 0 12px">Contact</p>
+            <p style="margin:0 0 8px"><a href="tel:01213541922" style="font:600 16px/1.4 Inter,sans-serif;color:#FFFFFF;text-decoration:none">0121&nbsp;354&nbsp;1922</a></p>
+            <p style="margin:0"><a href="mailto:reception@suttonsmiles.com" style="font:500 15px/1.4 Inter,sans-serif;color:rgba(255,255,255,.85);text-decoration:none">reception@suttonsmiles.com</a></p>
+          </div>
+          <div>
+            <p style="font:700 12px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:0 0 12px">Opening hours</p>
+            <div style="display:flex;flex-direction:column;gap:7px;font:500 14px/1.5 Inter,sans-serif;color:rgba(255,255,255,.82)">
+              <div style="display:flex;justify-content:space-between;gap:16px"><span>Monday</span><span>08:30 AM to 5:30 PM</span></div>
+              <div style="display:flex;justify-content:space-between;gap:16px"><span>Tuesday</span><span>08:30 AM to 5:30 PM</span></div>
+              <div style="display:flex;justify-content:space-between;gap:16px"><span>Wednesday</span><span>08:30 AM to 6:30 PM</span></div>
+              <div style="display:flex;justify-content:space-between;gap:16px"><span>Thursday</span><span>08:30 AM to 5:30 PM</span></div>
+              <div style="display:flex;justify-content:space-between;gap:16px"><span>Friday</span><span>08:30 AM to 2:00 PM</span></div>
+            </div>
+          </div>
+          <div>
+            <p style="font:700 12px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:0 0 12px">Regulatory</p>
+            <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.7);margin:0 0 8px">Dr Puneet Jain, GDC No. 103973. Qualified 2006 in the UK (BDS, London). Registered with the <a href="https://www.gdc-uk.org" target="_blank" rel="noopener" style="color:#FFFFFF;text-decoration:underline">General Dental Council</a>.</p>
+            <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.7);margin:0 0 8px">Sutton Dental &amp; Implant Clinic is a fully private practice.</p>
+            <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.7);margin:0">GDC, 37 Wimpole Street, London W1G 8DQ &middot; <a href="https://www.gdc-uk.org" target="_blank" rel="noopener" style="color:#FFFFFF;text-decoration:underline">gdc-uk.org</a></p>
+          </div>
+        </div>
+        <div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;gap:12px">
+          <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">Clear aligner treatment is quoted after a consultation and digital scan. Suitability is assessed by the dentist. Individual results vary.</p>
+          <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">If something isn&rsquo;t right, please speak to us first. You can also contact the <a href="https://dcs.gdc-uk.org" target="_blank" rel="noopener" style="color:#FFFFFF;text-decoration:underline">Dental Complaints Service</a> or the <a href="https://www.gdc-uk.org" target="_blank" rel="noopener" style="color:#FFFFFF;text-decoration:underline">General Dental Council</a>.</p>
+          <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">Read our <a href="https://www.suttonsmiles.com/privacy-policy" target="_blank" rel="noopener" style="color:#FFFFFF;text-decoration:underline">privacy policy</a>.</p>
+          <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.45);margin:6px 0 0">&copy; Sutton Dental &amp; Implant Clinic. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div style="height:74px"></div>
+  </div>
+
+  <script>
+    // Enquiry form: faithful vanilla port of index.html's submitForm.
+    // Posts in parallel to the Google Ads Zapier webhook (Boxly) and the shared
+    // Formspree endpoint; success needs at least one 2xx. Honeypot = silent fake
+    // success, no send. lead_submit is pushed only once a POST is confirmed.
+    (function () {
+      var form = document.getElementById('cc-form');
+      if (!form) return;
+      var ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26496932/4um6lf6/';
+      var CRM_ENDPOINT_URL = 'https://formspree.io/f/xkoddegp';
+      function getGa4ClientId() {
+        var m = document.cookie.match(/(?:^|;\s*)_ga=GA\d\.\d\.(\d+\.\d+)/);
+        return m ? m[1] : '';
+      }
+      function show(el, on) { if (el) el.style.display = on ? '' : 'none'; }
+      function showThanks(name) {
+        var n = document.getElementById('cc-thanks-name');
+        if (n && name) n.textContent = ', ' + name;
+        show(document.getElementById('cc-form-wrap'), false);
+        show(document.getElementById('cc-thanks'), true);
+        var blk = document.getElementById('enquiry');
+        if (blk) window.scrollTo({ top: blk.getBoundingClientRect().top + window.scrollY - 16, behavior: 'smooth' });
+      }
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var fd = new FormData(form);
+        var g = function (k) { return (fd.get(k) || '').toString().trim(); };
+        var name = g('name'), phone = g('phone'), email = g('email'), need = g('need'), time = g('time'), consent = g('consent');
+        var err = document.getElementById('cc-error');
+        if (g('website')) { showThanks(name); return; } // honeypot
+        if (!name || !phone || !email || !need || !time || !consent) { show(err, true); return; }
+        show(err, false);
+        var btn = document.getElementById('cc-submit');
+        if (btn) { btn.disabled = true; btn.textContent = 'Sending\u2026'; }
+        var ga = getGa4ClientId();
+        var payload = {}; fd.forEach(function (v, k) { payload[k] = v; });
+        payload.ga4_client_id = ga; payload.landing_page = 'google_ads';
+        fd.set('ga4_client_id', ga); fd.set('landing_page', 'google_ads');
+        fd.set('_subject', 'New ClearCorrect enquiry - Sutton Smiles');
+        Promise.allSettled([
+          fetch(ZAPIER_WEBHOOK_URL, { method: 'POST', keepalive: true, headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: JSON.stringify(payload) }),
+          fetch(CRM_ENDPOINT_URL, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
+        ]).then(function (r) {
+          var ok = (r[0].status === 'fulfilled' && r[0].value.ok) || (r[1].status === 'fulfilled' && r[1].value.ok);
+          if (ok) {
+            window.dataLayer = window.dataLayer || [];
+            var evt = { event: 'lead_submit', event_id: (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()), email: email, phone_number: phone };
+            var c = (typeof window !== 'undefined' && window.__consentState) || {};
+            if (c.marketing) evt.enquiry_type = need;
+            window.dataLayer.push(evt);
+            showThanks(name);
+          } else {
+            if (btn) { btn.disabled = false; btn.textContent = 'Book my free chat'; }
+            show(err, true);
+          }
+        });
+      });
+    })();
+
+    // FAQ accordion
+    (function () {
+      var root = document.getElementById('cc-faq');
+      if (!root) return;
+      root.addEventListener('click', function (e) {
+        var btn = e.target && e.target.closest ? e.target.closest('button[data-faq]') : null;
+        if (!btn) return;
+        var panel = btn.nextElementSibling;
+        var open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+        if (panel) { panel.style.maxHeight = open ? '0px' : '360px'; panel.style.opacity = open ? '0' : '1'; panel.style.padding = open ? '0 2px' : '0 2px 24px'; }
+        var sign = btn.querySelector('[data-sign]');
+        if (sign) { sign.style.background = open ? 'rgba(14,59,56,.08)' : '#0E3B38'; sign.style.color = open ? '#0E3B38' : '#FFFFFF'; sign.style.transform = open ? 'rotate(0deg)' : 'rotate(45deg)'; sign.textContent = open ? '+' : '\u2212'; }
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
