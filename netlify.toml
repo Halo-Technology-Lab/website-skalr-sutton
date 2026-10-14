@@ -64,6 +64,20 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
+# The /multiple-teeth/ and /clearcorrect/ pages are served as folder index
+# files at clean URLs (no .html in the request path), so the "/*.html" rule
+# above does not match them. These blocks give those clean-URL requests the
+# same revalidate policy, so copy and tracking changes go live immediately.
+[[headers]]
+  for = "/multiple-teeth/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/clearcorrect/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
 # No CSP: dc-runtime.js Babel-transpiles the inline component script in the
 # browser (needs 'unsafe-eval'), and both pages rely on third-party GTM/Meta
 # Pixel/CallRail scripts. Adding a CSP is a larger, separate piece of work —
