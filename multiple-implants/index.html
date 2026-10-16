@@ -173,14 +173,30 @@
      hides itself (checked synchronously on load and on every tick), so
      an expired offer can never render.
      ============================================================ -->
+  <style>
+  #offer-module{position:sticky;top:0;z-index:70}
+  #enquiry{scroll-margin-top:220px!important}
+  @media (max-width:640px){
+    #enquiry{scroll-margin-top:150px!important}
+    #offer-module .offer-fine,#offer-module .offer-extra{display:none}
+    #offer-module>div{padding:10px 16px!important;gap:8px 12px!important}
+    #offer-module>div>div:first-child{flex:1 1 100%!important;min-width:0!important}
+    #offer-module>div>div:first-child>p:first-child{margin:0 0 6px!important}
+    #offer-module>div>div:first-child>p:nth-child(2){font-size:16px!important}
+    #offer-module>div>div:last-child{flex:1 1 100%!important;flex-direction:row!important;align-items:center!important;min-width:0!important;gap:8px!important}
+    #offer-module>div>div:last-child>div{flex:1 1 auto;padding:6px 8px!important}
+    #offer-module>div>div:last-child>div>div:first-child{display:none}
+    #offer-module>div>div:last-child>button{flex:0 0 auto;padding:11px 14px!important;font-size:14px!important}
+  }
+</style>
   <section id="offer-module" aria-label="Limited time offer"
     style="background:#0E3B38;color:#FFFFFF;border-bottom:3px solid #ED6A1A;font-family:Inter,system-ui,sans-serif">
     <div style="max-width:1080px;margin:0 auto;padding:clamp(14px,2.5vw,20px) clamp(20px,5vw,40px);display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;justify-content:space-between">
       <div style="flex:1 1 340px;min-width:260px">
         <p style="display:inline-block;font:700 11px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#0B2F2C;background:#E8A33D;padding:5px 10px;border-radius:999px;margin:0 0 10px">This month only</p>
         <p style="font:600 clamp(19px,2.8vw,26px)/1.2 Fraunces,serif;color:#FFFFFF;margin:0">&pound;500 off your implant treatment, plus free professional teeth whitening</p>
-        <p style="font:600 14px/1.4 Inter,sans-serif;color:#E8A33D;margin:8px 0 0">For just 5 patients, exclusively through this ad.</p>
-        <p style="font:400 12px/1.5 Inter,sans-serif;color:rgba(255,255,255,.72);margin:8px 0 0">Whitening subject to clinical suitability. Offer ends 31 October 2026.</p>
+        <p class="offer-extra" style="font:600 14px/1.4 Inter,sans-serif;color:#E8A33D;margin:8px 0 0">For just 5 patients, exclusively through this ad.</p>
+        <p class="offer-fine" style="font:400 12px/1.5 Inter,sans-serif;color:rgba(255,255,255,.72);margin:8px 0 0">Whitening subject to clinical suitability. Offer ends 31 October 2026.</p>
       </div>
       <div style="flex:0 0 auto;display:flex;flex-direction:column;align-items:stretch;gap:10px;min-width:210px">
         <div style="text-align:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:10px 14px">
@@ -1818,7 +1834,7 @@ class Component extends DCLogic {
       { t: 'Multiple teeth',       slotId: 'opt-multiple', shot: 'Implant bridge result close-up',  img: 'assets/img/multiple-tooth.webp',     b: 'Several teeth restored with an implant-supported bridge, without grinding down the healthy teeth beside them.' , ag: 'core' },
       { t: 'Full arch',      slotId: 'opt-arch',     shot: 'Full-arch result, finished smile', img: 'assets/img/full-arch.webp', b: 'A full set of fixed teeth secured on as few as four implants, a stable alternative to loose dentures.' , ag: 'fullarch' }
     ].map(function (o) {
-      return Object.assign({}, o, { href: '/multiple-teeth/?ag=' + o.ag });
+      return Object.assign({}, o, { href: '/multiple-implants/?ag=' + o.ag });
     });
 
     const reviews = [
