@@ -219,6 +219,38 @@
     })();
   </script>
 
+  <!-- ============================================================
+     Sticky site header. Sits BELOW the offer strip in the DOM, so the
+     offer scrolls away and this bar sticks once its own top reaches the
+     viewport top (standard pattern). z-index 70: above page content and
+     the bottom mobile bar (60), below the cookie banner (80). Kept
+     outside the x-dc template so it survives the runtime's re-renders.
+     ============================================================ -->
+  <style>
+    #site-header { transition: box-shadow .2s ease; }
+    @media (max-width: 560px) { #site-header .sh-phone { display: none; } }
+  </style>
+  <header id="site-header"
+    style="position:sticky;top:0;z-index:70;background:#FBF8F4;border-bottom:1px solid #E7E0D6;font-family:Inter,system-ui,sans-serif">
+    <div style="max-width:1080px;margin:0 auto;padding:10px clamp(16px,5vw,40px);display:flex;align-items:center;justify-content:space-between;gap:12px">
+      <span class="sh-name" style="font:600 clamp(15px,2.2vw,19px)/1.1 Fraunces,serif;color:#0E3B38;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Sutton Dental &amp; Implant Clinic</span>
+      <div style="display:flex;align-items:center;gap:10px;flex:0 0 auto">
+        <a class="sh-phone" href="tel:01213541922" style="font:700 15px/1 Inter,sans-serif;color:#0E3B38;text-decoration:none;white-space:nowrap">Call&nbsp;0121&nbsp;354&nbsp;1922</a>
+        <button type="button" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})"
+          style="background:#ED6A1A;color:#FFFFFF;font:700 14px/1 Inter,sans-serif;padding:11px 16px;border:none;border-radius:10px;cursor:pointer;white-space:nowrap">Book</button>
+      </div>
+    </div>
+  </header>
+  <script>
+    (function () {
+      var h = document.getElementById('site-header');
+      if (!h) return;
+      function onScroll() { h.style.boxShadow = window.scrollY > 8 ? '0 2px 12px rgba(28,24,21,.12)' : 'none'; }
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
+
   <x-dc>
     <helmet>
       <style>
@@ -1118,7 +1150,7 @@
       </section>
 
       <!-- ============ 10. ENQUIRY FORM ============ -->
-      <section id="enquiry" style="background:#F3EEE6;padding:clamp(52px,8vw,96px) 0;scroll-margin-top:16px">
+      <section id="enquiry" style="background:#F3EEE6;padding:clamp(52px,8vw,96px) 0;scroll-margin-top:72px">
         <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
 
           <div id="enquiry-grid"
