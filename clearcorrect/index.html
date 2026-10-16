@@ -596,6 +596,58 @@
       <button type="button" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})" style="flex:1.5 1 0;display:inline-flex;align-items:center;justify-content:center;gap:7px;background:#ED6A1A;color:#FFFFFF;font:700 16px/1.05 Inter,sans-serif;padding:14px 12px;border:none;border-radius:11px;min-height:50px;cursor:pointer;box-shadow:0 4px 14px rgba(237,106,26,.32)">Book free 20-min chat</button>
     </div>
 
+    <!-- ========================================================
+       Above-the-fold monthly offer + fixed-deadline countdown.
+       Single fixed calendar deadline, no per-visitor reset. When it
+       passes the whole module hides itself (synchronous check on load
+       plus every tick), so an expired offer can never render. Vanilla
+       JS, consistent with this page's other scripts.
+       ======================================================== -->
+    <section id="offer-module" aria-label="Limited time offer"
+      style="background:#0E3B38;color:#FFFFFF;border-bottom:3px solid #ED6A1A;font-family:Inter,system-ui,sans-serif">
+      <div style="max-width:1080px;margin:0 auto;padding:clamp(14px,2.5vw,20px) clamp(20px,5vw,40px);display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;justify-content:space-between">
+        <div style="flex:1 1 340px;min-width:260px">
+          <p style="display:inline-block;font:700 11px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#0B2F2C;background:#E8A33D;padding:5px 10px;border-radius:999px;margin:0 0 10px">This month only</p>
+          <p style="font:600 clamp(19px,2.8vw,26px)/1.2 Fraunces,serif;color:#FFFFFF;margin:0">&pound;250 off your clear aligners, plus free professional teeth whitening</p>
+          <p style="font:400 12px/1.5 Inter,sans-serif;color:rgba(255,255,255,.72);margin:8px 0 0">Whitening subject to clinical suitability. Offer ends 31 October 2026.</p>
+        </div>
+        <div style="flex:0 0 auto;display:flex;flex-direction:column;align-items:stretch;gap:10px;min-width:210px">
+          <div style="text-align:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:10px 14px">
+            <div style="font:700 11px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.75);margin:0 0 6px">Offer ends in</div>
+            <div id="offer-countdown" aria-live="polite" style="font:700 clamp(18px,2.4vw,22px)/1 Inter,sans-serif;color:#E8A33D;font-variant-numeric:tabular-nums">&nbsp;</div>
+          </div>
+          <button type="button" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})"
+            style="background:#ED6A1A;color:#FFFFFF;font:700 16px/1.1 Inter,sans-serif;padding:14px 20px;border:none;border-radius:11px;cursor:pointer;box-shadow:0 6px 18px rgba(237,106,26,.3)">Book your free scan today</button>
+        </div>
+      </div>
+    </section>
+    <script>
+      (function () {
+        // 31 October 2026, 23:59:59 Europe/London. BST ends 25 Oct 2026, so on
+        // 31 Oct London is on GMT (UTC+0); a fixed UTC instant is the correct
+        // single calendar deadline for every visitor, with no reset.
+        var DEADLINE = Date.UTC(2026, 9, 31, 23, 59, 59);
+        var mod = document.getElementById('offer-module');
+        var out = document.getElementById('offer-countdown');
+        if (!mod) return;
+        var timer = null;
+        function hide() { mod.style.display = 'none'; }
+        function tick() {
+          var now = Date.now();
+          if (now >= DEADLINE) { hide(); if (timer) clearInterval(timer); return; }
+          var s = Math.floor((DEADLINE - now) / 1000);
+          var d = Math.floor(s / 86400); s -= d * 86400;
+          var h = Math.floor(s / 3600);  s -= h * 3600;
+          var m = Math.floor(s / 60);    s -= m * 60;
+          if (out) out.textContent = d + 'd ' + h + 'h ' + m + 'm ' + s + 's';
+        }
+        // Synchronous check on load: an expired offer never paints.
+        if (Date.now() >= DEADLINE) { hide(); return; }
+        tick();
+        timer = setInterval(tick, 1000);
+      })();
+    </script>
+
     <!-- HERO -->
     <header style="background:#FBF8F4">
       <div style="max-width:1080px;margin:0 auto;padding:clamp(28px,5vw,52px) clamp(20px,5vw,40px) clamp(40px,6vw,72px)">
