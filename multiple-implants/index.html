@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sutton Dental &amp; Implant Clinic - Replace Several Missing Teeth</title>
   <meta name="description"
-    content="Sutton Dental &amp; Implant Clinic in Sutton Coldfield. Replace several missing teeth, implant bridges and full-arch implants with Dr Puneet Jain. Book a free 20-minute chat.">
+    content="Sutton Dental &amp; Implant Clinic in Sutton Coldfield. Replace several missing teeth with implant bridges, or secure loose dentures with implants, with Dr Puneet Jain. Book a free 20-minute chat.">
   <meta name="robots" content="noindex, follow">
   <meta name="facebook-domain-verification" content="892gzr3w0ntjq22dqgp5hcydeze05w">
   <!-- ============================================================
@@ -50,24 +50,24 @@
       window.dataLayer.push({ event: 'ag_variant', ag: variant });
     })();
   </script>
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-MVFFLHVT');</script>
+  <!-- Google Tag Manager: loaded only after "Accept all" (see applyConsent in the consent banner script).
+       GTM carries the Meta pixel, so nothing fires before consent. -->
+  <script>
+    window.__loadGTM = function () {
+      if (window.__gtmLoaded) return;
+      window.__gtmLoaded = true;
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-MVFFLHVT');
+    };
+  </script>
   <!-- End Google Tag Manager -->
   <script src="assets/js/dc-runtime.js"></script>
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MVFFLHVT" title="Google Tag Manager" height="0"
-      width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
   <!-- ============================================================
      Consent banner (Consent Mode v2). Plain DOM, deliberately kept
@@ -117,6 +117,7 @@
           ad_personalization: granted ? 'granted' : 'denied',
           analytics_storage: granted ? 'granted' : 'denied'
         });
+        if (granted && window.__loadGTM) window.__loadGTM();
       }
 
       function hideBanner() {
@@ -195,7 +196,7 @@
       <div style="flex:1 1 340px;min-width:260px">
         <p style="display:inline-block;font:700 11px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#0B2F2C;background:#E8A33D;padding:5px 10px;border-radius:999px;margin:0 0 10px">This month only</p>
         <p style="font:600 clamp(19px,2.8vw,26px)/1.2 Fraunces,serif;color:#FFFFFF;margin:0">&pound;500 off your implant treatment, plus free professional teeth whitening</p>
-        <p class="offer-extra" style="font:600 14px/1.4 Inter,sans-serif;color:#E8A33D;margin:8px 0 0">For just 5 patients, exclusively through this ad.</p>
+        <p class="offer-extra" style="font:600 14px/1.4 Inter,sans-serif;color:#E8A33D;margin:8px 0 0">For just 5 patients, exclusively through this page.</p>
         <p class="offer-fine" style="font:400 12px/1.5 Inter,sans-serif;color:rgba(255,255,255,.72);margin:8px 0 0">Whitening subject to clinical suitability. Offer ends 31 October 2026.</p>
       </div>
       <div style="flex:0 0 auto;display:flex;flex-direction:column;align-items:stretch;gap:10px;min-width:210px">
@@ -771,7 +772,7 @@
               <span style="color:#7FB3A9;font-size:15px;line-height:1">✓</span>Rated 4.9 on Google</div>
             <div
               style="display:flex;align-items:center;justify-content:flex-start;gap:9px;font:600 14px/1.4 Inter,sans-serif;color:#EAF1EF;white-space:nowrap">
-              <span style="color:#7FB3A9;font-size:15px;line-height:1">✓</span>Placing implants since 2020</div>
+              <span style="color:#7FB3A9;font-size:15px;line-height:1">✓</span>Placing implants since 2007</div>
             <div
               style="display:flex;align-items:center;justify-content:flex-start;gap:9px;font:600 14px/1.4 Inter,sans-serif;color:#EAF1EF;white-space:nowrap">
               <span style="color:#7FB3A9;font-size:15px;line-height:1">✓</span>Royal College of Surgeons trained</div>
@@ -877,7 +878,7 @@
                 }}</p>
               <sc-if value="{{ showPriceIncludes }}" hint-placeholder-val="{{ true }}">
                 <p style="font:400 clamp(18px,2.2vw,19px)/1.6 Inter,sans-serif;color:#5C544B;margin:14px 0 0">Complex
-                  cases such as bone graft, sinus lift and full-arch are quoted after a full assessment.</p>
+                  cases such as bone graft, sinus lift and implant dentures are quoted after a full assessment.</p>
                 <ul style="list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:11px">
                   <li style="display:flex;gap:10px;font:500 16px/1.45 Inter,sans-serif;color:#1C1815"><span
                       style="color:#1E7A53;font-weight:700">✓</span> CT scan &amp; full diagnostics</li>
@@ -951,7 +952,7 @@
                 style="font:600 clamp(28px,4.4vw,40px)/1.12 Fraunces,serif;letter-spacing:-.01em;color:#FFFFFF;margin:0">
                 Dr Puneet Jain</h3>
               <p style="font:400 clamp(18px,2.2vw,19px)/1.6 Inter,sans-serif;color:#D7E4E1;margin:16px 0 0">Implant
-                dentist. Qualified 2006 (BDS, London), placing implants since 2020. Places around 180 implants a year, over 3,000 placed in total.
+                dentist. Qualified 2006 (BDS, London), placing implants since 2007, and focused solely on implants since 2020. Places around 180 implants a year, over 3,000 placed in total.
                 Holds the Diploma in Implant Dentistry from the Royal College of Surgeons of England. GDC No. 103973.</p>
               <blockquote
                 style="margin:26px 0 0;padding:22px 26px;border-left:3px solid #ED6A1A;background:rgba(255,255,255,.05);border-radius:0 12px 12px 0">
@@ -965,7 +966,7 @@
                   Dip Implant Dentistry</span>
                 <span
                   style="text-align:center;font:600 13px/1.3 Inter,sans-serif;color:#CFE0DC;background:rgba(255,255,255,.08);padding:8px 10px;border-radius:8px">Placing
-                  implants since 2020</span>
+                  implants since 2007</span>
                 <span
                   style="text-align:center;font:600 13px/1.3 Inter,sans-serif;color:#CFE0DC;background:rgba(255,255,255,.08);padding:8px 10px;border-radius:8px">Straumann</span>
               </div>
@@ -989,14 +990,12 @@
               <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">Most patients tell me it’s more
                 comfortable than they expected. We work under local anaesthetic, the procedure is usually about 30
                 minutes, and most people are back at work the same day or the next, with the same dentist from start to
-                finish.</p>
+                finish. For very anxious patients, we also offer IV sedation, so you feel relaxed and at ease during treatment.</p>
             </div>
 
             <div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:28px">
-              <h3 style="font:600 clamp(19px,2.6vw,21px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 12px">Thinking of
-                going abroad?</h3>
-              <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">Implants done in Turkey or abroad
-                aren’t always something a UK clinic can continue or fix. Get a proper UK assessment first.</p>
+              <h3 style="font:600 clamp(19px,2.6vw,21px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 12px">Already had implants elsewhere?</h3>
+              <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">We can assess them and talk you through your options.</p>
             </div>
 
             <div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:28px">
@@ -1008,6 +1007,26 @@
             </div>
 
           </div>
+        </div>
+      </section>
+
+      <!-- ============ IMPLANT DENTURES ============ -->
+      <section id="implant-dentures" style="background:#FFFFFF;padding:clamp(52px,8vw,96px) 0">
+        <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+          <p style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1E7A53;margin:0 0 16px">Implant dentures</p>
+          <h2 style="font:600 clamp(28px,4.4vw,42px)/1.14 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0;max-width:22ch">Dentures that stay where they should</h2>
+          <p style="font:400 17px/1.55 Inter,sans-serif;color:#5C544B;margin:16px 0 0;max-width:60ch">If your dentures slip, rub, or stop you eating what you enjoy, implants can hold them securely in place, without denture adhesives or pastes.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px;margin-top:32px">
+            <div style="background:#FBF8F4;border:1px solid #E7E0D6;border-radius:14px;padding:28px">
+              <h3 style="font:600 clamp(19px,2.6vw,21px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 12px">Clip-in dentures</h3>
+              <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">A small number of implants hold press-stud fittings, so your denture clips in firmly and comes out for cleaning.</p>
+            </div>
+            <div style="background:#FBF8F4;border:1px solid #E7E0D6;border-radius:14px;padding:28px">
+              <h3 style="font:600 clamp(19px,2.6vw,21px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 12px">Fixed dentures</h3>
+              <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">Fixed teeth secured on implants, with better support and grip. Our Perfect Implant Denture is {{ fullArchPriceMember }} for members, or {{ fullArchPrice }} without.</p>
+            </div>
+          </div>
+          <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:24px 0 0;max-width:60ch">Implants also help preserve your jawbone and support your face. We will talk you through which option suits you at your free 20-minute chat.</p>
         </div>
       </section>
 
@@ -1024,8 +1043,7 @@
               <h2
                 style="font:600 clamp(28px,4.4vw,42px)/1.14 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0">
                 Trusted by patients across the West Midlands</h2>
-              <p style="font:400 17px/1.55 Inter,sans-serif;color:#5C544B;margin:16px 0 0">From several missing teeth
-                to full-arch treatment. Patients share how it went.</p>
+              <p style="font:400 17px/1.55 Inter,sans-serif;color:#5C544B;margin:16px 0 0">From several missing teeth to bridges and loose dentures. Patients share how it went.</p>
 
               <div style="display:flex;align-items:center;gap:14px;margin:24px 0">
                 <div style="display:flex">
@@ -1102,8 +1120,7 @@
               your free 20-minute chat</button>
             <div
               style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 12px;margin-top:16px;font:500 14px/1.4 Inter,sans-serif;color:#5C544B">
-              <span style="color:#E8A33D;letter-spacing:1px">★★★★★</span><span>Over 3,000 implants placed · Placing implants
-                since 2020</span></div>
+              <span style="color:#E8A33D;letter-spacing:1px">★★★★★</span><span>Over 3,000 implants placed · Implant-only since 2020</span></div>
           </div>
         </div>
       </section>
@@ -1241,7 +1258,7 @@
                         style-focus="border-color:#0E3B38;background:#FFFFFF">
                         <option value="" disabled selected>Please choose…</option>
                         <option value="several">Several teeth</option>
-                        <option value="full-arch">A full arch</option>
+                        <option value="full-arch">Loose dentures / implant dentures</option>
                         <option value="dentures">Loose dentures</option>
                         <option value="not-sure">Not sure yet</option>
                       </select>
@@ -1270,8 +1287,7 @@
                       style="display:flex;gap:11px;align-items:flex-start;font:400 14px/1.5 Inter,sans-serif;color:#5C544B;cursor:pointer">
                       <input id="f-consent" name="consent" type="checkbox" required aria-required="true" onchange="{{ clearConsentError }}"
                         style="margin-top:2px;width:20px;height:20px;flex:0 0 auto;accent-color:#0E3B38">
-                      <span>I’m happy for Sutton Dental &amp; Implant Clinic to contact me about my enquiry. We’ll never
-                        share your details. <a href="https://www.suttonsmiles.com/privacy-policy" target="_blank"
+                      <span>I’m happy for Sutton Dental &amp; Implant Clinic to contact me about my enquiry. We’ll only use your details to contact you about your enquiry. <a href="https://www.suttonsmiles.com/privacy-policy" target="_blank"
                           rel="noopener" style="color:#0E3B38;text-decoration:underline">Privacy</a>.</span>
                     </label>
                     <sc-if value="{{ fieldErrors.consent }}" hint-placeholder-val="{{ false }}">
@@ -1355,7 +1371,7 @@
         <div style="max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
           <div
             style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));align-items:stretch;border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(28,24,21,.16);background:#0E3B38">
-            <img loading="lazy" decoding="async" src="assets/img/old-smile.webp" alt="Dr Puneet Jain placing a dental implant"
+            <img loading="lazy" decoding="async" src="assets/img/old-smile.webp" alt="Patient's smile before treatment, with gaps and worn teeth"
               style="display:block;width:100%;height:100%;min-height:340px;object-fit:cover">
             <div
               style="background:#0E3B38;padding:clamp(36px,5vw,60px);display:flex;flex-direction:column;justify-content:center;gap:24px">
@@ -1450,8 +1466,7 @@
 
           <div
             style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;gap:12px">
-            <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">Implant bridges replacing several teeth start from {{ bridgePrice }} non-member ({{ bridgePriceMember }} on the practice membership plan). Full-arch treatment is quoted after a full assessment. Bone graft and sinus lift, where needed, are charged separately. Individual results vary.</p>
-            <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">Eligible implant treatment is covered by a 5-year guarantee, subject to recommended maintenance visits and the use of Straumann implant components. Full terms: [GUARANTEE TERMS - PUBLISH BEFORE LAUNCH].</p>
+            <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">{{ bridgeLine }} Membership starts from £25.90 a month (Silver plan), and members get 10% off implant treatment. The Perfect Implant Denture is {{ fullArchPriceMember }} for members, or {{ fullArchPrice }} without. IV sedation is from £300 per session for members, or £375 without. Bone graft and sinus lift, where needed, are charged separately. Individual results vary.</p>
             <sc-if value="{{ isFinanceVariant }}" hint-placeholder-val="{{ false }}">
               <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">Ask us about the payment options available at your free 20-minute chat.</p>
             </sc-if>
@@ -1461,7 +1476,7 @@
                 href="https://www.gdc-uk.org" target="_blank" rel="noopener"
                 style="color:#FFFFFF;text-decoration:underline">General Dental Council</a>.</p>
             <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">This page was last
-              updated on <span data-placeholder="last-updated">14 September 2026</span>. Read our <a id="footer-privacy-link"
+              updated on <span data-placeholder="last-updated">22 October 2026</span>. Read our <a id="footer-privacy-link"
                 href="https://www.suttonsmiles.com/privacy-policy" target="_blank" rel="noopener"
                 style="color:#FFFFFF;text-decoration:underline">privacy policy</a>.</p>
             <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.45);margin:6px 0 0">© <span>Sutton
@@ -1759,21 +1774,22 @@ class Component extends DCLogic {
     // Non-member figures always lead; the membership-plan figure is shown
     // beside them (never a bare member price). No APR or monthly-payment
     // figures appear anywhere on the page (FCA status not cleared).
-    const BRIDGE_PRICE = '£9,670';           // 3-unit implant bridge (two implants), non-member
-    const BRIDGE_PRICE_MEMBER = '£8,700';    // same, on the practice membership plan
+    const BRIDGE_PRICE = '£5,945';           // single implant with 2-unit bridge, non-member
+    const BRIDGE_PRICE_MEMBER = '£5,350';    // same, on the practice membership plan
+    const BRIDGE_LINE = 'Implant bridges from ' + BRIDGE_PRICE_MEMBER + ' with our membership plan (from £25.90 a month), or ' + BRIDGE_PRICE + ' without.';
     const FULLARCH_PRICE = '£14,390';        // Perfect Implant Denture (fixed full arch), non-member
     const FULLARCH_PRICE_MEMBER = '£12,950'; // same, on the practice membership plan
 
     const AG_COPY = {
       core: {
         heroH1: 'Replace Several Missing Teeth, Properly',
-        heroSubhead: 'Dental implants and implant-supported bridges in Sutton Coldfield with Dr Puneet Jain. It starts with a free 20-minute chat.',
-        heroProof: 'From several missing teeth to a full set of teeth, planned and placed by the same dentist in Sutton Coldfield.'
+        heroSubhead: 'Implant bridges for several missing teeth, and secure implant dentures, in Sutton Coldfield with Dr Puneet Jain. It starts with a free 20-minute chat.',
+        heroProof: 'Bridges for several missing teeth, and implants to secure loose dentures, planned and placed by the same dentist in Sutton Coldfield.'
       },
       fullarch: {
-        heroH1: 'A Fixed Set of Teeth on Implants, Not Loose Dentures',
-        heroSubhead: 'A full set of fixed teeth on as few as four implants. Stable, and designed to be long-lasting, not a denture that moves.',
-        heroProof: 'Full-arch treatment, quoted after your free 20-minute chat and a full assessment.'
+        heroH1: 'Implant Dentures, So Your Teeth Stay Put',
+        heroSubhead: 'Clip-in or fixed teeth on implants. Stable, and designed to be long-lasting, not a denture that slips.',
+        heroProof: 'Implant dentures, quoted after your free 20-minute chat and a full assessment.'
       },
       brand: {
         heroH1: 'Sutton Dental & Implant Clinic',
@@ -1792,16 +1808,16 @@ class Component extends DCLogic {
     const isFinanceVariant = variant === 'finance';
     const isFullArch = variant === 'fullarch';
     const isNonFinanceVariant = !isFinanceVariant;
-    const COMPLIANT_PRICE_LINE = 'Implant bridges from ' + BRIDGE_PRICE + ' non-member, or ' + BRIDGE_PRICE_MEMBER + ' on the practice membership plan. Ask about ways to pay at your free 20-minute chat.';
+    const COMPLIANT_PRICE_LINE = BRIDGE_LINE + ' Ask about ways to pay at your free 20-minute chat.';
     let priceHeading, priceBody, showPriceIncludes, priceCardBody;
     if (isFullArch) {
-      priceHeading = 'Full-arch treatment is quoted after your free 20-minute chat.';
-      priceBody = 'Every case is different, so full-arch pricing is confirmed after your free 20-minute chat and a full clinical assessment. A fixed full-arch option (the Perfect Implant Denture) is listed from ' + FULLARCH_PRICE + ' non-member, or ' + FULLARCH_PRICE_MEMBER + ' on the practice membership plan.';
+      priceHeading = 'Implant dentures are quoted after your free 20-minute chat.';
+      priceBody = 'Every case is different, so pricing is confirmed after your free 20-minute chat and a full clinical assessment. The Perfect Implant Denture is ' + FULLARCH_PRICE_MEMBER + ' for members, or ' + FULLARCH_PRICE + ' without.';
       showPriceIncludes = false;
-      priceCardBody = 'Book your free 20-minute chat to start your full-arch plan.';
+      priceCardBody = 'Book your free 20-minute chat to start your implant denture plan.';
     } else {
       priceHeading = 'Clear, itemised pricing';
-      priceBody = 'Several missing teeth can be replaced with an implant-supported bridge from ' + BRIDGE_PRICE + ' non-member (' + BRIDGE_PRICE_MEMBER + ' on the practice membership plan). Full-arch treatment is quoted after a full assessment. You get a written, itemised quote before any treatment.';
+      priceBody = 'Several missing teeth can be replaced with an implant-supported bridge. ' + BRIDGE_LINE + ' Loose dentures can be secured with implants, from ' + FULLARCH_PRICE_MEMBER + ' for members. You get a written, itemised quote before any treatment.';
       showPriceIncludes = true;
       priceCardBody = COMPLIANT_PRICE_LINE;
     }
@@ -1810,7 +1826,7 @@ class Component extends DCLogic {
       { n: '01', tag: 'Free',      free: true,  title: 'Free cost chat',         body: 'A quick, no-obligation chat with the team to see if you’re a good fit and to answer your first questions.' },
       { n: '02', tag: 'Free',      free: true,  title: '20 minutes with Puneet', body: 'Meet the dentist himself before you spend a penny. A real conversation about your options, with no sales pitch.' },
       { n: '03', tag: '£200', free: false, title: 'Full consultation',      body: 'CT scan, full diagnostics and a written treatment plan, fully credited to your treatment if you go ahead.' },
-      { n: '04', tag: BRIDGE_PRICE, free: false, title: 'Your treatment',    body: 'Your treatment, with a written and itemised quote first. Implant bridges start from ' + BRIDGE_PRICE + ' non-member; full-arch is quoted after assessment. Ask about ways to pay at your free 20-minute chat.' }
+      { n: '04', tag: 'From ' + BRIDGE_PRICE_MEMBER, free: false, title: 'Your treatment',    body: 'Your treatment, with a written and itemised quote first. ' + BRIDGE_LINE + ' Ask about ways to pay at your free 20-minute chat.' }
     ].map(function (s) {
       return Object.assign({}, s, {
         tagStyle: {
@@ -1824,7 +1840,7 @@ class Component extends DCLogic {
     });
 
     const whyCards = [
-      { t: 'Implants, every day',               b: 'Dr Puneet Jain focuses on implant dentistry in Sutton Coldfield, from several missing teeth to a full arch.' },
+      { t: 'Implants, every day',               b: 'Dr Puneet Jain focuses on implant dentistry in Sutton Coldfield, from several missing teeth to loose dentures.' },
       { t: 'The same dentist, start to finish', b: 'You see Dr Puneet Jain for your assessment, your treatment and your aftercare. He is here every day.' },
       { t: 'Royal College of Surgeons trained', b: 'Dr Puneet Jain holds the Diploma in Implant Dentistry from the Royal College of Surgeons of England.' },
       { t: 'In-house CT and Straumann',         b: 'Our own CT scanning for accurate planning, paired with premium Straumann implant systems.' }
@@ -1832,7 +1848,7 @@ class Component extends DCLogic {
 
     const options = [
       { t: 'Multiple teeth',       slotId: 'opt-multiple', shot: 'Implant bridge result close-up',  img: 'assets/img/multiple-tooth.webp',     b: 'Several teeth restored with an implant-supported bridge, without grinding down the healthy teeth beside them.' , ag: 'core' },
-      { t: 'Full arch',      slotId: 'opt-arch',     shot: 'Full-arch result, finished smile', img: 'assets/img/full-arch.webp', b: 'A full set of fixed teeth secured on as few as four implants, a stable alternative to loose dentures.' , ag: 'fullarch' }
+      { t: 'Implant dentures', slotId: 'opt-arch',     shot: 'Implant denture result, finished smile', img: 'assets/img/full-arch.webp', b: 'For dentures that slip, rub, or stop you eating what you enjoy. Clip-in or fixed teeth, held securely on implants.' , ag: 'fullarch' }
     ].map(function (o) {
       return Object.assign({}, o, { href: '/multiple-implants/?ag=' + o.ag });
     });
@@ -1962,6 +1978,7 @@ class Component extends DCLogic {
         background: '#FFFFFF', borderTop: '1px solid #E7E0D6', boxShadow: '0 -6px 20px rgba(28,24,21,.10)'
       },
       barSpacerStyle: { height: isMobile ? '74px' : '0px' },
+      bridgeLine: BRIDGE_LINE, fullArchPrice: FULLARCH_PRICE, fullArchPriceMember: FULLARCH_PRICE_MEMBER,
       steps, whyCards, whyList, options, reviews, review, reviewNum,
       onPrevReview: function () { self.prevReview(); },
       onNextReview: function () { self.nextReview(); },

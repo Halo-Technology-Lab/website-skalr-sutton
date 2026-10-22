@@ -37,6 +37,18 @@
   to = "/multiple-implants/:splat"
   status = 301
 
+# The aligner page used to live at /clearcorrect/. Keep old links and any live
+# ads working with a permanent redirect, preserving query strings (?ag=...).
+[[redirects]]
+  from = "/clearcorrect"
+  to = "/clear-aligners/"
+  status = 301
+
+[[redirects]]
+  from = "/clearcorrect/*"
+  to = "/clear-aligners/:splat"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]
@@ -76,7 +88,7 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# The /multiple-implants/ and /clearcorrect/ pages are served as folder index
+# The /multiple-implants/ and /clear-aligners/ pages are served as folder index
 # files at clean URLs (no .html in the request path), so the "/*.html" rule
 # above does not match them. These blocks give those clean-URL requests the
 # same revalidate policy, so copy and tracking changes go live immediately.
@@ -86,7 +98,7 @@
     Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
-  for = "/clearcorrect/*"
+  for = "/clear-aligners/*"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
