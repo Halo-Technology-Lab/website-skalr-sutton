@@ -71,6 +71,9 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Videos ship as an AV1 .av1.mp4 (Chrome, Edge, Firefox, newer Safari) with an
+# H.264 .mp4 fallback via <source>, so each visitor downloads only one file, and
+# with immutable caching a repeat visit costs zero bytes.
 [[headers]]
   for = "/assets/vid/*"
   [headers.values]

@@ -684,6 +684,23 @@
               <span><strong style="color:#1C1815;font-weight:700">4.9</strong> on Google &middot; 389 reviews</span>
             </div>
           </div>
+
+          <div style="position:relative">
+            <div id="cc-video-wrap" style="position:relative;width:100%;aspect-ratio:4/5;max-height:560px;border-radius:18px;overflow:hidden;background:#0B2F2C;cursor:pointer">
+              <video id="cc-video" poster="/assets/img/aligner-video-poster.webp" autoplay playsinline muted loop preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#0B2F2C">
+                <source src="/assets/vid/aligner-intro.av1.mp4" type='video/mp4; codecs="av01.0.04M.08, mp4a.40.2"'>
+                <source src="/assets/vid/aligner-intro.mp4" type="video/mp4">
+              </video>
+              <button type="button" id="cc-video-btn" aria-label="Pause the 30-second introduction from Dr Sinem" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.8);opacity:0;pointer-events:none;transition:opacity .35s ease,transform .35s cubic-bezier(.22,1,.36,1);z-index:2;display:flex;align-items:center;justify-content:center;width:74px;height:74px;border:none;border-radius:50%;background:#ED6A1A;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.32)">
+                <span data-icon="play" style="display:none;width:0;height:0;border-style:solid;border-width:12px 0 12px 20px;border-color:transparent transparent transparent #FFFFFF;margin-left:5px"></span>
+                <span data-icon="pause" style="display:flex;gap:6px"><span style="width:6px;height:24px;background:#FFFFFF;border-radius:2px"></span><span style="width:6px;height:24px;background:#FFFFFF;border-radius:2px"></span></span>
+              </button>
+            </div>
+            <div style="position:absolute;left:16px;bottom:16px;display:inline-flex;align-items:center;gap:11px;background:#FFFFFF;border-radius:14px;padding:11px 15px;box-shadow:0 12px 30px rgba(28,24,21,.18)">
+              <span style="color:#E8A33D;letter-spacing:1.5px;font-size:15px">&starf;&starf;&starf;&starf;&starf;</span>
+              <span style="font:600 14px/1.2 Inter,sans-serif;color:#1C1815">4.9 on Google &middot; <span style="color:#5C544B;font-weight:500">389 reviews</span></span>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -973,6 +990,43 @@
           }
         });
       });
+    })();
+
+    // Hero video: vanilla port of the /multiple-implants/ behaviour. Autoplays
+    // muted, unmutes on the first interaction anywhere, tap toggles play/pause,
+    // and the button shows on hover or while paused.
+    (function () {
+      var v = document.getElementById('cc-video');
+      var wrap = document.getElementById('cc-video-wrap');
+      var btn = document.getElementById('cc-video-btn');
+      if (!v || !wrap || !btn) return;
+      var hover = false;
+      function render() {
+        var show = v.paused || hover;
+        btn.style.opacity = show ? '1' : '0';
+        btn.style.pointerEvents = show ? 'auto' : 'none';
+        btn.style.transform = show ? 'translate(-50%,-50%) scale(1)' : 'translate(-50%,-50%) scale(.8)';
+        btn.querySelector('[data-icon="play"]').style.display = v.paused ? '' : 'none';
+        btn.querySelector('[data-icon="pause"]').style.display = v.paused ? 'none' : 'flex';
+        btn.setAttribute('aria-label', (v.paused ? 'Play' : 'Pause') + ' the 30-second introduction from Dr Sinem');
+      }
+      v.muted = true;
+      v.play().catch(function () {});
+      function unmute() {
+        v.muted = false;
+        document.removeEventListener('click', unmute);
+        document.removeEventListener('touchstart', unmute);
+      }
+      document.addEventListener('click', unmute);
+      document.addEventListener('touchstart', unmute);
+      wrap.addEventListener('click', function () {
+        if (v.paused) { v.play().catch(function () {}); } else { v.pause(); }
+      });
+      wrap.addEventListener('mouseenter', function () { hover = true; render(); });
+      wrap.addEventListener('mouseleave', function () { hover = false; render(); });
+      v.addEventListener('play', render);
+      v.addEventListener('pause', render);
+      render();
     })();
 
     // FAQ accordion
