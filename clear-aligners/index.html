@@ -882,10 +882,12 @@
                   <option value="evening">Evening</option>
                 </select>
               </div>
-              <label style="display:flex;gap:11px;align-items:flex-start;font:400 14px/1.5 Inter,sans-serif;color:#5C544B;cursor:pointer">
-                <input id="cc-consent" name="consent" type="checkbox" required style="margin-top:2px;width:20px;height:20px;flex:0 0 auto;accent-color:#0E3B38">
-                <span>I&rsquo;m happy for Sutton Dental &amp; Implant Clinic to contact me about my enquiry. We&rsquo;ll only use your details to contact you about your enquiry. <a href="https://www.suttonsmiles.com/privacy-policy" target="_blank" rel="noopener" style="color:#0E3B38;text-decoration:underline">Privacy</a>.</span>
-              </label>
+              <div><label for="cc-age" style="display:block;font:600 14px/1 Inter,sans-serif;color:#1C1815;margin-bottom:8px">How old are you?</label><select id="cc-age" name="age" required style="width:100%;font:400 16px/1.4 Inter,sans-serif;color:#1C1815;background:#FBF8F4;border:1px solid #E7E0D6;border-radius:10px;padding:14px;min-height:52px;appearance:none"><option value="" disabled selected>Please choose…</option><option value="under-18">Under 18</option><option value="18-29">18-29</option><option value="30-44">30-44</option><option value="45-59">45-59</option><option value="60+">60+</option></select></div>
+
+<p style="margin:0;font:400 14px/1.5 Inter,sans-serif;color:#5C544B">We will use your details to reply to your enquiry and arrange your free 20-minute chat. How we handle your information, including any health details you share, is explained in our privacy policy: <a href="https://www.suttonsmiles.com/privacy-policy/" target="_blank" rel="noopener" style="color:#0E3B38;text-decoration:underline">https://www.suttonsmiles.com/privacy-policy/</a>. The two boxes below are optional.</p>
+<label style="display:flex;gap:11px;align-items:flex-start;font:400 14px/1.5 Inter,sans-serif;color:#5C544B;cursor:pointer"><input id="cc-mkt-email" name="marketing_email" type="checkbox" value="Yes" style="margin-top:2px;width:20px;height:20px;flex:0 0 auto;accent-color:#0E3B38"><span>Yes, Sutton Dental &amp; Implant Clinic can email me about my enquiry, including reminders and rebooking links for my free 20-minute chat. I can unsubscribe at any time.</span></label>
+<label style="display:flex;gap:11px;align-items:flex-start;font:400 14px/1.5 Inter,sans-serif;color:#5C544B;cursor:pointer"><input id="cc-mkt-sms" name="marketing_sms" type="checkbox" value="Yes" style="margin-top:2px;width:20px;height:20px;flex:0 0 auto;accent-color:#0E3B38"><span>Yes, Sutton Dental &amp; Implant Clinic can text me about my enquiry, including reminders and rebooking links for my free 20-minute chat. I can reply STOP at any time.</span></label>
+
               <p id="cc-error" role="alert" style="display:none;margin:0;padding:14px 16px;border-radius:10px;background:rgba(196,60,40,.08);border:1px solid rgba(196,60,40,.25);font:500 15px/1.5 Inter,sans-serif;color:#8A2E1E">That didn&rsquo;t send. Please fill in all the fields, or call us on <a href="tel:01213541922" style="color:#8A2E1E;font-weight:700;text-decoration:underline">0121&nbsp;354&nbsp;1922</a> and we&rsquo;ll book you in directly.</p>
               <button id="cc-submit" type="submit" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;background:#ED6A1A;color:#FFFFFF;font:700 18px/1.1 Inter,sans-serif;padding:18px 24px;border:none;border-radius:12px;cursor:pointer;min-height:58px;box-shadow:0 6px 18px rgba(237,106,26,.26)">Book my free assessment and scan</button>
               <p style="text-align:center;margin:2px 0 0;font:400 14px/1.5 Inter,sans-serif;color:#7C7264">No pressure, no commitment. Our team will be in touch.</p>
@@ -992,10 +994,10 @@
         e.preventDefault();
         var fd = new FormData(form);
         var g = function (k) { return (fd.get(k) || '').toString().trim(); };
-        var name = g('name'), phone = g('phone'), email = g('email'), need = g('need'), time = g('time'), consent = g('consent');
+        var name = g('name'), phone = g('phone'), email = g('email'), need = g('need'), time = g('time'), age = g('age');
         var err = document.getElementById('cc-error');
         if (g('website')) { showThanks(name); return; } // honeypot
-        if (!name || !phone || !email || !need || !time || !consent) { show(err, true); return; }
+        if (!name || !phone || !email || !need || !time || !age) { show(err, true); return; }
         show(err, false);
         var btn = document.getElementById('cc-submit');
         if (btn) { btn.disabled = true; btn.textContent = 'Sending\u2026'; }

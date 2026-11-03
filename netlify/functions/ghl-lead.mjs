@@ -29,6 +29,9 @@ const NEED = {
   'full-mouth': ['Clear aligners', 'Full-mouth alignment']
 };
 
+// Form "age" values -> GHL Age Range option (exact GHL option text).
+const AGE = { 'under-18': 'Under 18', '18-29': '18-29', '30-44': '30-44', '45-59': '45-59', '60+': '60+' };
+
 const TIME = { morning: 'Morning', afternoon: 'Afternoon', evening: 'Evening' };
 
 function readCookie(cookieHeader, name) {
@@ -63,6 +66,10 @@ export default async (req) => {
 
   const [interest, needLabel] = NEED[p.need] || ['Not sure', String(p.need || '')];
   const time = TIME[p.time] || '';
+  const age = AGE[p.age] || '';
+  const mktEmail = p.marketing_email === 'Yes';
+  const mktSms = p.marketing_sms === 'Yes';
+  const mktConsent = mktEmail || mktSms;
   const cookies = req.headers.get('cookie') || '';
   const fbclid = q.get('fbclid') || '';
   const fbc = readCookie(cookies, '_fbc') || (fbclid ? `fb.1.${Date.now()}.${fbclid}` : '');
@@ -87,11 +94,15 @@ export default async (req) => {
       [FIELD.treatmentInterest]: interest,
       [FIELD.mainConcern]: needLabel,
       [FIELD.bestTime]: time,
-      // The page checkbox is consent to be contacted about this enquiry only,
-      // not marketing consent, so the Marketing Consent fields are never set.
+      [FIELD.ageRange]: age,
+      // The two optional, unticked boxes are the only marketing consent. When
+      // neither is ticked the Marketing Consent fields stay untouched and the
+      // wording version stays at LP v1 (enquiry contact only, no timestamp).
+      [FIELD.marketingConsentEmail]: mktEmail ? ['Yes'] : '',
+      [FIELD.marketingConsentSms]: mktSms ? ['Yes'] : '',
       [FIELD.consentSourceForm]: page.label,
-      [FIELD.consentWordingVersion]: 'LP v1: contact me about my enquiry (enquiry contact only, NOT marketing consent)',
-      [FIELD.consentTimestamp]: p.consent ? now : '',
+      [FIELD.consentWordingVersion]: mktConsent ? 'v2 2026-10-28' : 'LP v1: contact me about my enquiry (enquiry contact only, NOT marketing consent)',
+      [FIELD.consentTimestamp]: mktConsent ? now : '',
       [FIELD.landingPageUrl]: pageUrl,
       [FIELD.utmSource]: q.get('utm_source'),
       [FIELD.utmMedium]: q.get('utm_medium'),
@@ -118,7 +129,9 @@ export default async (req) => {
     `${isTest ? 'TEST ' : ''}Website enquiry (${page.line}) from ${page.label}`,
     `Looking for: ${needLabel || 'not given'}`,
     `Best time to call: ${time || 'not given'}`,
-    `Contact-about-enquiry box ticked: ${p.consent ? 'yes' : 'no'}`,
+    `Age range: ${age || 'not given'}`,
+    `Marketing email box ticked: ${mktEmail ? 'yes' : 'no'}`,
+    `Marketing SMS box ticked: ${mktSms ? 'yes' : 'no'}`,
     gclid ? `gclid: ${gclid}` : '',
     fbclid ? `fbclid: ${fbclid}` : '',
     pageUrl ? `Page: ${pageUrl}` : ''

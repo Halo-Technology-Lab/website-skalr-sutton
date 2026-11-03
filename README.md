@@ -47,6 +47,14 @@ On any host other than suttonsmiles.info (deploy previews, local) the page
 sends to GHL only, the function adds `ss-internal-test` (which stops the GHL
 workflows), no Formspree email is sent and no conversion event is pushed.
 
+Form fields: every form has a required "How old are you?" select (`age`, sent to
+GHL Age Range as Under 18, 18-29, 30-44, 45-59 or 60+) and two optional,
+unticked marketing boxes (`marketing_email`, `marketing_sms`). A ticked box sets
+the matching Marketing Consent field to `["Yes"]`, Consent Wording Version to
+`v2 2026-10-28` and Consent Timestamp. With neither ticked, the wording version
+stays `LP v1` (enquiry contact only) and no timestamp is set. Under-18 leads are
+still submitted; GHL decides what to do with them.
+
 CallRail calls reach GHL through `/api/callrail-webhook` (CallRail post-call
 webhook, signature-checked): contact upsert with `ss-source-call` plus a channel
 tag, and a note with duration, source and recording link.
