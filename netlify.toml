@@ -1,13 +1,20 @@
 # Sutton Dental & Implant Clinic — Google Ads (/) and Meta Ads (/meta-ads)
 # landing pages. Static site, no build step: publish the repo root as-is.
 #
-# This is a single Netlify site serving both pages, matching the current
-# live suttonsmiles.info architecture. No [[plugins]], no [functions] —
-# there is no server or build pipeline here, unlike Next.js-based Halo
-# sites (see website-alteon-colindale for that shape).
+# This is a single Netlify site serving the landing pages, matching the
+# current live suttonsmiles.info architecture. No [[plugins]] and no build
+# step. Two small Netlify Functions send leads to GHL:
+#   /api/ghl-lead          form enquiries from all four pages
+#   /api/callrail-webhook  CallRail post-call webhook
+# They need the env vars GHL_PRIVATE_TOKEN, CALLRAIL_SIGNING_KEY and,
+# once the field exists, GHL_FIELD_GCLID (set in Netlify, never in the repo).
 
 [build]
   publish = "."
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
 
 # index.html is served at / automatically (Netlify's default document).
 # meta-ads.html needs an explicit rewrite to answer at the clean /meta-ads

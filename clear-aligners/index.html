@@ -964,13 +964,16 @@
 
   <script>
     // Enquiry form: faithful vanilla port of index.html's submitForm.
-    // Posts in parallel to the Google Ads Zapier webhook (Boxly) and the shared
+    // Posts in parallel to the GHL function (/api/ghl-lead) and the shared
     // Formspree endpoint; success needs at least one 2xx. Honeypot = silent fake
     // success, no send. lead_submit is pushed only once a POST is confirmed.
     (function () {
       var form = document.getElementById('cc-form');
       if (!form) return;
-      var ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26496932/4um6lf6/';
+      // GHL function creates the contact; Formspree is the backup email. Preview and
+      // test hosts send to GHL only (tagged ss-internal-test) and push no conversion.
+      var GHL_LEAD_URL = '/api/ghl-lead';
+      var IS_PROD = /^(www\.)?suttonsmiles\.info$/.test(window.location.hostname);
       var CRM_ENDPOINT_URL = 'https://formspree.io/f/xkoddegp';
       function getGa4ClientId() {
         var m = document.cookie.match(/(?:^|;\s*)_ga=GA\d\.\d\.(\d+\.\d+)/);
@@ -998,12 +1001,12 @@
         if (btn) { btn.disabled = true; btn.textContent = 'Sending\u2026'; }
         var ga = getGa4ClientId();
         var payload = {}; fd.forEach(function (v, k) { payload[k] = v; });
-        payload.ga4_client_id = ga; payload.landing_page = 'google_ads_clearcorrect';
+        payload.ga4_client_id = ga; payload.landing_page = 'google_ads_clearcorrect'; payload.page_url = window.location.href;
         fd.set('ga4_client_id', ga); fd.set('landing_page', 'google_ads_clearcorrect');
         fd.set('_subject', 'New clear aligner enquiry - Sutton Smiles');
         Promise.allSettled([
-          fetch(ZAPIER_WEBHOOK_URL, { method: 'POST', keepalive: true, headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: JSON.stringify(payload) }),
-          fetch(CRM_ENDPOINT_URL, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
+          fetch(GHL_LEAD_URL, { method: 'POST', keepalive: true, headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: JSON.stringify(payload) }),
+          IS_PROD ? fetch(CRM_ENDPOINT_URL, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } }) : Promise.resolve({ ok: false })
         ]).then(function (r) {
           var ok = (r[0].status === 'fulfilled' && r[0].value.ok) || (r[1].status === 'fulfilled' && r[1].value.ok);
           if (ok) {
@@ -1011,7 +1014,7 @@
             var evt = { event: 'lead_submit', event_id: (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()), email: email, phone_number: phone };
             var c = (typeof window !== 'undefined' && window.__consentState) || {};
             if (c.marketing) evt.enquiry_type = need;
-            window.dataLayer.push(evt);
+            if (IS_PROD) window.dataLayer.push(evt);
             showThanks(name);
           } else {
             if (btn) { btn.disabled = false; btn.textContent = 'Book my free assessment and scan'; }

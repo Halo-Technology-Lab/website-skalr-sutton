@@ -1589,7 +1589,7 @@ class Component extends DCLogic {
     });
 
     // Fired once the lead has actually been delivered to *at least one* of
-    // Zapier/Formspree — never on a bare network send, so a failed POST
+    // GHL/Formspree — never on a bare network send, so a failed POST
     // can never show a fake success.
     function onLeadDelivered() {
       window.dataLayer = window.dataLayer || [];
@@ -1603,19 +1603,19 @@ class Component extends DCLogic {
       // consent has been granted via the consent banner (section 05).
       const consent = (typeof window !== 'undefined' && window.__consentState) || {};
       if (consent.marketing) evt.enquiry_type = need;
-      window.dataLayer.push(evt);
+      if (IS_PROD) window.dataLayer.push(evt);
 
       self.setState({ submitted: true, submittedName: name, submitting: false, submitError: false });
       self._scrollToEnquiry();
     }
 
-    // === CRM submission: Zapier ("Google Ads LP to Boxly" Zap, keyed to
-    // this page specifically so Google Ads leads never land in the Meta
-    // Ads Zap) and Formspree are both sent on every submission, in
-    // parallel and independently of each other — Formspree is a genuine
-    // backup record of every lead, not a failover only triggered when
-    // Zapier fails. Success only requires at least one to succeed. ===
-    const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26496932/4um6lf6/';
+    // === Lead submission: the GHL function (/api/ghl-lead, creates the contact
+    // in GHL) and Formspree (backup email) are both sent on every submission, in
+    // parallel. Success only requires at least one to succeed. Preview and test
+    // hosts send to GHL only (the function tags those ss-internal-test), never to
+    // the clinic's Formspree inbox, and push no conversion event. ===
+    const GHL_LEAD_URL = '/api/ghl-lead';
+    const IS_PROD = /^(www\.)?suttonsmiles\.info$/.test(window.location.hostname);
     const CRM_ENDPOINT_URL = 'https://formspree.io/f/xkoddegp';
     const ga4ClientId = getGa4ClientId();
     const leadPayload = {};
@@ -1624,30 +1624,30 @@ class Component extends DCLogic {
     // landing_page/_subject let a single inbox be filtered/read per source.
     leadPayload.ga4_client_id = ga4ClientId;
     leadPayload.landing_page = 'google_ads';
+    leadPayload.page_url = window.location.href;
     fd.set('ga4_client_id', ga4ClientId);
     fd.set('landing_page', 'google_ads');
     fd.set('_subject', 'New Google Ads enquiry — Sutton Smiles');
 
     Promise.allSettled([
-      fetch(ZAPIER_WEBHOOK_URL, {
+      fetch(GHL_LEAD_URL, {
         method: 'POST',
         keepalive: true,
         // text/plain avoids a CORS preflight (OPTIONS) request — some
         // in-app browsers (e.g. Facebook/Instagram's) are known to drop
         // or mishandle the body on preflighted cross-origin fetches.
-        // Zapier's Catch Hook parses the JSON string in the body either way.
         headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
         body: JSON.stringify(leadPayload)
       }),
-      fetch(CRM_ENDPOINT_URL, {
+      IS_PROD ? fetch(CRM_ENDPOINT_URL, {
         method: 'POST',
         body: fd,
         headers: { 'Accept': 'application/json' }
-      })
+      }) : Promise.resolve({ ok: false })
     ]).then(function (results) {
-      const zapierOk = results[0].status === 'fulfilled' && results[0].value.ok;
+      const ghlOk = results[0].status === 'fulfilled' && results[0].value.ok;
       const formspreeOk = results[1].status === 'fulfilled' && results[1].value.ok;
-      if (zapierOk || formspreeOk) {
+      if (ghlOk || formspreeOk) {
         onLeadDelivered();
       } else {
         // Blocking-bug fix: if both requests fail, never show a fake success.
