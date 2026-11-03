@@ -102,7 +102,8 @@ export default async (req) => {
       [FIELD.marketingConsentSms]: mktSms ? ['Yes'] : '',
       [FIELD.consentSourceForm]: page.label,
       [FIELD.consentWordingVersion]: mktConsent ? 'v2 2026-10-28' : 'LP v1: contact me about my enquiry (enquiry contact only, NOT marketing consent)',
-      [FIELD.consentTimestamp]: mktConsent ? now : '',
+      // GHL rejects epoch milliseconds here; an ISO date works for a date or text field.
+      [FIELD.consentTimestamp]: mktConsent ? new Date(now).toISOString().slice(0, 10) : '',
       [FIELD.landingPageUrl]: pageUrl,
       [FIELD.utmSource]: q.get('utm_source'),
       [FIELD.utmMedium]: q.get('utm_medium'),
@@ -122,7 +123,8 @@ export default async (req) => {
     contactId = await upsertContact(contact);
   } catch (e) {
     console.error('ghl-lead: upsert failed', e.message);
-    return json(502, { ok: false });
+    // Preview/test hosts only: expose GHL's reason so it can be read in the browser.
+    return json(502, isTest ? { ok: false, detail: String(e.message).slice(0, 400) } : { ok: false });
   }
 
   const note = [
@@ -132,6 +134,7 @@ export default async (req) => {
     `Age range: ${age || 'not given'}`,
     `Marketing email box ticked: ${mktEmail ? 'yes' : 'no'}`,
     `Marketing SMS box ticked: ${mktSms ? 'yes' : 'no'}`,
+    mktConsent ? `Marketing consent given at: ${new Date(now).toISOString()}` : '',
     gclid ? `gclid: ${gclid}` : '',
     fbclid ? `fbclid: ${fbclid}` : '',
     pageUrl ? `Page: ${pageUrl}` : ''
