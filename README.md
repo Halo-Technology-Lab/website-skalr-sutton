@@ -26,29 +26,34 @@ that holds all interactivity, including the enquiry form.
   fire on the `consent_granted` dataLayer event that `applyConsent(true)`
   pushes, so Meta never fires before consent.
 
-## Lead capture: webhook + Formspree mapping
+## Lead capture: GHL function + Formspree
 
-Each page posts a lead to its **own** Zapier webhook (Boxly CRM) and to a
-shared Formspree form **in parallel, on every submission** — Formspree is a
-genuine backup record of every lead, not a failover only triggered when
-Zapier fails. The success/error UI only needs at least one of the two to
-succeed. **Do not let the webhooks cross** — a page posting to the other
-page's webhook silently mis-attributes every lead in Boxly.
+Every page posts each lead to `/api/ghl-lead` (Netlify Function in
+`netlify/functions/ghl-lead.mjs`) and to the shared Formspree form in parallel.
+The function upserts the contact into GHL (sub-account `L0XaYr7yYrETbaZFQ4T6`)
+with an intake tag (`ss-intake-implants` / `ss-intake-aligners`, which starts
+the GHL intake workflows), a source tag (`ss-source-google` / `ss-source-meta`),
+attribution fields and a note. Formspree (`https://formspree.io/f/xkoddegp`)
+stays as a backup email; the success UI needs at least one of the two to work.
 
-| Page | URL | Zapier webhook (primary) | Formspree `landing_page` tag |
-|---|---|---|---|
-| `index.html` | `/` (Google Ads) | `.../catch/26496932/4um6lf6/` | `google_ads` |
-| `meta-ads.html` | `/meta-ads` (Meta Ads) | `.../catch/26496932/4u5j25n/` | `meta_ads` |
+| Page | `landing_page` | GHL tags |
+|---|---|---|
+| `index.html` | `google_ads` | `ss-intake-implants`, `ss-source-google` |
+| `meta-ads.html` | `meta_ads` | `ss-intake-implants`, `ss-source-meta` |
+| `/multiple-implants/` | `google_ads_multi_teeth` | `ss-intake-implants`, `ss-source-google` |
+| `/clear-aligners/` | `google_ads_clearcorrect` | `ss-intake-aligners`, `ss-source-google` |
 
-Formspree (`https://formspree.io/f/xkoddegp`) is a single shared endpoint
-for both pages — segregation for attribution is done by tagging, not by
-separate forms: each submission carries a `landing_page` field (visible as
-its own column in the Formspree dashboard/CSV export) and a distinct
-`_subject` line per page.
+On any host other than suttonsmiles.info (deploy previews, local) the page
+sends to GHL only, the function adds `ss-internal-test` (which stops the GHL
+workflows), no Formspree email is sent and no conversion event is pushed.
 
-Run `/test-webhooks` to POST sample payloads at all three endpoints without
-touching the live form. Run `/verify-attribution` to grep-check that each
-page still points at its own webhook/tag before deploying.
+CallRail calls reach GHL through `/api/callrail-webhook` (CallRail post-call
+webhook, signature-checked): contact upsert with `ss-source-call` plus a channel
+tag, and a note with duration, source and recording link.
+
+Netlify env vars: `GHL_PRIVATE_TOKEN` (GHL Private Integration, Contacts
+scopes), `CALLRAIL_SIGNING_KEY`, and `GHL_FIELD_GCLID` once a gclid custom field
+exists in GHL. Never commit them.
 
 ## Fixed in this pass
 
