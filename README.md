@@ -20,6 +20,11 @@ that holds all interactivity, including the enquiry form.
 - **Consent Mode v2 / cookie banner**: the `#consent-banner` div + its
   handling `<script>`, placed in `<body>` before `<x-dc>` on both pages so
   it survives independently of the template runtime's re-renders.
+  GTM loads on every visit on all four pages with consent defaulting to
+  denied (Consent Mode v2, advanced): Google tags send cookieless pings until
+  the visitor accepts. The Meta pixel tags in GTM require `ad_storage` and
+  fire on the `consent_granted` dataLayer event that `applyConsent(true)`
+  pushes, so Meta never fires before consent.
 
 ## Lead capture: webhook + Formspree mapping
 

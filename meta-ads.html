@@ -103,6 +103,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         ad_personalization: granted ? 'granted' : 'denied',
         analytics_storage: granted ? 'granted' : 'denied'
       });
+      // Tells GTM consent was granted, so consent-gated tags (Meta pixel) can fire now.
+      if (granted) window.dataLayer.push({ event: 'consent_granted' });
     }
 
     function hideBanner() {

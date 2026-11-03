@@ -49,8 +49,9 @@
       window.dataLayer.push({ event: 'ag_variant', ag: variant });
     })();
   </script>
-  <!-- Google Tag Manager: loaded only after "Accept all" (see applyConsent in the consent banner script).
-       GTM carries the Meta pixel, so nothing fires before consent. -->
+  <!-- Google Tag Manager: loads on every visit with Consent Mode v2 defaulting to denied (set above).
+       Google tags send cookieless pings until consent; the Meta pixel tags require ad_storage inside
+       GTM and fire on the consent_granted event pushed by applyConsent. -->
   <script>
     window.__loadGTM = function () {
       if (window.__gtmLoaded) return;
@@ -61,6 +62,7 @@
         j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
       })(window, document, 'script', 'dataLayer', 'GTM-MVFFLHVT');
     };
+    window.__loadGTM();
   </script>
   <!-- End Google Tag Manager -->
 </head>
@@ -100,6 +102,8 @@
           analytics_storage: granted ? 'granted' : 'denied'
         });
         if (granted && window.__loadGTM) window.__loadGTM();
+        // Tells GTM consent was granted, so consent-gated tags (Meta pixel) can fire now.
+        if (granted) window.dataLayer.push({ event: 'consent_granted' });
       }
 
       function hideBanner() {
