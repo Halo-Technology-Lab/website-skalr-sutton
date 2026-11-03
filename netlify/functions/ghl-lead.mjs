@@ -80,6 +80,10 @@ export default async (req) => {
     page.line === 'aligners' ? 'ss-intake-aligners' : 'ss-intake-implants',
     page.channel === 'google' ? 'ss-source-google' : page.channel === 'meta' ? 'ss-source-meta' : 'ss-source-other'
   ];
+  // An adult age band releases a lead that an earlier, age-less enquiry left on
+  // hold (ss-age-unconfirmed). GHL WF15 triggers on this tag; staff add it by hand
+  // after confirming age on the phone.
+  if (age && age !== 'Under 18') tags.push('ss-age-given');
   if (isTest) tags.push('ss-internal-test');
 
   const { firstName, lastName } = splitName(name);

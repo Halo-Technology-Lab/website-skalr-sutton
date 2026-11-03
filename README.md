@@ -43,6 +43,10 @@ stays as a backup email; the success UI needs at least one of the two to work.
 | `/multiple-implants/` | `google_ads_multi_teeth` | `ss-intake-implants`, `ss-source-google` |
 | `/clear-aligners/` | `google_ads_clearcorrect` | `ss-intake-aligners`, `ss-source-google` |
 
+When the visitor picks an adult age band (anything except Under 18) the
+function also adds `ss-age-given`. GHL WF15 (Age Confirmed) triggers on it to
+release a contact that an earlier enquiry without an age left on hold.
+
 On any host other than suttonsmiles.info (deploy previews, local) the page
 sends to GHL only, the function adds `ss-internal-test` (which stops the GHL
 workflows), no Formspree email is sent and no conversion event is pushed.
