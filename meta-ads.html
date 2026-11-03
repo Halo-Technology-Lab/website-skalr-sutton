@@ -884,13 +884,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </sc-if>
               </div>
 
-              <label style="display:flex;gap:11px;align-items:flex-start;font:400 14px/1.5 Inter,sans-serif;color:#5C544B;cursor:pointer">
-                <input id="f-consent" name="consent" type="checkbox" required aria-required="true" onchange="{{ clearConsentError }}" style="margin-top:2px;width:20px;height:20px;flex:0 0 auto;accent-color:#0E3B38">
-                <span>I’m happy for Sutton Dental &amp; Implant Clinic to contact me about my enquiry. We’ll never share your details. <a href="#footer" style="color:#0E3B38;text-decoration:underline">Privacy</a>.</span>
-              </label>
-              <sc-if value="{{ fieldErrors.consent }}" hint-placeholder-val="{{ false }}">
-                <p role="alert" style="margin:-10px 0 0;font:600 13px/1 Inter,sans-serif;color:#C43C28">Required</p>
-              </sc-if>
+              <div><label for="f-age" style="display:block;font:600 14px/1 Inter,sans-serif;color:#1C1815;margin-bottom:8px">How old are you?</label><select id="f-age" name="age" required aria-required="true" onchange="{{ clearAgeError }}" style="width:100%;font:400 16px/1.4 Inter,sans-serif;color:#1C1815;background:#FBF8F4;border:1px solid #E7E0D6;border-radius:10px;padding:14px;min-height:52px;appearance:none" style-focus="border-color:#0E3B38;background:#FFFFFF"><option value="" disabled selected>Please choose…</option><option value="under-18">Under 18</option><option value="18-29">18-29</option><option value="30-44">30-44</option><option value="45-59">45-59</option><option value="60+">60+</option></select><sc-if value="{{ fieldErrors.age }}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin:6px 0 0;font:600 13px/1 Inter,sans-serif;color:#C43C28">Required</p></sc-if></div>
+
+<p style="margin:0;font:400 14px/1.5 Inter,sans-serif;color:#5C544B">We will use your details to reply to your enquiry and arrange your free 20-minute chat. How we handle your information, including any health details you share, is explained in our privacy policy: <a href="https://www.suttonsmiles.com/privacy-policy/" target="_blank" rel="noopener" style="color:#0E3B38;text-decoration:underline">https://www.suttonsmiles.com/privacy-policy/</a>. The two boxes below are optional.</p>
+<label style="display:flex;gap:11px;align-items:flex-start;font:400 14px/1.5 Inter,sans-serif;color:#5C544B;cursor:pointer"><input id="f-mkt-email" name="marketing_email" type="checkbox" value="Yes" style="margin-top:2px;width:20px;height:20px;flex:0 0 auto;accent-color:#0E3B38"><span>Yes, Sutton Dental &amp; Implant Clinic can email me about my enquiry, including reminders and rebooking links for my free 20-minute chat. I can unsubscribe at any time.</span></label>
+<label style="display:flex;gap:11px;align-items:flex-start;font:400 14px/1.5 Inter,sans-serif;color:#5C544B;cursor:pointer"><input id="f-mkt-sms" name="marketing_sms" type="checkbox" value="Yes" style="margin-top:2px;width:20px;height:20px;flex:0 0 auto;accent-color:#0E3B38"><span>Yes, Sutton Dental &amp; Implant Clinic can text me about my enquiry, including reminders and rebooking links for my free 20-minute chat. I can reply STOP at any time.</span></label>
+
 
               <sc-if value="{{ submitError }}" hint-placeholder-val="{{ false }}">
                 <p role="alert" style="margin:0;padding:14px 16px;border-radius:10px;background:rgba(196,60,40,.08);border:1px solid rgba(196,60,40,.25);font:500 15px/1.5 Inter,sans-serif;color:#8A2E1E">That didn't send — please fill in all the fields, or call us on <a href="tel:01213541922" style="color:#8A2E1E;font-weight:700;text-decoration:underline">0121&nbsp;354&nbsp;1922</a> and we'll book you in directly.</p>
@@ -1018,7 +1017,7 @@ class Component extends DCLogic {
     submitting: false,
     submitError: false,
     submittedName: '',
-    fieldErrors: { name: false, phone: false, email: false, need: false, time: false, consent: false },
+    fieldErrors: { name: false, phone: false, email: false, need: false, time: false, age: false },
     reviewIndex: 0,
     whyActive: 0
   };
@@ -1136,7 +1135,7 @@ class Component extends DCLogic {
     const email   = (fd.get('email')   || '').toString().trim();
     const need    = (fd.get('need')    || '').toString().trim();
     const time    = (fd.get('time')    || '').toString().trim();
-    const consent = (fd.get('consent') || '').toString().trim();
+    const age     = (fd.get('age')     || '').toString().trim();
     // Reads the GA4 client ID straight from the _ga cookie set by gtag.js/GTM,
     // so lead attribution doesn't depend on a third-party script staying up.
     // Cookie shape: GA1.2.<client_id part 1>.<client_id part 2>
@@ -1162,7 +1161,7 @@ class Component extends DCLogic {
     // devtools, if a field is filled with only whitespace, or if the form is
     // submitted programmatically in a way that skips native validation.
     const fieldErrors = {
-      name: !name, phone: !phone, email: !email, need: !need, time: !time, consent: !consent
+      name: !name, phone: !phone, email: !email, need: !need, time: !time, age: !age
     };
     const hasFieldErrors = Object.keys(fieldErrors).some(function (k) { return fieldErrors[k]; });
     if (hasFieldErrors) {
@@ -1174,7 +1173,7 @@ class Component extends DCLogic {
     this.setState({
       submitting: true,
       submitError: false,
-      fieldErrors: { name: false, phone: false, email: false, need: false, time: false, consent: false }
+      fieldErrors: { name: false, phone: false, email: false, need: false, time: false, age: false }
     });
 
     // Fired once the lead has actually been delivered to *at least one* of
@@ -1259,7 +1258,7 @@ class Component extends DCLogic {
   clearEmailError() { this._clearFieldError('email'); }
   clearNeedError() { this._clearFieldError('need'); }
   clearTimeError() { this._clearFieldError('time'); }
-  clearConsentError() { this._clearFieldError('consent'); }
+  clearAgeError() { this._clearFieldError('age'); }
 
   _scrollToEnquiry() {
     if (typeof document === 'undefined') return;
