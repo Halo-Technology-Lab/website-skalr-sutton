@@ -26,13 +26,7 @@ const pick = (o, ...keys) => {
   return '';
 };
 
-// Google Business Profile calls carry utm_source=google, so they are checked first.
-function isBusinessProfile(source, campaign) {
-  return /my business|business profile|\bgmb\b|\bgbp\b/.test(`${source} ${campaign}`.toLowerCase());
-}
-
-function channelTag(source, utmSource, campaign) {
-  if (isBusinessProfile(source, campaign)) return 'ss-source-gbp';
+function channelTag(source, utmSource) {
   const s = `${source} ${utmSource}`.toLowerCase();
   if (s.includes('google')) return 'ss-source-google';
   if (s.includes('facebook') || s.includes('instagram') || s.includes('meta')) return 'ss-source-meta';
@@ -69,8 +63,7 @@ export default async (req) => {
     const utmSource = String(pick(c, 'utm_source', 'utmsource'));
     const landing = String(pick(c, 'landing_page_url', 'landingpage', 'landing_page'));
     const campaign = String(pick(c, 'utm_campaign', 'utmcampaign', 'campaign'));
-    const gbp = isBusinessProfile(source, campaign);
-    const tags = ['ss-source-call', channelTag(source, utmSource, campaign)];
+    const tags = ['ss-source-call', channelTag(source, utmSource)];
 
     let contactId;
     const existing = await findContact({ phone });
@@ -88,9 +81,7 @@ export default async (req) => {
         tags,
         customFields: fields({
           [FIELD.landingPageUrl]: landing,
-          // GHL WF22 tags any utm_source=google contact as Google Ads, so a
-          // Business Profile call is stored under its own source name.
-          [FIELD.utmSource]: gbp ? 'google-business-profile' : utmSource,
+          [FIELD.utmSource]: utmSource,
           [FIELD.utmMedium]: pick(c, 'utm_medium', 'utmmedium', 'medium'),
           [FIELD.utmCampaign]: campaign,
           [FIELD.utmTerm]: pick(c, 'utm_term', 'utmterm', 'keywords'),
