@@ -39,11 +39,11 @@ function headers() {
   };
 }
 
-async function call(path, body) {
+async function call(path, body, method = 'POST') {
   const res = await fetch(GHL_API + path, {
-    method: 'POST',
+    method,
     headers: headers(),
-    body: JSON.stringify(body),
+    body: body === undefined ? undefined : JSON.stringify(body),
     signal: AbortSignal.timeout(8000)
   });
   const text = await res.text();
@@ -76,13 +76,41 @@ export function fields(map) {
     .map(([id, value]) => ({ id, value }));
 }
 
+// Existing contact matched by phone or email (GHL's own duplicate rule), or null.
+export async function findContact({ phone, email }) {
+  const q = new URLSearchParams({ locationId: LOCATION_ID });
+  if (phone) q.set('number', phone);
+  if (email) q.set('email', email);
+  if (!phone && !email) return null;
+  // A failed lookup must never lose a lead: carry on as if the contact is new.
+  try {
+    const json = await call(`/contacts/search/duplicate?${q}`, undefined, 'GET');
+    return (json && json.contact) || null;
+  } catch (e) {
+    console.error('findContact:', e.message);
+    return null;
+  }
+}
+
+// Adds tags without touching the contact's other tags.
+export async function addTags(contactId, tags) {
+  if (!tags || !tags.length) return null;
+  return call(`/contacts/${contactId}/tags`, { tags });
+}
+
+// GHL's upsert REPLACES the tag list, so an existing contact keeps its tags
+// (intake, enquiry, opt-out) only if new tags are added separately.
+// Returns { id, isNew }.
 export async function upsertContact(contact) {
   // GHL rejects empty strings for typed fields such as email, so drop them.
   const clean = Object.fromEntries(Object.entries(contact).filter(([, v]) => v !== '' && v !== undefined && v !== null));
-  const json = await call('/contacts/upsert', { locationId: LOCATION_ID, ...clean });
+  const existing = await findContact({ phone: clean.phone, email: clean.email });
+  const { tags, ...rest } = clean;
+  const json = await call('/contacts/upsert', { locationId: LOCATION_ID, ...(existing ? rest : clean) });
   const id = json && json.contact && json.contact.id;
   if (!id) throw new Error('GHL upsert returned no contact id');
-  return id;
+  if (existing) await addTags(id, tags);
+  return { id, isNew: !existing };
 }
 
 export async function addNote(contactId, body) {

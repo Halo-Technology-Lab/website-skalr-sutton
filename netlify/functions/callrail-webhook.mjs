@@ -3,9 +3,12 @@
 // and the company signing key in the CALLRAIL_SIGNING_KEY env var.
 // Callers get ss-source-call plus a channel tag, never ss-intake-* (the clinic has
 // already spoken to them, so they must not receive the automated intake messages).
+// A call never edits a contact that already exists (for example a form lead who
+// phones afterwards): it only adds tags and the call note, so the form's name,
+// source, intake tags and attribution stay intact.
 
 import crypto from 'node:crypto';
-import { FIELD, toE164, splitName, fields, upsertContact, addNote, json } from '../lib/ghl.mjs';
+import { FIELD, toE164, splitName, fields, findContact, addTags, upsertContact, addNote, json } from '../lib/ghl.mjs';
 
 // CallRail signs the raw body with HMAC-SHA1 using the company signing key.
 // Accept base64 or hex so a format difference cannot silently drop every call.
@@ -23,12 +26,21 @@ const pick = (o, ...keys) => {
   return '';
 };
 
-function channelTag(source, utmSource) {
+// Google Business Profile calls carry utm_source=google, so they are checked first.
+function isBusinessProfile(source, campaign) {
+  return /my business|business profile|\bgmb\b|\bgbp\b/.test(`${source} ${campaign}`.toLowerCase());
+}
+
+function channelTag(source, utmSource, campaign) {
+  if (isBusinessProfile(source, campaign)) return 'ss-source-gbp';
   const s = `${source} ${utmSource}`.toLowerCase();
   if (s.includes('google')) return 'ss-source-google';
   if (s.includes('facebook') || s.includes('instagram') || s.includes('meta')) return 'ss-source-meta';
   return 'ss-source-other';
 }
+
+// Caller ID placeholders that must never become a contact's name.
+const PLACEHOLDER_NAME = /^(unavailable|unknown|anonymous|private|withheld|restricted|not available|wireless caller)( caller| number)?$/i;
 
 export default async (req) => {
   if (req.method !== 'POST') return json(405, { ok: false });
@@ -56,24 +68,37 @@ export default async (req) => {
     const source = String(pick(c, 'source', 'source_name'));
     const utmSource = String(pick(c, 'utm_source', 'utmsource'));
     const landing = String(pick(c, 'landing_page_url', 'landingpage', 'landing_page'));
-    const { firstName, lastName } = splitName(pick(c, 'customer_name', 'callername'));
+    const campaign = String(pick(c, 'utm_campaign', 'utmcampaign', 'campaign'));
+    const gbp = isBusinessProfile(source, campaign);
+    const tags = ['ss-source-call', channelTag(source, utmSource, campaign)];
 
-    const contactId = await upsertContact({
-      firstName,
-      lastName,
-      phone,
-      source: 'CallRail call (suttonsmiles.info)',
-      tags: ['ss-source-call', channelTag(source, utmSource)],
-      customFields: fields({
-        [FIELD.landingPageUrl]: landing,
-        [FIELD.utmSource]: utmSource,
-        [FIELD.utmMedium]: pick(c, 'utm_medium', 'utmmedium', 'medium'),
-        [FIELD.utmCampaign]: pick(c, 'utm_campaign', 'utmcampaign', 'campaign'),
-        [FIELD.utmTerm]: pick(c, 'utm_term', 'utmterm', 'keywords'),
-        [FIELD.utmContent]: pick(c, 'utm_content', 'utmcontent'),
-        [FIELD.gclid]: pick(c, 'gclid')
-      })
-    });
+    let contactId;
+    const existing = await findContact({ phone });
+    if (existing) {
+      contactId = existing.id;
+      await addTags(contactId, tags);
+    } else {
+      const callerName = String(pick(c, 'customer_name', 'callername')).trim();
+      const { firstName, lastName } = splitName(PLACEHOLDER_NAME.test(callerName) ? '' : callerName);
+      ({ id: contactId } = await upsertContact({
+        firstName,
+        lastName,
+        phone,
+        source: 'CallRail call (suttonsmiles.info)',
+        tags,
+        customFields: fields({
+          [FIELD.landingPageUrl]: landing,
+          // GHL WF22 tags any utm_source=google contact as Google Ads, so a
+          // Business Profile call is stored under its own source name.
+          [FIELD.utmSource]: gbp ? 'google-business-profile' : utmSource,
+          [FIELD.utmMedium]: pick(c, 'utm_medium', 'utmmedium', 'medium'),
+          [FIELD.utmCampaign]: campaign,
+          [FIELD.utmTerm]: pick(c, 'utm_term', 'utmterm', 'keywords'),
+          [FIELD.utmContent]: pick(c, 'utm_content', 'utmcontent'),
+          [FIELD.gclid]: pick(c, 'gclid')
+        })
+      }));
+    }
 
     const started = pick(c, 'start_time', 'datetime', 'created_at');
     const when = started

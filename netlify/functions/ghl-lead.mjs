@@ -124,7 +124,7 @@ export default async (req) => {
 
   let contactId;
   try {
-    contactId = await upsertContact(contact);
+    ({ id: contactId } = await upsertContact(contact));
   } catch (e) {
     console.error('ghl-lead: upsert failed', e.message);
     // Preview/test hosts only: expose GHL's reason so it can be read in the browser.
