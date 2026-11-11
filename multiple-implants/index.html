@@ -887,7 +887,7 @@
                 }}</p>
               <sc-if value="{{ showPriceIncludes }}" hint-placeholder-val="{{ true }}">
                 <p style="font:400 clamp(18px,2.2vw,19px)/1.6 Inter,sans-serif;color:#5C544B;margin:14px 0 0">Complex
-                  cases such as bone graft, sinus lift and implant dentures are quoted after a full assessment.</p>
+                  cases such as bone graft, sinus lift and full-arch fixed teeth are quoted after a full assessment.</p>
                 <ul style="list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:11px">
                   <li style="display:flex;gap:10px;font:500 16px/1.45 Inter,sans-serif;color:#1C1815"><span
                       style="color:#1E7A53;font-weight:700">✓</span> CT scan &amp; full diagnostics</li>
@@ -1267,7 +1267,7 @@
                         style-focus="border-color:#0E3B38;background:#FFFFFF">
                         <option value="" disabled selected>Please choose…</option>
                         <option value="several">Several teeth</option>
-                        <option value="full-arch">Loose dentures / implant dentures</option>
+                        <option value="full-arch">Loose dentures / full-arch fixed teeth</option>
                         <option value="dentures">Loose dentures</option>
                         <option value="not-sure">Not sure yet</option>
                       </select>
@@ -1792,9 +1792,9 @@ class Component extends DCLogic {
         heroProof: 'Bridges for several missing teeth, and implants to secure loose dentures, planned and placed by the same dentist in Sutton Coldfield.'
       },
       fullarch: {
-        heroH1: 'Implant Dentures, So Your Teeth Stay Put',
+        heroH1: 'Fixed Teeth on Implants, So Your Teeth Stay Put',
         heroSubhead: 'Fixed teeth on implants for a full arch. Stable and designed to be long-lasting, unlike a denture that slips.',
-        heroProof: 'Implant dentures, quoted after your free 20-minute chat and a full assessment.'
+        heroProof: 'Fixed teeth on implants, quoted after your free 20-minute chat and a full assessment.'
       },
       brand: {
         heroH1: 'Sutton Dental & Implant Clinic',
@@ -1816,10 +1816,10 @@ class Component extends DCLogic {
     const COMPLIANT_PRICE_LINE = BRIDGE_LINE + ' Ask about ways to pay at your free 20-minute chat.';
     let priceHeading, priceBody, showPriceIncludes, priceCardBody;
     if (isFullArch) {
-      priceHeading = 'Implant dentures are quoted after your free 20-minute chat.';
+      priceHeading = 'Fixed teeth on implants are quoted after your free 20-minute chat.';
       priceBody = 'Every case is different, so pricing is confirmed after your free 20-minute chat and a full clinical assessment. The Perfect Implant Denture is ' + FULLARCH_PRICE_MEMBER + ' for members, or ' + FULLARCH_PRICE + ' without.';
       showPriceIncludes = false;
-      priceCardBody = 'Book your free 20-minute chat to start your implant denture plan.';
+      priceCardBody = 'Book your free 20-minute chat to start your fixed teeth plan.';
     } else {
       priceHeading = 'Clear, itemised pricing';
       priceBody = 'Several missing teeth can be replaced with an implant-supported bridge. ' + BRIDGE_LINE + ' Loose dentures can be secured with implants, from ' + FULLARCH_PRICE_MEMBER + ' for members. You get a written, itemised quote before any treatment.';
