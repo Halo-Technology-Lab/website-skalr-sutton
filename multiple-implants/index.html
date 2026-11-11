@@ -1022,13 +1022,13 @@
       <!-- ============ IMPLANT DENTURES ============ -->
       <section id="implant-dentures" style="background:#FFFFFF;padding:clamp(52px,8vw,96px) 0">
         <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
-          <p style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1E7A53;margin:0 0 16px">Implant dentures</p>
-          <h2 style="font:600 clamp(28px,4.4vw,42px)/1.14 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0;max-width:22ch">Dentures that stay where they should</h2>
-          <p style="font:400 17px/1.55 Inter,sans-serif;color:#5C544B;margin:16px 0 0;max-width:60ch">If your dentures slip, rub, or stop you eating what you enjoy, implants can hold them securely in place, without denture adhesives or pastes.</p>
+          <p style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1E7A53;margin:0 0 16px">Fixed implant options</p>
+          <h2 style="font:600 clamp(28px,4.4vw,42px)/1.14 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0;max-width:22ch">Fixed teeth that stay where they should</h2>
+          <p style="font:400 17px/1.55 Inter,sans-serif;color:#5C544B;margin:16px 0 0;max-width:60ch">If your dentures slip, rub or stop you eating what you enjoy, a full arch of teeth can be fixed in place on implants. If you're missing a few teeth rather than a whole arch, an implant-supported bridge can replace them.</p>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px;margin-top:32px">
             <div style="background:#FBF8F4;border:1px solid #E7E0D6;border-radius:14px;padding:28px">
-              <h3 style="font:600 clamp(19px,2.6vw,21px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 12px">Clip-in dentures</h3>
-              <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">A removable denture held in place by a small number of implants, so it stays secure while you eat and talk. You take it out each day to clean it.</p>
+              <h3 style="font:600 clamp(19px,2.6vw,21px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 12px">Implant bridges</h3>
+              <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">Several missing teeth can be replaced with an implant-supported bridge, without grinding down the healthy teeth beside them.</p>
             </div>
             <div style="background:#FBF8F4;border:1px solid #E7E0D6;border-radius:14px;padding:28px">
               <h3 style="font:600 clamp(19px,2.6vw,21px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 12px">Fixed teeth</h3>
@@ -1793,7 +1793,7 @@ class Component extends DCLogic {
       },
       fullarch: {
         heroH1: 'Implant Dentures, So Your Teeth Stay Put',
-        heroSubhead: 'Clip-in or fixed teeth on implants. Stable, and designed to be long-lasting, not a denture that slips.',
+        heroSubhead: 'Fixed teeth on implants for a full arch. Stable and designed to be long-lasting, unlike a denture that slips.',
         heroProof: 'Implant dentures, quoted after your free 20-minute chat and a full assessment.'
       },
       brand: {
@@ -1853,7 +1853,7 @@ class Component extends DCLogic {
 
     const options = [
       { t: 'Multiple teeth',       slotId: 'opt-multiple', shot: 'Implant bridge result close-up',  img: 'assets/img/multiple-tooth.webp',     b: 'Several teeth restored with an implant-supported bridge, without grinding down the healthy teeth beside them.' , ag: 'core' },
-      { t: 'Implant dentures', slotId: 'opt-arch',     shot: 'Implant denture result, finished smile', img: 'assets/img/full-arch.webp', b: 'For dentures that slip, rub, or stop you eating what you enjoy. Clip-in or fixed teeth, held securely on implants.' , ag: 'fullarch' }
+      { t: 'Fixed teeth on implants', slotId: 'opt-arch',     shot: 'Implant denture result, finished smile', img: 'assets/img/full-arch.webp', b: 'If your dentures slip, rub or stop you eating what you enjoy, a full arch of fixed teeth on implants is held securely in place.' , ag: 'fullarch' }
     ].map(function (o) {
       return Object.assign({}, o, { href: '/multiple-implants/?ag=' + o.ag });
     });
