@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Clear Aligners in Sutton Coldfield | Sutton Dental &amp; Implant Clinic</title>
   <meta name="description"
-    content="Clear aligners at Sutton Dental &amp; Implant Clinic in Sutton Coldfield. Discreet, removable, dentist-led. Book your free assessment and scan.">
+    content="Clear aligners at Sutton Dental &amp; Implant Clinic in Sutton Coldfield, from £2,595 for straightforward cases, with retainers and teeth whitening included. Book your free scan.">
   <meta name="robots" content="noindex, follow">
   <meta name="facebook-domain-verification" content="892gzr3w0ntjq22dqgp5hcydeze05w">
   <!-- ============================================================
@@ -598,6 +598,10 @@
   <style>
   #offer-module{position:sticky;top:0;z-index:70}
   #enquiry{scroll-margin-top:190px!important}
+  /* Offer expiry: the DEADLINE script adds .offer-ended to <html> */
+  .after-offer{display:none}
+  .offer-ended .offer-only{display:none!important}
+  .offer-ended .after-offer{display:revert}
   @media (max-width:640px){
     #enquiry{scroll-margin-top:150px!important}
     #offer-module .offer-fine,#offer-module .offer-extra{display:none}
@@ -622,9 +626,9 @@
     style="background:#0E3B38;color:#FFFFFF;border-bottom:3px solid #ED6A1A;font-family:Inter,system-ui,sans-serif">
     <div style="max-width:1080px;margin:0 auto;padding:clamp(14px,2.5vw,20px) clamp(20px,5vw,40px);display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;justify-content:space-between">
       <div style="flex:1 1 340px;min-width:260px">
-        <p style="display:inline-block;font:700 11px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#0B2F2C;background:#E8A33D;padding:5px 10px;border-radius:999px;margin:0 0 10px">This month only</p>
-        <p style="font:600 clamp(19px,2.8vw,26px)/1.2 Fraunces,serif;color:#FFFFFF;margin:0">&pound;250 off your clear aligners, plus free professional teeth whitening</p>
-        <p class="offer-fine" style="font:400 12px/1.5 Inter,sans-serif;color:rgba(255,255,255,.72);margin:8px 0 0">Whitening subject to clinical suitability. Offer ends 30 November 2026.</p>
+        <p style="display:inline-block;font:700 11px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#0B2F2C;background:#E8A33D;padding:5px 10px;border-radius:999px;margin:0 0 10px">Ends 30 November</p>
+        <p style="font:600 clamp(19px,2.8vw,26px)/1.2 Fraunces,serif;color:#FFFFFF;margin:0">Clear aligners from &pound;2,595, with retainers and teeth whitening included</p>
+        <p class="offer-fine" style="font:400 12px/1.5 Inter,sans-serif;color:rgba(255,255,255,.72);margin:8px 0 0">Offer ends 30 November 2026. Private treatment. &pound;2,595 is for straightforward cases. Not suitable for everyone: your dentist confirms suitability and gives you a written quote at your free scan. Whitening subject to clinical suitability.</p>
       </div>
       <div style="flex:0 0 auto;display:flex;flex-direction:column;align-items:stretch;gap:10px;min-width:210px">
         <div style="text-align:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:10px 14px">
@@ -632,7 +636,7 @@
           <div id="offer-countdown" aria-live="polite" style="font:700 clamp(18px,2.4vw,22px)/1 Inter,sans-serif;color:#E8A33D;font-variant-numeric:tabular-nums">&nbsp;</div>
         </div>
         <button type="button" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})"
-          style="background:#ED6A1A;color:#FFFFFF;font:700 16px/1.1 Inter,sans-serif;padding:14px 20px;border:none;border-radius:11px;cursor:pointer;box-shadow:0 6px 18px rgba(237,106,26,.3)">Book your free scan today</button>
+          style="background:#ED6A1A;color:#FFFFFF;font:700 16px/1.1 Inter,sans-serif;padding:14px 20px;border:none;border-radius:11px;cursor:pointer;box-shadow:0 6px 18px rgba(237,106,26,.3)">Book your free scan</button>
       </div>
     </div>
   </section>
@@ -646,7 +650,14 @@
       var out = document.getElementById('offer-countdown');
       if (!mod) return;
       var timer = null;
-      function hide() { mod.style.display = 'none'; }
+      function hide() {
+        mod.style.display = 'none';
+        // Expire every £2,595 element (.offer-only) and show the standard-price
+        // version (.after-offer). Also swap the meta description.
+        document.documentElement.classList.add('offer-ended');
+        var md = document.querySelector('meta[name="description"]');
+        if (md) md.setAttribute('content', 'Clear aligners at Sutton Dental & Implant Clinic in Sutton Coldfield. Discreet, removable, dentist-led. Book your free assessment and scan.');
+      }
       function tick() {
         var now = Date.now();
         if (now >= DEADLINE) { hide(); if (timer) clearInterval(timer); return; }
@@ -679,9 +690,15 @@
           <div>
             <p style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1E7A53;margin:0 0 18px">Sutton Coldfield &middot; Clear Aligners</p>
             <h1 style="font:600 clamp(33px,6vw,56px)/1.08 Fraunces,serif;letter-spacing:-.015em;color:#1C1815;margin:0">Straighten Your Teeth with Clear Aligners</h1>
-            <p style="font:400 clamp(18px,2.4vw,20px)/1.55 Inter,sans-serif;color:#5C544B;margin:20px 0 0;max-width:34ch">Discreet, removable clear aligners at Sutton Dental &amp; Implant Clinic in Sutton Coldfield. It starts with a free assessment and scan.</p>
+            <p class="after-offer" style="font:400 clamp(18px,2.4vw,20px)/1.55 Inter,sans-serif;color:#5C544B;margin:20px 0 0;max-width:34ch">Discreet, removable clear aligners at Sutton Dental &amp; Implant Clinic in Sutton Coldfield. It starts with a free assessment and scan.</p>
+            <p class="offer-only" style="font:400 clamp(18px,2.4vw,20px)/1.55 Inter,sans-serif;color:#5C544B;margin:20px 0 0;max-width:34ch">Discreet, removable clear aligners at Sutton Dental &amp; Implant Clinic in Sutton Coldfield, from &pound;2,595 for straightforward cases, with retainers and teeth whitening included. It starts with a free scan.</p>
+            <div class="offer-only" style="margin:22px 0 0;max-width:440px;background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;padding:16px 20px">
+              <p style="font:600 clamp(34px,5.5vw,48px)/1.05 Fraunces,serif;color:#0E3B38;margin:0">From &pound;2,595</p>
+              <p style="font:600 17px/1.4 Inter,sans-serif;color:#1C1815;margin:8px 0 0">Includes a set of retainers and professional teeth whitening</p>
+              <p style="font:500 15px/1.5 Inter,sans-serif;color:#5C544B;margin:6px 0 0">Offer ends 30 November. Free scan first. Straightforward cases.</p>
+            </div>
             <p style="font:600 15px/1.5 Inter,sans-serif;color:#0E3B38;margin:14px 0 0;max-width:40ch">Clear aligners planned, fitted and reviewed by your own dentist in Sutton Coldfield.</p>
-            <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:30px">
+            <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:22px">
               <button type="button" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#ED6A1A;color:#FFFFFF;font:600 clamp(16px,2.2vw,18px)/1.1 Inter,sans-serif;padding:18px 28px;border:none;border-radius:12px;cursor:pointer;min-height:56px;box-shadow:0 6px 18px rgba(237,106,26,.26)">Book your free assessment and scan</button>
               <a href="tel:01213541922" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:transparent;color:#0E3B38;font:600 clamp(16px,2.2vw,18px)/1.1 Inter,sans-serif;padding:18px 22px;border:1.5px solid #CBBFAE;border-radius:12px;min-height:56px;text-decoration:none">Call&nbsp;0121&nbsp;354&nbsp;1922</a>
             </div>
@@ -787,7 +804,7 @@
             <div style="padding:28px">
               <h3 style="font:600 clamp(21px,2.8vw,24px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 6px">Dr Sinem Dayanik</h3>
               <p style="font:700 13px/1.4 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#1E7A53;margin:0 0 14px">Cosmetic &amp; Clear Aligner Dentist</p>
-              <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">Qualified 2006 (BDS, Manchester), with almost 20 years in dentistry and many years dedicated to clear aligners and smile transformations. Sinem plans every case around the overall balance and natural look of your smile, not just straight teeth. GDC No. 103628.</p>
+              <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">Qualified 2006 (BDS, Manchester, UK), with almost 20 years in dentistry and many years dedicated to clear aligners and smile transformations. Sinem plans every case around the overall balance and natural look of your smile, not just straight teeth. GDC No. 103628.</p>
             </div>
           </div>
           <div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:14px;overflow:hidden">
@@ -795,21 +812,32 @@
             <div style="padding:28px">
               <h3 style="font:600 clamp(21px,2.8vw,24px)/1.25 Fraunces,serif;color:#0E3B38;margin:0 0 6px">Dr Marwa Maarouf</h3>
               <p style="font:700 13px/1.4 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#1E7A53;margin:0 0 14px">Cosmetic &amp; Clear Aligner Dentist</p>
-              <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">Qualified 2013 (BDS, Birmingham), with over a decade in dentistry and many years of clear aligner experience. Known for her warm, gentle approach, Marwa takes time to understand your goals and builds a plan around them. GDC No. 244841.</p>
+              <p style="font:400 16px/1.6 Inter,sans-serif;color:#5C544B;margin:0">Qualified 2013 (BDS, Birmingham, UK), with over a decade in dentistry and many years of clear aligner experience. Known for her warm, gentle approach, Marwa takes time to understand your goals and builds a plan around them. GDC No. 244841.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PRICING (quoted after consultation; no finance, no per-day) -->
+    <!-- PRICING (from £2,595 until 30 Nov 2026, then standard price via .offer-only / .after-offer; quoted after consultation; no finance, no per-day) -->
     <section style="background:#FBF8F4;padding:clamp(52px,8vw,96px) 0">
       <div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(28px,4vw,52px);align-items:start">
           <div>
             <p style="font:700 13px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1E7A53;margin:0 0 14px">Clear aligners</p>
-            <h2 style="font:600 clamp(30px,5vw,48px)/1.1 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0">From £2,800 for members</h2>
-            <p style="font:400 clamp(18px,2.2vw,19px)/1.6 Inter,sans-serif;color:#5C544B;margin:18px 0 0">Clear aligners with our dentists are from £2,800 for members, or £3,112 without. Whitening, retainers and Airflow are included. Membership starts from £25.90 a month (Silver plan). Every smile is different, so you get a written quote after your assessment and scan, before any treatment starts.</p>
+            <h2 class="after-offer" style="font:600 clamp(30px,5vw,48px)/1.1 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0">From £2,800 for members</h2>
+            <p class="after-offer" style="font:400 clamp(18px,2.2vw,19px)/1.6 Inter,sans-serif;color:#5C544B;margin:18px 0 0">Clear aligners with our dentists are from £2,800 for members, or £3,112 without. Whitening, retainers and Airflow are included. Membership starts from £25.90 a month (Silver plan). Every smile is different, so you get a written quote after your assessment and scan, before any treatment starts.</p>
+            <h2 class="offer-only" style="font:600 clamp(30px,5vw,48px)/1.1 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0">From £2,595, with retainers and whitening included</h2>
+            <p class="offer-only" style="font:400 clamp(18px,2.2vw,19px)/1.6 Inter,sans-serif;color:#5C544B;margin:18px 0 0">Clear aligners with our dentists start from £2,595 for straightforward cases. That price includes a set of retainers to keep your new smile in place and professional teeth whitening. Every smile is different and aligners are not suitable for everyone, so your dentist confirms what you need and gives you a written quote at your free scan, before any treatment starts.</p>
+            <div style="margin:22px 0 0">
+              <p style="font:700 13px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#1E7A53;margin:0 0 12px">What&rsquo;s included</p>
+              <ul style="margin:0;padding:0 0 0 20px;font:400 17px/1.6 Inter,sans-serif;color:#5C544B">
+                <li>Clear aligner treatment, planned and reviewed by your dentist</li>
+                <li>A set of retainers</li>
+                <li>Professional teeth whitening (if clinically suitable)</li>
+                <li>Free assessment and digital scan</li>
+              </ul>
+            </div>
           </div>
           <div style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:16px;padding:clamp(24px,3vw,32px);box-shadow:0 1px 3px rgba(28,24,21,.05)">
             <p style="font:700 13px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#1E7A53;margin:0 0 10px">Ways to pay</p>
@@ -842,6 +870,7 @@
       <div style="max-width:720px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
         <div id="cc-form-block" style="background:#FFFFFF;border:1px solid #E7E0D6;border-radius:18px;padding:clamp(26px,4vw,40px);box-shadow:0 10px 40px rgba(28,24,21,.07)">
           <div id="cc-form-wrap">
+            <p class="offer-only" style="font:700 13px/1.4 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#1E7A53;margin:0 0 10px">Clear aligners from &pound;2,595 &middot; retainers and whitening included &middot; ends 30 November</p>
             <p style="font:700 13px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#1E7A53;margin:0 0 12px">Free &middot; No commitment</p>
             <h2 style="font:600 clamp(26px,4vw,38px)/1.14 Fraunces,serif;letter-spacing:-.01em;color:#1C1815;margin:0">Book your free assessment and scan</h2>
             <p style="font:400 17px/1.55 Inter,sans-serif;color:#5C544B;margin:14px 0 0">Tell us a little about you and our team will be in touch to arrange your free assessment and scan.</p>
@@ -949,11 +978,13 @@
             <p style="font:700 12px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:0 0 12px">Regulatory</p>
             <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.7);margin:0 0 8px">Dr Puneet Jain, GDC No. 103973. Qualified 2006 in the UK (BDS, London). Registered with the <a href="https://www.gdc-uk.org" target="_blank" rel="noopener" style="color:#FFFFFF;text-decoration:underline">General Dental Council</a>.</p>
             <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.7);margin:0 0 8px">Sutton Dental &amp; Implant Clinic is a fully private practice.</p>
-            <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.7);margin:0">GDC, 37 Wimpole Street, London W1G 8DQ &middot; <a href="https://www.gdc-uk.org" target="_blank" rel="noopener" style="color:#FFFFFF;text-decoration:underline">gdc-uk.org</a></p>
+            <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.7);margin:0 0 8px">GDC, 37 Wimpole Street, London W1G 8DQ &middot; <a href="https://www.gdc-uk.org" target="_blank" rel="noopener" style="color:#FFFFFF;text-decoration:underline">gdc-uk.org</a></p>
+            <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.7);margin:0">Page last updated: 24 November 2026</p>
           </div>
         </div>
         <div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;gap:12px">
-          <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">Clear aligner treatment is quoted after a consultation and digital scan. Suitability is assessed by the dentist. Individual results vary.</p>
+          <p class="after-offer" style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">Clear aligner treatment is quoted after a consultation and digital scan. Suitability is assessed by the dentist. Individual results vary.</p>
+          <p class="offer-only" style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">Clear aligners from &pound;2,595 for straightforward cases, including a set of retainers and professional teeth whitening (whitening subject to clinical suitability). Clear aligners are not suitable for everyone. Suitability is assessed by the dentist and treatment is quoted after a consultation and digital scan. Individual results vary.</p>
           <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">If something isn&rsquo;t right, please speak to us first. You can also contact the <a href="https://dcs.gdc-uk.org" target="_blank" rel="noopener" style="color:#FFFFFF;text-decoration:underline">Dental Complaints Service</a> or the <a href="https://www.gdc-uk.org" target="_blank" rel="noopener" style="color:#FFFFFF;text-decoration:underline">General Dental Council</a>.</p>
           <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.62);margin:0">Read our <a href="https://www.suttonsmiles.com/privacy-policy" target="_blank" rel="noopener" style="color:#FFFFFF;text-decoration:underline">privacy policy</a>.</p>
           <p style="font:400 13px/1.6 Inter,sans-serif;color:rgba(255,255,255,.45);margin:6px 0 0">&copy; Sutton Dental &amp; Implant Clinic. All rights reserved.</p>
